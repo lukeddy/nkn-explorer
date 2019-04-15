@@ -81,7 +81,7 @@ export default {
           title: 'Transactions'
         },
         {
-          path: '/sigchain',
+          path: '/sigchains',
           icon: 'Sigchain',
           title: 'Sigchain'
         },
