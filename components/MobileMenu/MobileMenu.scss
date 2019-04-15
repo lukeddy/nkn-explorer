@@ -1,14 +1,20 @@
 .mobile-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
   background: $header-gradient;
   color: $header-color;
-  padding: $header-padding;
-  width: calc(100% - (#{$padding-default}* 2));
-  transform: translateY(-200%);
-  transition: $transition-2;
   z-index: 100;
+  overflow: hidden;
+  max-height: 0;
+  padding-top: 0;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1),
+    padding-top 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+  &_open {
+    padding-top: $padding-normal;
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, padding-top 0.2s ease-in-out;
+  }
 
   &__top {
     display: flex;
@@ -75,9 +81,5 @@
         margin-bottom: 8px;
       }
     }
-  }
-
-  &_open {
-    transform: translateY(0);
   }
 }

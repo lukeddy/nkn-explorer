@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <Burger class="menu__burger" @click="toggleMobileMenu()"/>
+    <Burger/>
     <Logo/>
     <LanguageSelect/>
     <MobileMenu/>
@@ -14,9 +14,9 @@
 <script>
 import MobileMenu from '~/components/MobileMenu/MobileMenu'
 import LanguageSelect from '~/components/LanguageSelect/LanguageSelect'
+import Burger from '~/components/Burger/Burger'
 
 import Logo from '~/assets/icons/logo.svg'
-import Burger from '~/assets/icons/Burger.svg'
 
 export default {
   components: {
@@ -29,10 +29,6 @@ export default {
     return {}
   },
   mounted: function() {},
-  methods: {
-    toggleMobileMenu() {
-      this.$store.dispatch('mobileMenu/toggleMobileMenu')
-    }
-  }
+  methods: {}
 }
 </script>

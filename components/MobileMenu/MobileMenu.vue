@@ -1,10 +1,5 @@
 <template>
   <div class="mobile-menu" :class="isMobileMenuOpen ? 'mobile-menu_open' : null">
-    <div class="mobile-menu__top">
-      <Close class="mobile-menu__close" @click="toggleMobileMenu"/>
-      <h2>{{$t('menu')}}</h2>
-      <LanguageSelect/>
-    </div>
     <Search :text="$t('search')"/>
     <div class="mobile-menu__nav">
       <nuxt-link
