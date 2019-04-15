@@ -1,0 +1,27 @@
+.search {
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  padding: $padding-small $padding-default;
+  border-radius: $app-br;
+
+  &__control {
+    flex: 1;
+    background-color: $white;
+    outline: none;
+    border: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    &::placeholder {
+      color: $grey-light;
+    }
+  }
+
+  &__icon {
+    color: $primary;
+    font-size: 22px;
+    margin-left: $padding-normal;
+    cursor: pointer;
+  }
+}

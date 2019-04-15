@@ -1,7 +1,9 @@
+/*========== Body ==========*/
 body {
   background-color: $body-bg;
   color: $body-color;
   * {
     line-height: normal;
+    font-family: $body-font;
   }
 }

@@ -20,6 +20,9 @@ $half-gutter-width: $flexboxgrid-gutter-width * 1;
 // App Global Font Size
 $html-font-size: 16px;
 
+// App Font Family
+$html-font-family: sans-serif, 'CerebriSans', Arial;
+
 //Default Colors
 $white: #fff;
 $black: #000;
@@ -29,14 +32,14 @@ $grey-light: #bdbdbd;
 
 //Theme colors
 $primary: #1791f2 !default;
-$dark-blue: #2d397c !default;
+$secondary: #2d397c !default;
 
 //App Theme Color
 $theme-colors: () !default;
 $theme-colors: map-merge(
   (
     'primary': $primary,
-    'dark-blue': $dark-blue,
+    'secondary': $secondary,
     'grey-dark': $grey-dark,
     'grey-light': $grey-light
   ),
@@ -74,16 +77,17 @@ $number-small: 1.125rem; // 18px
 $shadow-1: 0px 3px 24px rgba(12, 23, 61, 0.12);
 
 // Gradient Theme Color
-$header-gradient: linear-gradient(34.43deg, #0b163c 12.99%, #303159 76.52%);
+$gradient-1: linear-gradient(34.43deg, #0b163c 12.99%, #303159 76.52%);
 
 // Transitions
 $transition-1: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-$transition-2: 2s linear infinite;
+$transition-2: 0.3s ease-in-out all;
 $transition-3: 0.4s cubic-bezier(0.25, -0.25, 0.75, 1.25);
 
 // Settings for the `<body>` element.
 $body-bg: $base;
 $body-color: $text-default;
+$body-font: $html-font-family;
 
 // App Spacing
 $padding-micro: 12px;
@@ -93,3 +97,14 @@ $padding-normal: 24px;
 $padding-medium: 40px;
 $padding-big: 52px;
 $padding-max: 64px;
+
+// App Custom Settings
+$app-br: 5px;
+
+// Header
+$header-gradient: $gradient-1;
+$header-color: $white;
+$header-padding: $padding-normal $padding-default;
+
+// Menu
+$menu-button-size: 24px;

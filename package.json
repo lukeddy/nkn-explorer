@@ -16,9 +16,11 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-beta.14",
+    "@nuxtjs/style-resources": "^0.1.2",
     "cross-env": "^5.2.0",
     "nuxt": "^2.4.0",
-    "nuxt-i18n": "^5.8.5"
+    "nuxt-i18n": "^5.8.5",
+    "nuxt-svg-loader": "^1.0.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

@@ -1,0 +1,31 @@
+.button {
+  font-weight: bold;
+  padding: $padding-small;
+  border-radius: $app-br;
+  text-align: center;
+  transition: $transition-1;
+  cursor: pointer;
+  color: $white;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+
+  &_theme {
+    &_primary {
+      background-color: $primary;
+      &:hover {
+        background-color: lighten($primary, 10%);
+      }
+      &:focus {
+        background-color: lighten($primary, 20%);
+      }
+    }
+
+    &_secondary {
+      background-color: $secondary;
+    }
+  }
+}
