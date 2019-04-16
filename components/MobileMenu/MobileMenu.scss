@@ -56,6 +56,12 @@
       &.nuxt-link-exact-active {
         background-color: $primary;
         opacity: 1;
+
+        path,
+        g {
+          fill: $white;
+          opacity: 1;
+        }
       }
 
       &:hover {

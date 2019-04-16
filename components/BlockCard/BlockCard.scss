@@ -1,0 +1,36 @@
+.block-card {
+  &__header {
+    margin-bottom: $padding-default;
+    display: flex;
+    align-items: center;
+  }
+
+  &__height {
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__txs {
+    margin-bottom: 8px;
+  }
+
+  &__timestamp {
+    flex: 1;
+  }
+
+  &__miner {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__icon {
+    margin-right: 6px;
+
+    g {
+      fill: $primary;
+      opacity: 1;
+    }
+  }
+}

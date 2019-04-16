@@ -7,3 +7,43 @@ body {
     font-family: $body-font;
   }
 }
+
+/*========== Layout ==========*/
+.container {
+  padding: $padding-default;
+}
+
+/*========== Text ==========*/
+.text {
+  font-size: $font-size-sm;
+
+  &_weight {
+    &_bold {
+      font-weight: bold;
+    }
+  }
+
+  &_size {
+    &_default {
+      font-size: $font-size-base;
+    }
+
+    &_sm {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &_color {
+    &_primary {
+      color: $primary;
+    }
+
+    &_default {
+      color: $grey-dark;
+    }
+
+    &_grey-light {
+      color: $grey-light;
+    }
+  }
+}

@@ -1,11 +1,11 @@
 <template>
-  <div class="card">
+  <div class="card-container">
     <slot/>
   </div>
 </template>
 
 <style lang="scss">
-@import './Card.scss';
+@import './CardContainer.scss';
 </style>
 
 <script>

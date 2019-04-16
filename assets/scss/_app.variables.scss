@@ -26,7 +26,7 @@ $html-font-family: sans-serif, 'CerebriSans', Arial;
 //Default Colors
 $white: #fff;
 $black: #000;
-$base: #e5e5e5;
+$base: #f1f2f8;
 $grey-dark: #333333;
 $grey-light: #bdbdbd;
 $dark-blue: #2f3561;
@@ -124,3 +124,10 @@ $footer-color: $white;
 
 // Start Mining
 $start-mining-bg: rgba(#9c95dc, 0.9);
+
+// Card Container
+$card-container-gap: $padding-default;
+
+// Card
+$card-bg: $white;
+$card-padding: $padding-default;

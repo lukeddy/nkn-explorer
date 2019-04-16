@@ -50,6 +50,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
+    '@nuxtjs/moment',
     [
       'nuxt-i18n',
       {
