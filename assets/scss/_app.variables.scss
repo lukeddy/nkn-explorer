@@ -29,6 +29,7 @@ $black: #000;
 $base: #e5e5e5;
 $grey-dark: #333333;
 $grey-light: #bdbdbd;
+$dark-blue: #2f3561;
 
 //Theme colors
 $primary: #1791f2 !default;
@@ -57,7 +58,9 @@ $text-light: $grey-light;
 $text-primary: $primary;
 
 // Setting for the Typography elements.
+$font-size-xs: 0.75rem !default; // 12px
 $font-size-sm: 0.8125rem !default; // 13px
+$font-size-md: 0.875rem !default; // 14px
 $font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
 
 // Setting For Heading Element
@@ -78,6 +81,7 @@ $shadow-1: 0px 3px 24px rgba(12, 23, 61, 0.12);
 
 // Gradient Theme Color
 $gradient-1: linear-gradient(34.43deg, #0b163c 12.99%, #303159 76.52%);
+$gradient-2: linear-gradient(319.62deg, #0b163c 0.79%, #303159 96.67%);
 
 // Transitions
 $transition-1: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -98,13 +102,25 @@ $padding-medium: 40px;
 $padding-big: 52px;
 $padding-max: 64px;
 
+// Device Spacing
+$padding-mobile: $padding-normal $padding-default;
+
 // App Custom Settings
 $app-br: 5px;
+
+// Borders
+$border-1: 1px solid rgba(255, 255, 255, 0.25);
 
 // Header
 $header-gradient: $gradient-1;
 $header-color: $white;
-$header-padding: $padding-normal $padding-default;
 
 // Menu
 $menu-button-size: 24px;
+
+// Footer
+$footer-gradient: $gradient-2;
+$footer-color: $white;
+
+// Start Mining
+$start-mining-bg: rgba(#9c95dc, 0.9);

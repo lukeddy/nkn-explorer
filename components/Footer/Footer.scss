@@ -1,0 +1,52 @@
+.footer {
+  background: $footer-gradient;
+  padding: $padding-mobile;
+  color: $footer-color;
+
+  &__nav {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: $padding-medium;
+    &-item {
+    }
+
+    &-title {
+      font-size: $font-size-md;
+      font-weight: bold;
+      padding-bottom: $padding-micro;
+      border-bottom: $border-1;
+      margin-bottom: $padding-micro;
+    }
+
+    &-link {
+      display: block;
+      color: $footer-color;
+      text-decoration: none;
+      opacity: 0.75;
+      font-size: $font-size-xs;
+      transition: $transition-1;
+
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    padding-top: $padding-normal;
+    border-top: $border-1;
+    margin-top: $padding-medium;
+
+    &-item {
+      opacity: 0.75;
+      font-size: $font-size-xs;
+    }
+  }
+}

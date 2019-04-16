@@ -16,16 +16,26 @@
   &_theme {
     &_primary {
       background-color: $primary;
+
       &:hover {
         background-color: lighten($primary, 10%);
       }
+
       &:focus {
         background-color: lighten($primary, 20%);
       }
     }
 
-    &_secondary {
-      background-color: $secondary;
+    &_dark-blue {
+      background-color: $dark-blue;
+
+      &:hover {
+        background-color: lighten($dark-blue, 10%);
+      }
+
+      &:focus {
+        background-color: lighten($dark-blue, 20%);
+      }
     }
   }
 }
