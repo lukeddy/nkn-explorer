@@ -1,32 +1,30 @@
 @font-face {
-  font-family: 'CerebriSans';
-  src: url('../fonts/CerebriSans/CerebriSans-Regular.eot');
-  src: url('../fonts/CerebriSans/CerebriSans-Regular.eot?#iefix')
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Regular.otf');
+  src: url('../fonts/Inter/Inter-Regular.otf?#iefix')
       format('embedded-opentype'),
-    url('../fonts/CerebriSans/CerebriSans-Regular.woff') format('woff'),
-    url('../fonts/CerebriSans/CerebriSans-Regular.ttf') format('truetype');
+    url('../fonts/Inter/Inter-Regular.woff') format('woff'),
+    url('../fonts/Inter/Inter-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'CerebriSans';
-  src: url('../fonts/CerebriSans/CerebriSans-Medium.eot');
-  src: url('../fonts/CerebriSans/CerebriSans-Medium.eot?#iefix')
-      format('embedded-opentype'),
-    url('../fonts/CerebriSans/CerebriSans-Medium.woff') format('woff'),
-    url('../fonts/CerebriSans/CerebriSans-Medium.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Medium.otf');
+  src: url('../fonts/Inter/Inter-Medium.otf?#iefix') format('embedded-opentype'),
+    url('../fonts/Inter/Inter-Medium.woff') format('woff'),
+    url('../fonts/Inter/Inter-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'CerebriSans';
-  src: url('../fonts/CerebriSans/CerebriSans-Bold.eot');
-  src: url('../fonts/CerebriSans/CerebriSans-Bold.eot?#iefix')
-      format('embedded-opentype'),
-    url('../fonts/CerebriSans/CerebriSans-Bold.woff') format('woff'),
-    url('../fonts/CerebriSans/CerebriSans-Bold.ttf') format('truetype');
+  font-family: 'Inter';
+  src: url('../fonts/Inter/Inter-Bold.otf');
+  src: url('../fonts/Inter/Inter-Bold.otf?#iefix') format('embedded-opentype'),
+    url('../fonts/Inter/Inter-Bold.woff') format('woff'),
+    url('../fonts/Inter/Inter-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
