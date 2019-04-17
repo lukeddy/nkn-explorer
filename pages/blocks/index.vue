@@ -11,7 +11,9 @@
           <h6 class="page-header__stats-title text_color_white">{{$t('avgSize')}}</h6>
           <h4 class="page-header__stats-value text_color_white">
             2268.2
-            <span class="page-header__stats-index text_color_white text_size_sm">bytes</span>
+            <span
+              class="page-header__stats-index text_color_white text_size_sm"
+            >{{$t('bytes')}}</span>
           </h4>
         </div>
       </div>
