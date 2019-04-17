@@ -1,0 +1,19 @@
+.card-switch {
+  outline: none;
+  border: none;
+  transition: $transition-1;
+  padding: $padding-micro;
+  font-weight: bold;
+  color: $grey-light;
+  border-radius: $app-br;
+  background-color: $white;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary;
+  }
+  &_active {
+    background-color: $base;
+    color: $primary;
+  }
+}

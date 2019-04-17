@@ -5,7 +5,7 @@
 
   &__nav {
     display: grid;
-    grid-gap: 16px;
+    grid-gap: $card-container-gap;
     grid-template-columns: repeat(2, 1fr);
     margin-top: $padding-medium;
     &-item {

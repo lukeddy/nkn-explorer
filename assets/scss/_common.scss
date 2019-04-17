@@ -8,10 +8,15 @@ body {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 /*========== Layout ==========*/
 .container {
   margin-top: $header-size;
 }
+
 .page-header {
   padding: $page-header-spacing;
   padding-top: calc(#{$header-size} + #{$padding-default});
@@ -32,12 +37,31 @@ body {
     }
     &-title {
       margin-bottom: 8px;
-      opacity: 0.75;
     }
     &-index {
-      opacity: 0.75;
       font-weight: normal;
     }
+  }
+}
+
+.single-page-header {
+  background: $white;
+  padding: $padding-default;
+
+  &__info {
+    margin-top: $padding-normal;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 4px 0;
+  }
+
+  &__switches {
+    display: grid;
+    grid-gap: $card-container-gap;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -76,6 +100,44 @@ body {
 
     &_white {
       color: $white;
+    }
+  }
+
+  &_transform {
+    &_uppercase {
+      text-transform: uppercase;
+    }
+  }
+
+  &_opacity {
+    &_75 {
+      opacity: 0.75;
+    }
+  }
+}
+
+/*========== Card ==========*/
+.card {
+  &__title {
+    color: $grey-light;
+    margin-bottom: 8px;
+    font-size: $font-size-md;
+    font-weight: bold;
+    word-wrap: break-word;
+  }
+  &__text {
+    font-size: $font-size-md;
+    color: $grey-dark;
+    word-wrap: break-word;
+  }
+  &__link {
+    color: $primary;
+    transition: $transition-1;
+    cursor: pointer;
+    word-wrap: break-word;
+
+    &:hover {
+      color: darken($primary, 20%);
     }
   }
 }

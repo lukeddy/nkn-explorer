@@ -1,0 +1,27 @@
+.get-back {
+  display: inline-flex;
+  align-items: center;
+  font-weight: bold;
+  color: $grey-light;
+  transition: $transition-1;
+
+  &__icon {
+    margin-right: $padding-micro;
+    transition: $transition-1;
+
+    path {
+      transition: $transition-1;
+    }
+  }
+
+  &:hover {
+    .get-back__icon {
+      transform: translateX(-5px);
+
+      path {
+        fill: $primary;
+      }
+    }
+    color: $primary;
+  }
+}

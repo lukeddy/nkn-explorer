@@ -3,4 +3,14 @@
   background: $card-bg;
   border-radius: $app-br;
   overflow: hidden;
+
+  &_width {
+    &_full {
+      grid-column: span 2;
+    }
+
+    &_half {
+      grid-column: span 1;
+    }
+  }
 }

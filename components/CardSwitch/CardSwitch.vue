@@ -1,20 +1,20 @@
 <template>
-  <div class="card" :class="width ? `card_width_${width}` : null">
+  <button class="card-switch" :class="active ? 'card-switch_active' : null">
     <slot/>
-  </div>
+  </button>
 </template>
 
 <style lang="scss">
-@import './Card.scss';
+@import './CardSwitch';
 </style>
 
 <script>
 export default {
   components: {},
   props: {
-    width: {
-      type: String,
-      default: 'full'
+    active: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => {

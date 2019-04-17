@@ -9,6 +9,16 @@
     margin-right: 8px;
     display: flex;
     align-items: center;
+    transition: $transition-1;
+
+    &:hover {
+      .block-card__icon {
+        g {
+          fill: darken($primary, 20%);
+        }
+      }
+      color: darken($primary, 20%);
+    }
   }
 
   &__txs {
@@ -29,6 +39,7 @@
     margin-right: 6px;
 
     g {
+      transition: $transition-1;
       fill: $primary;
       opacity: 1;
     }

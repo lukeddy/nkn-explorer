@@ -4,15 +4,19 @@
       <h1 class="page-header__title text_color_white">{{$t('blocks')}}</h1>
       <div class="page-header__stats">
         <div class="page-header__stats-item">
-          <h6 class="page-header__stats-title text_color_white">{{$t('total')}}</h6>
+          <h6
+            class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
+          >{{$t('total')}}</h6>
           <h4 class="page-header__stats-value text_color_white">{{totalBlocks | commaNumber}}</h4>
         </div>
         <div class="page-header__stats-item">
-          <h6 class="page-header__stats-title text_color_white">{{$t('avgSize')}}</h6>
+          <h6
+            class="page-header__stats-title text_color_white text_transform_uppercase"
+          >{{$t('avgSize')}}</h6>
           <h4 class="page-header__stats-value text_color_white">
             {{avgSize}}
             <span
-              class="page-header__stats-index text_color_white text_size_sm"
+              class="page-header__stats-index text_color_white text_size_sm text_opacity_75"
             >{{$t('bytes')}}</span>
           </h4>
         </div>
@@ -46,7 +50,7 @@ export default {
           size: 2266,
           hash:
             '3b1d2d82c6af6a583ca9159814826f400eb50607710778819094a3f90b51573e',
-          transactionsRoot:
+          transactionRoot:
             'd7b6e739917892e64162e8cc639ce2764604f06d7622cedb5a3409adfb8d4523',
           transactionCount: 2
         },
@@ -57,7 +61,7 @@ export default {
           size: 2266,
           hash:
             '3b1d2d82c6af6a583ca9159814826f400eb50607710778819094a3f90b51573e',
-          transactionsRoot:
+          transactionRoot:
             'd7b6e739917892e64162e8cc639ce2764604f06d7622cedb5a3409adfb8d4523',
           transactionCount: 2
         }
