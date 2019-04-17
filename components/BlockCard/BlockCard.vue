@@ -4,7 +4,7 @@
       <div class="block-card__header">
         <div class="block-card__height text_color_primary text_weight_bold">
           <Block class="block-card__icon"/>
-          {{numberWithCommas(block.height)}}
+          {{block.height | commaNumber}}
         </div>
         <div
           class="block-card__timestamp text_size_sm text_color_grey-light"
@@ -45,10 +45,6 @@ export default {
     return {}
   },
   mounted: function() {},
-  methods: {
-    numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
-    }
-  }
+  methods: {}
 }
 </script>

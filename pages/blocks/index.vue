@@ -5,12 +5,12 @@
       <div class="page-header__stats">
         <div class="page-header__stats-item">
           <h6 class="page-header__stats-title text_color_white">{{$t('total')}}</h6>
-          <h4 class="page-header__stats-value text_color_white">777,693</h4>
+          <h4 class="page-header__stats-value text_color_white">{{totalBlocks | commaNumber}}</h4>
         </div>
         <div class="page-header__stats-item">
           <h6 class="page-header__stats-title text_color_white">{{$t('avgSize')}}</h6>
           <h4 class="page-header__stats-value text_color_white">
-            2268.2
+            {{avgSize}}
             <span
               class="page-header__stats-index text_color_white text_size_sm"
             >{{$t('bytes')}}</span>
@@ -36,6 +36,8 @@ export default {
       prev_page: null,
       current_page: 1,
       latestBlocks: [],
+      totalBlocks: 777693,
+      avgSize: 2268.2,
       blocksSample: [
         {
           height: 777694,

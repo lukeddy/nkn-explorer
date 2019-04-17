@@ -10,10 +10,13 @@ body {
 
 /*========== Layout ==========*/
 .container {
-  margin-top: 74px;
+  margin-top: $header-size;
 }
 .page-header {
   padding: $page-header-spacing;
+  padding-top: calc(#{$header-size} + #{$padding-default});
+  margin-top: -$header-size;
+  background: $header-gradient;
 
   &__title {
     text-align: center;

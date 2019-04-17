@@ -80,7 +80,7 @@ $number-small: 1.125rem; // 18px
 $shadow-1: 0px 3px 24px rgba(12, 23, 61, 0.12);
 
 // Gradient Theme Color
-$gradient-1: linear-gradient(34.43deg, #0b163c 12.99%, #303159 76.52%);
+$gradient-1: linear-gradient(79.78deg, #0b163c 17.75%, #303159 84.46%);
 $gradient-2: linear-gradient(319.62deg, #0b163c 0.79%, #303159 96.67%);
 
 // Transitions
@@ -114,6 +114,7 @@ $border-1: 1px solid rgba(255, 255, 255, 0.25);
 // Header
 $header-gradient: $gradient-1;
 $header-color: $white;
+$header-size: 74px;
 
 // Menu
 $menu-button-size: 24px;
