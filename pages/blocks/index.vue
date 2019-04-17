@@ -1,10 +1,24 @@
 <template>
   <section class="container">
-    <div>
-      <CardContainer>
-        <BlockCard v-for="block in blocksSample" :key="block.height" :block="block"/>
-      </CardContainer>
+    <div class="page-header">
+      <h1 class="page-header__title text_color_white">{{$t('blocks')}}</h1>
+      <div class="page-header__stats">
+        <div class="page-header__stats-item">
+          <h6 class="page-header__stats-title text_color_white">{{$t('total')}}</h6>
+          <h4 class="page-header__stats-value text_color_white">777,693</h4>
+        </div>
+        <div class="page-header__stats-item">
+          <h6 class="page-header__stats-title text_color_white">{{$t('avgSize')}}</h6>
+          <h4 class="page-header__stats-value text_color_white">
+            2268.2
+            <span class="page-header__stats-index text_color_white text_size_sm">bytes</span>
+          </h4>
+        </div>
+      </div>
     </div>
+    <CardContainer>
+      <BlockCard v-for="block in blocksSample" :key="block.height" :block="block"/>
+    </CardContainer>
   </section>
 </template>
 

@@ -10,8 +10,32 @@ body {
 
 /*========== Layout ==========*/
 .container {
-  padding: $padding-default;
   margin-top: 74px;
+}
+.page-header {
+  padding: $page-header-spacing;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__stats {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-item {
+      text-align: center;
+    }
+    &-title {
+      margin-bottom: 8px;
+      opacity: 0.75;
+    }
+    &-index {
+      opacity: 0.75;
+      font-weight: normal;
+    }
+  }
 }
 
 /*========== Text ==========*/
@@ -45,6 +69,10 @@ body {
 
     &_grey-light {
       color: $grey-light;
+    }
+
+    &_white {
+      color: $white;
     }
   }
 }
