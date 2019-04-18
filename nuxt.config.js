@@ -51,6 +51,7 @@ export default {
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
     '@nuxtjs/moment',
+    'nuxt-clipboard2',
     [
       'nuxt-i18n',
       {

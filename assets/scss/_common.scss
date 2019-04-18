@@ -1,4 +1,8 @@
 /*========== Body ==========*/
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: $body-bg;
   color: $body-color;
@@ -32,12 +36,21 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    &_justify {
+      &_center {
+        justify-content: center;
+      }
+    }
+
     &-item {
       text-align: center;
     }
+
     &-title {
       margin-bottom: 8px;
     }
+
     &-index {
       font-weight: normal;
     }
@@ -62,6 +75,29 @@ a {
     display: grid;
     grid-gap: $card-container-gap;
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__address {
+    margin-top: $padding-micro;
+    font-size: $font-size-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      path {
+        fill: $primary;
+      }
+    }
+
+    &-copy {
+      position: relative;
+      path {
+        transition: $transition-1;
+      }
+      margin-left: 8px;
+    }
   }
 }
 
@@ -107,6 +143,15 @@ a {
 
     &:hover {
       color: darken($primary, 20%);
+      path,
+      g {
+        fill: darken($primary, 20%);
+      }
+    }
+
+    path,
+    g {
+      transition: $transition-1;
     }
   }
 
@@ -208,4 +253,16 @@ a {
       text-overflow: ellipsis;
     }
   }
+}
+
+/*========== Page Animation ==========*/
+.page-enter-active,
+.page-leave-active {
+  transition: 0.1s ease-in-out all;
+}
+.page-enter {
+  transform: translate(100%, 0);
+}
+.page-leave-active {
+  transform: translate(-100%, 0);
 }

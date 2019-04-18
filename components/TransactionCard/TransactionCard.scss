@@ -1,0 +1,20 @@
+.transaction-card {
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $padding-default;
+  }
+
+  &__timestamp {
+    margin-left: 8px;
+  }
+
+  &__item {
+    display: flex;
+    font-size: $font-size-xs;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}

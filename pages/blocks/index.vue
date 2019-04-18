@@ -79,7 +79,6 @@ export default {
         self.prev_page = response.prev_page_url
         self.current_page = response.current_page
         self.latestBlocks = response.data
-        console.log(response)
       })
     },
     getNextBlockPage() {
