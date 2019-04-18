@@ -17,6 +17,12 @@
         "ignores": ["nuxt", "nuxt-link"]
       }
     ],
+    "vue/attribute-hyphenation": [
+      "never",
+      {
+        "ignore": ["custom-prop"]
+      }
+    ],
     "no-console": [
       "error",
       {

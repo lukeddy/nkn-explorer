@@ -1,0 +1,37 @@
+.single-block-tx-card {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $padding-micro;
+    cursor: pointer;
+    transition: $transition-1;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__toggle {
+    transition: $transition-1;
+
+    &_active {
+      transform: scaleY(-1);
+    }
+  }
+
+  &__body {
+    max-height: 0px;
+    transition: $transition-1, margin 0s;
+    transform: translateY(-200px);
+    overflow: hidden;
+    opacity: 0;
+
+    &_open {
+      margin-top: $padding-normal;
+      max-height: 1000px;
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+}

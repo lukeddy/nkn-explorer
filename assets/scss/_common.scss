@@ -65,6 +65,84 @@ a {
   }
 }
 
+/*========== Card ==========*/
+.card {
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: $padding-default;
+    }
+  }
+
+  &__subitem {
+    margin-top: 4px;
+  }
+
+  &__divider {
+    width: 100%;
+    height: 1px;
+    background-color: $base;
+    margin-bottom: $padding-default;
+  }
+
+  &__title {
+    color: $grey-light;
+    margin-bottom: 8px;
+    font-size: $font-size-md;
+    font-weight: bold;
+    word-wrap: break-word;
+  }
+
+  &__text {
+    font-size: $font-size-md;
+    color: $grey-dark;
+    word-wrap: break-word;
+  }
+
+  &__link {
+    display: block;
+    color: $primary;
+    transition: $transition-1;
+    cursor: pointer;
+    word-wrap: break-word;
+
+    &:hover {
+      color: darken($primary, 20%);
+    }
+  }
+
+  &__tx {
+    &:before {
+      content: '';
+      display: inline-block;
+      margin-right: 10px;
+      transform: $tx-transform;
+      border-radius: $tx-br;
+      height: $tx-size;
+      width: $tx-size;
+    }
+
+    &_type {
+      &_reward {
+        &:before {
+          background-color: $tx-reward-color;
+        }
+      }
+
+      &_transfer {
+        &:before {
+          background-color: $tx-transfer-color;
+        }
+      }
+
+      &_sigchain {
+        &:before {
+          background-color: $tx-sigchain-color;
+        }
+      }
+    }
+  }
+}
+
 /*========== Text ==========*/
 .text {
   font-size: $font-size-sm;
@@ -80,8 +158,16 @@ a {
       font-size: $font-size-base;
     }
 
+    &_md {
+      font-size: $font-size-md;
+    }
+
     &_sm {
       font-size: $font-size-sm;
+    }
+
+    &_xs {
+      font-size: $font-size-xs;
     }
   }
 
@@ -114,30 +200,12 @@ a {
       opacity: 0.75;
     }
   }
-}
 
-/*========== Card ==========*/
-.card {
-  &__title {
-    color: $grey-light;
-    margin-bottom: 8px;
-    font-size: $font-size-md;
-    font-weight: bold;
-    word-wrap: break-word;
-  }
-  &__text {
-    font-size: $font-size-md;
-    color: $grey-dark;
-    word-wrap: break-word;
-  }
-  &__link {
-    color: $primary;
-    transition: $transition-1;
-    cursor: pointer;
-    word-wrap: break-word;
-
-    &:hover {
-      color: darken($primary, 20%);
+  &_wrap {
+    &_none {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }

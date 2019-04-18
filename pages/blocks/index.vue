@@ -74,11 +74,12 @@ export default {
   methods: {
     getLatestBlocks() {
       const self = this
-      this.$axios.$get('https://api.nknx.org/blocks').then(function(response) {
+      this.$axios.$get('blocks').then(function(response) {
         self.next_page = response.next_page_url
         self.prev_page = response.prev_page_url
         self.current_page = response.current_page
         self.latestBlocks = response.data
+        console.log(response)
       })
     },
     getNextBlockPage() {

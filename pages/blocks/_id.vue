@@ -22,16 +22,18 @@
       </div>
     </div>
     <SingleBlockInfo v-if="activeGeneral" :block="block"/>
+    <SingleBlockTransactions v-if="activeTx" :transactions="block.transactions"/>
   </section>
 </template>
 
 <script>
 import GetBack from '~/components/GetBack/GetBack'
 import SingleBlockInfo from '~/components/SingleBlockInfo/SingleBlockInfo'
+import SingleBlockTransactions from '~/components/SingleBlockTransactions/SingleBlockTransactions'
 import CardSwitch from '~/components/CardSwitch/CardSwitch'
 
 export default {
-  components: { GetBack, SingleBlockInfo, CardSwitch },
+  components: { GetBack, SingleBlockInfo, CardSwitch, SingleBlockTransactions },
   data: () => {
     return {
       block: {
@@ -49,7 +51,9 @@ export default {
       activeTx: false
     }
   },
-  mounted: function() {},
+  mounted: function() {
+    this.getPrice()
+  },
   methods: {
     toggleSwitch(name) {
       switch (name) {
@@ -63,6 +67,9 @@ export default {
           break
         default:
       }
+    },
+    getPrice: function() {
+      this.$store.dispatch('price/getCurrentPrice')
     }
   }
 }
