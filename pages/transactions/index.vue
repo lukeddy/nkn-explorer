@@ -13,12 +13,7 @@
           <h6
             class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
           >{{$t('avgTxBlock')}}</h6>
-          <h4 class="page-header__stats-value text_color_white">
-            {{avgSize}}
-            <span
-              class="page-header__stats-index text_color_white text_size_sm text_opacity_75"
-            >{{$t('bytes')}}</span>
-          </h4>
+          <h4 class="page-header__stats-value text_color_white">{{avgSize}}</h4>
         </div>
       </div>
     </div>
