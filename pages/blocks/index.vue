@@ -87,7 +87,7 @@ export default {
         } = blocks
 
         self.avgSize = avgSize
-        self.sumBlocks = sumBlocks - 1
+        self.sumBlocks = sumBlocks
         self.blocks = data
 
         self.from = from
