@@ -184,6 +184,30 @@ a {
           background-color: $tx-sigchain-color;
         }
       }
+
+      &_subscription {
+        &:before {
+          background-color: $tx-subscription-color;
+        }
+      }
+
+      &_wallet-name-registration {
+        &:before {
+          background-color: $tx-wallet-name-registration-color;
+        }
+      }
+
+      &_wallet-name-transfer {
+        &:before {
+          background-color: $tx-wallet-name-transfer-color;
+        }
+      }
+
+      &_wallet-name-deletion {
+        &:before {
+          background-color: $tx-wallet-name-deletion-color;
+        }
+      }
     }
   }
 }

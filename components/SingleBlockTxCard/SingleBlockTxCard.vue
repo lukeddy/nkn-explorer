@@ -1,15 +1,47 @@
 <template>
   <Card>
     <div class="single-block-tx-card__header" @click="toggle()">
+      <!-- Mining Reward -->
       <div
         v-if="tx.txType ==='CoinbaseType'"
         class="card__tx card__tx_type_reward"
       >{{$t('miningReward')}}</div>
-      <div v-if="tx.txType ==='transfer'" class="card__tx card__tx_type_transfer">{{$t('transfer')}}</div>
+
+      <!-- Transfer -->
+      <div
+        v-if="tx.txType ==='TransferAssetType'"
+        class="card__tx card__tx_type_transfer"
+      >{{$t('transfer')}}</div>
+
+      <!-- Sigchain -->
       <div
         v-if="tx.txType ==='CommitType'"
         class="card__tx card__tx_type_sigchain"
       >{{$t('signatureChain')}}</div>
+
+      <!-- Subscription -->
+      <div
+        v-if="tx.txType ==='SubscribeType'"
+        class="card__tx card__tx_type_subscription"
+      >{{$t('subscription')}}</div>
+
+      <!-- Wallet Name Registration -->
+      <div
+        v-if="tx.txType ==='RegisterNameType'"
+        class="card__tx card__tx_type_wallet-name-registration"
+      >{{$t('walletNameRegistration')}}</div>
+
+      <!-- Wallet Name Transfer -->
+      <div
+        v-if="tx.txType ==='TransferNameType'"
+        class="card__tx card__tx_type_wallet-name-transfer"
+      >{{$t('walletNameTransfer')}}</div>
+
+      <!-- Wallet Name Deletion -->
+      <div
+        v-if="tx.txType ==='DeleteNameType'"
+        class="card__tx card__tx_type_wallet-name-deletion"
+      >{{$t('walletNameDeletion')}}</div>
       <span
         class="single-block-tx-card__toggle fe fe-chevron-down"
         :class="isOpen ? 'single-block-tx-card__toggle_active' : null"
@@ -28,7 +60,7 @@
       :class="isOpen ? 'single-block-tx-card__body_open' : null"
     >
       <!-- Mining Reward -->
-      <template v-if="tx.txType ==='CoinbaseType'">
+      <template v-if="tx.txType ==='CoinbaseType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
@@ -38,36 +70,22 @@
           <div class="card__title">{{$t('miner')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${tx.outputs[0].address}`"
-          >{{tx.outputs[0].address}}</nuxt-link>
-          <div class="card__text card__subitem">+ {{tx.outputs[0].value | commaNumber}} NKN</div>
+            :to="`/addresses/${txPayload.recipient}`"
+          >{{txPayload.recipient}}</nuxt-link>
+          <div class="card__text card__subitem">+ {{txPayload.amount | nknValue | commaNumber}} NKN</div>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('timestamp')}}</div>
-          <div class="card__text text_size_md">{{tx.created_at}}</div>
+          <div class="card__text text_size_md">{{txPayload.created_at}}</div>
         </div>
         <div class="card__item">
-          <div class="card__title">{{$t('block')}}</div>
-          <nuxt-link
-            class="card__link text_size_md"
-            :to="`/blocks/${tx.block_id}`"
-          >{{tx.block_id | commaNumber}}</nuxt-link>
-        </div>
-      </template>
-
-      <!-- Sigchain -->
-      <template v-if="tx.txType ==='CommitType'">
-        <div class="card__item">
-          <div class="card__title">{{$t('hash')}}</div>
-          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
-        </div>
-        <div class="card__item">
-          <NodeTracing :nodeTracing="tx.node_tracing"/>
+          <div class="card__title">{{$t('blockId')}}</div>
+          <div class="card__text text_size_md">{{tx.block_id | commaNumber}}</div>
         </div>
       </template>
 
       <!-- Transfer -->
-      <template v-if="tx.txType ==='transfer'">
+      <template v-if="tx.txType ==='TransferAssetType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
@@ -75,23 +93,37 @@
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('from')}}</div>
-          <nuxt-link class="card__link text_size_md" :to="`/addresses/${tx.sender}`">{{tx.sender}}</nuxt-link>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="`/addresses/${txPayload.sender}`"
+          >{{txPayload.sender}}</nuxt-link>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('amount')}}</div>
-          <div class="card__text text_size_md">{{tx.outputs[0].value | commaNumber}} NKN</div>
+          <div class="card__text text_size_md">{{txPayload.amount | nknValue | commaNumber}} NKN</div>
           <div
             class="card__text card__subitem text_size_xs text_color_grey-light"
-          >${{(tx.outputs[0].value * price).toFixed(2)}}</div>
+          >${{(this.$options.filters.nknValue(txPayload.amount) * price).toFixed(2) | commaNumber}}</div>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('to')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${tx.outputs[0].address}`"
-          >{{tx.outputs[0].address}}</nuxt-link>
+            :to="`/addresses/${txPayload.recipient}`"
+          >{{txPayload.recipient}}</nuxt-link>
         </div>
       </template>
+
+      <!-- Sigchain -->
+      <!-- <template v-if="tx.txType ==='CommitType'">
+        <div class="card__item">
+          <div class="card__title">{{$t('hash')}}</div>
+          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+        </div>
+        <div class="card__item">
+          <NodeTracing :nodeTracing="tx.node_tracing"/>
+        </div>
+      </template>-->
     </div>
   </Card>
 </template>
@@ -102,12 +134,12 @@
 
 <script>
 import Card from '~/components/Card/Card'
-import NodeTracing from '~/components/NodeTracing/NodeTracing'
+// import NodeTracing from '~/components/NodeTracing/NodeTracing'
 
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { Card, NodeTracing },
+  components: { Card },
   props: {
     tx: {
       type: Object,
@@ -119,7 +151,8 @@ export default {
   data: () => {
     return {
       isOpen: false,
-      price: 0
+      price: 0,
+      txPayload: null
     }
   },
   computed: mapGetters({
@@ -130,7 +163,19 @@ export default {
   },
   methods: {
     toggle: function() {
+      if (this.txPayload === null) {
+        this.getTxPayload()
+      }
       this.isOpen = !this.isOpen
+    },
+    getTxPayload: function() {
+      const self = this
+
+      this.$axios
+        .$get(`transactions/${this.tx.id}/payload`)
+        .then(function(response) {
+          self.txPayload = response
+        })
     }
   }
 }
