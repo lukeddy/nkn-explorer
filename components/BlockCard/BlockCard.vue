@@ -19,6 +19,7 @@
       <div class="block-card__txs text_size_sm">{{$t('transactions')}}: {{block.transactionCount}}</div>
       <div class="block-card__miner text_size_sm">
         {{$t('miner')}}:
+        &nbsp;
         <nuxt-link
           class="block-card__address card__link"
           :to="`/addresses/${block.miner}`"

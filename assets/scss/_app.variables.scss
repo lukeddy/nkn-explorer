@@ -118,6 +118,7 @@ $header-size: 74px;
 
 // Menu
 $menu-button-size: 24px;
+$menu-grid-gap: 16px;
 
 // Footer
 $footer-gradient: $gradient-2;
@@ -127,7 +128,7 @@ $footer-color: $white;
 $start-mining-bg: rgba(#9c95dc, 0.9);
 
 // Card Container
-$card-container-gap: $padding-default;
+$card-container-gap: 8px;
 
 // Card
 $card-bg: $white;

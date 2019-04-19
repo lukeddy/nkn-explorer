@@ -19,7 +19,10 @@
       v-if="!isOpen"
       class="card__link text_size_xs text_wrap_none"
       :to="`/transactions/${tx.hash}`"
-    >{{tx.hash}}</nuxt-link>
+    >
+      <span class="text_color_default">{{$t('hash')}}:</span>
+      {{tx.hash}}
+    </nuxt-link>
     <div
       class="single-block-tx-card__body"
       :class="isOpen ? 'single-block-tx-card__body_open' : null"

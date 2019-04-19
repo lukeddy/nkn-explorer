@@ -37,7 +37,7 @@
 
   &__nav {
     display: grid;
-    grid-gap: $card-container-gap;
+    grid-gap: $menu-grid-gap;
     grid-template-columns: repeat(2, 1fr);
     margin-top: $padding-normal;
     margin-bottom: $padding-medium;

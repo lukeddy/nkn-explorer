@@ -256,13 +256,15 @@ a {
 }
 
 /*========== Page Animation ==========*/
-.page-enter-active,
-.page-leave-active {
-  transition: 0.1s ease-in-out all;
-}
-.page-enter {
-  transform: translate(100%, 0);
-}
-.page-leave-active {
-  transform: translate(-100%, 0);
-}
+// .page-enter-active,
+// .page-leave-active {
+//   transition: 0.1s ease-in-out all;
+// }
+// .page-enter {
+//   position: relative;
+//   transform: translate(100%, 0);
+// }
+// .page-leave-active {
+//   position: relative;
+//   transform: translate(-100%, 0);
+// }
