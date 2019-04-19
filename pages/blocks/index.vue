@@ -7,11 +7,11 @@
           <h6
             class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
           >{{$t('total')}}</h6>
-          <h4 class="page-header__stats-value text_color_white">{{totalBlocks | commaNumber}}</h4>
+          <h4 class="page-header__stats-value text_color_white">{{sumBlocks | commaNumber}}</h4>
         </div>
         <div class="page-header__stats-item">
           <h6
-            class="page-header__stats-title text_color_white text_transform_uppercase"
+            class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
           >{{$t('avgSize')}}</h6>
           <h4 class="page-header__stats-value text_color_white">
             {{avgSize}}
@@ -22,81 +22,80 @@
         </div>
       </div>
     </div>
-    <CardContainer>
-      <BlockCard v-for="block in blocksSample" :key="block.height" :block="block"/>
+    <CardLoader v-if="!blocks.length" :count="10"/>
+    <CardContainer v-else>
+      <BlockCard v-for="block in blocks" :key="block.height" :block="block"/>
     </CardContainer>
+    <div class="page-navigation">
+      <div
+        class="page-navigation__info"
+      >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{sumBlocks}}</div>
+      <div class="page-navigation__pagination">
+        <Pagination :page="prevPage" type="prev" @click.native="getBlocks(prevPage)"/>
+        <Pagination :page="nextPage" type="next" @click.native="getBlocks(nextPage)"/>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
 import BlockCard from '~/components/BlockCard/BlockCard'
 import CardContainer from '~/components/CardContainer/CardContainer'
+import CardLoader from '~/components/Loaders/CardLoader'
+import Pagination from '~/components/Pagination/Pagination'
 
 export default {
-  components: { BlockCard, CardContainer },
+  components: { BlockCard, CardContainer, Pagination, CardLoader },
   data: () => {
     return {
-      next_page: null,
-      prev_page: null,
+      nextPage: null,
+      prevPage: null,
       current_page: 1,
-      latestBlocks: [],
-      totalBlocks: 777693,
-      avgSize: 2268.2,
-      blocksSample: [
-        {
-          height: 777694,
-          timestamp: '2019-04-16 12:30:04',
-          miner: 'NL7QxfhKbahCCDyRZbPyYzEUtSmwAXPkkF',
-          size: 2266,
-          hash:
-            '3b1d2d82c6af6a583ca9159814826f400eb50607710778819094a3f90b51573e',
-          transactionRoot:
-            'd7b6e739917892e64162e8cc639ce2764604f06d7622cedb5a3409adfb8d4523',
-          transactionCount: 2
-        },
-        {
-          height: 777693,
-          timestamp: '2019-04-16 12:30:04',
-          miner: 'NL7QxfhKbahCCDyRZbPyYzEUtSmwAXPkkF',
-          size: 2266,
-          hash:
-            '3b1d2d82c6af6a583ca9159814826f400eb50607710778819094a3f90b51573e',
-          transactionRoot:
-            'd7b6e739917892e64162e8cc639ce2764604f06d7622cedb5a3409adfb8d4523',
-          transactionCount: 2
-        }
-      ]
+      from: 0,
+      to: 0,
+      sumBlocks: 0,
+      avgSize: 0,
+      blocks: []
     }
   },
   mounted() {
-    this.getLatestBlocks()
+    this.getBlocks(this.current_page)
   },
   methods: {
-    getLatestBlocks() {
+    getBlocks(page) {
       const self = this
-      this.$axios.$get('blocks').then(function(response) {
-        self.next_page = response.next_page_url
-        self.prev_page = response.prev_page_url
-        self.current_page = response.current_page
-        self.latestBlocks = response.data
-      })
-    },
-    getNextBlockPage() {
-      const self = this
-      this.$axios.$get(this.next_page).then(function(response) {
-        self.next_page = response.next_page_url
-        self.prev_page = response.prev_page_url
-        self.current_page = response.current_page
-        self.latestBlocks = response.data
-      })
-    },
-    getPrevBlockPage() {
-      const self = this
-      this.$axios.$get(this.prev_page).then(function(response) {
-        self.next_page = response.next_page_url
-        self.prev_page = response.prev_page_url
-        self.current_page = response.current_page
-        self.latestBlocks = response.data
+
+      // Checking if page exists
+      if (page === null) {
+        return false
+      }
+
+      // Disabling pagination untill data fetched
+      self.nextPage = null
+      self.prevPage = null
+
+      // Fetcing data
+      this.$axios.$get(`blocks?page=${page}`).then(function(response) {
+        const { avgSize, sumBlocks, blocks } = response
+        const {
+          data,
+          current_page,
+          prev_page_url,
+          next_page_url,
+          from,
+          to
+        } = blocks
+
+        self.avgSize = avgSize
+        self.sumBlocks = sumBlocks - 1
+        self.blocks = data
+
+        self.from = from
+        self.to = to
+        self.currentPage = current_page
+
+        self.prevPage = prev_page_url != null ? self.currentPage - 1 : null
+        self.nextPage = next_page_url != null ? self.currentPage + 1 : null
       })
     }
   }

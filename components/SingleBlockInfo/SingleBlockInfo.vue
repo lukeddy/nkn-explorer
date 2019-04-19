@@ -2,11 +2,11 @@
   <CardContainer>
     <Card width="half">
       <div class="card__title">{{$t('height')}}</div>
-      <div class="card__text">{{block.height | commaNumber}}</div>
+      <div class="card__text">{{block.header.height | commaNumber}}</div>
     </Card>
     <Card width="half">
       <div class="card__title">{{$t('transactions')}}</div>
-      <div class="card__text">{{block.transactionCount}}</div>
+      <div class="card__text">{{block.transactions_count}}</div>
     </Card>
     <Card>
       <div class="card__title">{{$t('size')}}</div>
@@ -14,19 +14,19 @@
     </Card>
     <Card>
       <div class="card__title">{{$t('timestamp')}}</div>
-      <div class="card__text">{{block.timestamp}}</div>
+      <div class="card__text">{{block.header.timestamp}}</div>
     </Card>
-    <Card>
+    <!-- <Card>
       <div class="card__title">{{$t('rewardedMinerAddress')}}</div>
       <nuxt-link class="card__link" :to="`/addresses/${block.miner}`">{{block.miner}}</nuxt-link>
-    </Card>
+    </Card>-->
     <Card>
       <div class="card__title">{{$t('hash')}}</div>
       <div class="card__text">{{block.hash}}</div>
     </Card>
     <Card>
       <div class="card__title">{{$t('transactionRoot')}}</div>
-      <div class="card__text">{{block.transactionRoot}}</div>
+      <div class="card__text">{{block.header.transactionsRoot}}</div>
     </Card>
   </CardContainer>
 </template>

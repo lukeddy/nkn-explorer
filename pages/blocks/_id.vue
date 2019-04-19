@@ -1,13 +1,13 @@
 <template>
-  <section class="container">
+  <section v-if="block.header" class="container">
     <div class="single-page-header">
       <GetBack :text="$t('allBlocks')" route="/blocks"/>
       <div class="single-page-header__info">
         <h6 class="text_color_grey-light text_transform_uppercase">{{$t('block')}}</h6>
-        <h1 class="single-page-header__title">{{$route.params.id | commaNumber}}</h1>
+        <h1 class="single-page-header__title">{{block.header.height | commaNumber}}</h1>
         <div class="text_opacity_75">
           {{$t('created')}}
-          {{ $moment(block.timestamp).fromNow() }}
+          {{ $moment(block.header.timestamp).fromNow() }}
         </div>
       </div>
       <div class="single-page-header__switches">
@@ -36,23 +36,14 @@ export default {
   components: { GetBack, SingleBlockInfo, CardSwitch, SingleBlockTransactions },
   data: () => {
     return {
-      block: {
-        height: 777694,
-        timestamp: '2019-04-16 12:30:04',
-        miner: 'NL7QxfhKbahCCDyRZbPyYzEUtSmwAXPkkF',
-        size: 2266,
-        hash:
-          '3b1d2d82c6af6a583ca9159814826f400eb50607710778819094a3f90b51573e',
-        transactionRoot:
-          'd7b6e739917892e64162e8cc639ce2764604f06d7622cedb5a3409adfb8d4523',
-        transactionCount: 2
-      },
+      block: {},
       activeGeneral: true,
       activeTx: false
     }
   },
   mounted: function() {
     this.getPrice()
+    this.getBlock()
   },
   methods: {
     toggleSwitch(name) {
@@ -67,6 +58,14 @@ export default {
           break
         default:
       }
+    },
+    getBlock: function() {
+      const self = this
+      const blockHash = this.$route.params.id
+
+      this.$axios.$get(`blocks/${blockHash}`).then(function(response) {
+        self.block = response
+      })
     },
     getPrice: function() {
       this.$store.dispatch('price/getCurrentPrice')

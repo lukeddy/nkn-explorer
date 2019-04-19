@@ -268,3 +268,19 @@ a {
 //   position: relative;
 //   transform: translate(-100%, 0);
 // }
+
+/*========== Page Pagination ==========*/
+.page-navigation {
+  margin-bottom: 54px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+
+  &__info {
+    font-size: $font-size-xs;
+    color: $grey-light;
+    margin-bottom: $padding-default;
+    width: 100%;
+    text-align: center;
+  }
+}
