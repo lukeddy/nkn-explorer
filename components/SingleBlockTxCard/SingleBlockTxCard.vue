@@ -1,47 +1,7 @@
 <template>
   <Card>
     <div class="single-block-tx-card__header" @click="toggle()">
-      <!-- Mining Reward -->
-      <div
-        v-if="tx.txType ==='CoinbaseType'"
-        class="card__tx card__tx_type_reward"
-      >{{$t('miningReward')}}</div>
-
-      <!-- Transfer -->
-      <div
-        v-if="tx.txType ==='TransferAssetType'"
-        class="card__tx card__tx_type_transfer"
-      >{{$t('transfer')}}</div>
-
-      <!-- Sigchain -->
-      <div
-        v-if="tx.txType ==='CommitType'"
-        class="card__tx card__tx_type_sigchain"
-      >{{$t('signatureChain')}}</div>
-
-      <!-- Subscription -->
-      <div
-        v-if="tx.txType ==='SubscribeType'"
-        class="card__tx card__tx_type_subscription"
-      >{{$t('subscription')}}</div>
-
-      <!-- Wallet Name Registration -->
-      <div
-        v-if="tx.txType ==='RegisterNameType'"
-        class="card__tx card__tx_type_wallet-name-registration"
-      >{{$t('walletNameRegistration')}}</div>
-
-      <!-- Wallet Name Transfer -->
-      <div
-        v-if="tx.txType ==='TransferNameType'"
-        class="card__tx card__tx_type_wallet-name-transfer"
-      >{{$t('walletNameTransfer')}}</div>
-
-      <!-- Wallet Name Deletion -->
-      <div
-        v-if="tx.txType ==='DeleteNameType'"
-        class="card__tx card__tx_type_wallet-name-deletion"
-      >{{$t('walletNameDeletion')}}</div>
+      <TransactionTypeTitle :type="tx.txType"/>
       <span
         class="single-block-tx-card__toggle fe fe-chevron-down"
         :class="isOpen ? 'single-block-tx-card__toggle_active' : null"
@@ -134,12 +94,14 @@
 
 <script>
 import Card from '~/components/Card/Card'
+import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
+
 // import NodeTracing from '~/components/NodeTracing/NodeTracing'
 
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { Card },
+  components: { Card, TransactionTypeTitle },
   props: {
     tx: {
       type: Object,
