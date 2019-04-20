@@ -2,7 +2,10 @@
   <CardContainer>
     <Card width="half">
       <div class="card__title">{{$t('blockHeight')}}</div>
-      <div class="card__text">{{tx.block_id - 1 | commaNumber}}</div>
+      <nuxt-link
+        class="card__link"
+        :to="`/blocks/${tx.block_id - 1 }`"
+      >{{tx.block_id - 1 | commaNumber}}</nuxt-link>
     </Card>
     <Card width="half">
       <div class="card__title">{{$t('txId')}}</div>
