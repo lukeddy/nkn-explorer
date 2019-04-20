@@ -8,13 +8,6 @@
         >{{ $moment(tx.created_at).fromNow() }}</div>
       </div>
       <div class="transaction-card__item">
-        {{$t('block')}}:&nbsp;
-        <nuxt-link
-          class="card__link text_wrap_none"
-          :to="`/blocks/${tx.block_id - 1}`"
-        >{{tx.block_id - 1}}</nuxt-link>
-      </div>
-      <div class="transaction-card__item">
         {{$t('hash')}}:&nbsp;
         <nuxt-link class="card__link text_wrap_none" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
       </div>

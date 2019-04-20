@@ -7,6 +7,7 @@
         :key="route.title"
         :to="route.path"
         class="mobile-menu__nav-item"
+        @click.native="toggleMobileMenu()"
       >
         <component :is="route.icon" class="mobile-menu__nav-icon"></component>
         {{route.title}}
@@ -66,11 +67,6 @@ export default {
           title: 'Home'
         },
         {
-          path: '/network',
-          icon: 'Network',
-          title: 'Network Map'
-        },
-        {
           path: '/blocks',
           icon: 'Block',
           title: 'Blocks'
@@ -79,11 +75,6 @@ export default {
           path: '/transactions',
           icon: 'Transaction',
           title: 'Transactions'
-        },
-        {
-          path: '/sigchains',
-          icon: 'Sigchain',
-          title: 'Sigchain'
         },
         {
           path: '/addresses',

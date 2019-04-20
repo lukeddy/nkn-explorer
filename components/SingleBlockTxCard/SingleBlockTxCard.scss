@@ -22,8 +22,9 @@
 
   &__body {
     max-height: 0px;
-    transition: $transition-1, margin 0s;
-    transform: translateY(-200px);
+    transition: $transition-1, margin 0s,
+      max-height 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(-30px);
     overflow: hidden;
     opacity: 0;
 
@@ -32,6 +33,7 @@
       max-height: 1000px;
       opacity: 1;
       transform: translateY(0%);
+      transition: $transition-1, margin 0s;
     }
   }
 }

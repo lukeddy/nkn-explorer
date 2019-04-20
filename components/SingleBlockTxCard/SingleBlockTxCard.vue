@@ -34,14 +34,6 @@
           >{{txPayload.recipient}}</nuxt-link>
           <div class="card__text card__subitem">+ {{txPayload.amount | nknValue | commaNumber}} NKN</div>
         </div>
-        <div class="card__item">
-          <div class="card__title">{{$t('timestamp')}}</div>
-          <div class="card__text text_size_md">{{txPayload.created_at}}</div>
-        </div>
-        <div class="card__item">
-          <div class="card__title">{{$t('blockId')}}</div>
-          <div class="card__text text_size_md">{{tx.block_id | commaNumber}}</div>
-        </div>
       </template>
 
       <!-- Transfer -->
@@ -75,15 +67,24 @@
       </template>
 
       <!-- Sigchain -->
-      <!-- <template v-if="tx.txType ==='CommitType'">
+      <template v-if="tx.txType ==='CommitType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
         </div>
+        <div class="card__divider"></div>
         <div class="card__item">
-          <NodeTracing :nodeTracing="tx.node_tracing"/>
+          <div class="card__title">{{$t('dataSize')}}</div>
+          <div class="card__text text_size_md">{{txPayload.sigchain.dataSize}} {{$t('bytes')}}</div>
         </div>
-      </template>-->
+        <div class="card__item">
+          <div class="card__title">{{$t('dataHash')}}</div>
+          <div class="card__text text_size_md">{{txPayload.sigchain.dataHash}}</div>
+        </div>
+        <div class="card__item">
+          <NodeTracing :sigchain="txPayload.sigchain"/>
+        </div>
+      </template>
     </div>
   </Card>
 </template>
@@ -96,12 +97,12 @@
 import Card from '~/components/Card/Card'
 import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
 
-// import NodeTracing from '~/components/NodeTracing/NodeTracing'
+import NodeTracing from '~/components/NodeTracing/NodeTracing'
 
 import { mapGetters } from 'vuex'
 
 export default {
-  components: { Card, TransactionTypeTitle },
+  components: { Card, TransactionTypeTitle, NodeTracing },
   props: {
     tx: {
       type: Object,

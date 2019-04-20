@@ -8,7 +8,7 @@
         </div>
         <div class="node-tracing__label">{{$t('sentData')}}</div>
       </div>
-      <div class="node-tracing__pk">{{nodeTracing[0].node_pk}}</div>
+      <div class="node-tracing__pk">{{sender}}</div>
     </div>
     <div class="node-tracing__item node-tracing__item_type_relay">
       <div class="node-tracing__header">
@@ -16,7 +16,7 @@
           <Relay class="node-tracing__icon"/>
           <span class="node-tracing__heading">{{$t('relayNodes')}}</span>
         </div>
-        <div class="node-tracing__label">{{nodeTracing.length - 2}} {{$t('relayingData')}}</div>
+        <div class="node-tracing__label">{{miners}} {{$t('relayingData')}}</div>
       </div>
     </div>
     <div class="node-tracing__item node-tracing__item_type_recieve">
@@ -27,7 +27,7 @@
         </div>
         <div class="node-tracing__label">{{$t('recievedData')}}</div>
       </div>
-      <div class="node-tracing__pk">{{nodeTracing[nodeTracing.length - 1].node_pk}}</div>
+      <div class="node-tracing__pk">{{reciever}}</div>
     </div>
   </div>
 </template>
@@ -46,17 +46,28 @@ export default {
     Relay
   },
   props: {
-    nodeTracing: {
-      type: Array,
+    sigchain: {
+      type: Object,
       default: function() {
         return []
       }
     }
   },
   data: () => {
-    return {}
+    return {
+      miners: 0,
+      sender: '',
+      reciever: ''
+    }
   },
-  mounted: function() {},
+  mounted: function() {
+    const { sigchain } = this
+    const sigchainElemns = sigchain.sigchain_elems
+
+    this.sender = sigchain.srcPubkey
+    this.reciever = sigchain.destPubkey
+    this.miners = sigchainElemns.filter(i => i.mining != false).length
+  },
   methods: {}
 }
 </script>
