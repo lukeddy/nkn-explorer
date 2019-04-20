@@ -3,7 +3,6 @@
     <div class="transaction-card">
       <div class="transaction-card__header">
         <TransactionTypeTitle :type="tx.txType"/>
-
         <div
           class="transaction-card__timestamp text_size_sm text_color_grey-light"
         >{{ $moment(tx.created_at).fromNow() }}</div>
