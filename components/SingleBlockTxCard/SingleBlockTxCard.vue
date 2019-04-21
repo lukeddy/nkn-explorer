@@ -55,7 +55,7 @@
           <div class="card__text text_size_md">{{txPayload.amount | nknValue | commaNumber}} NKN</div>
           <div
             class="card__text card__subitem text_size_xs text_color_grey-light"
-          >${{(this.$options.filters.nknValue(txPayload.amount) * price).toFixed(2) | commaNumber}}</div>
+          >${{(this.$options.filters.nknValue(txPayload.amount) * currentPrice).toFixed(2) | commaNumber}}</div>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('to')}}</div>
@@ -85,6 +85,40 @@
           <NodeTracing :sigchain="txPayload.sigchain"/>
         </div>
       </template>
+
+      <!-- Name Registration -->
+      <template v-if="tx.txType ==='RegisterNameType' && txPayload">
+        <div class="card__item">
+          <div class="card__title">{{$t('hash')}}</div>
+          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+        </div>
+        <div class="card__divider"></div>
+        <div class="card__item">
+          <div class="card__title">{{$t('registeredName')}}</div>
+          <div class="card__text text_size_md">{{txPayload.name}}</div>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('registrant')}}</div>
+          <div class="card__text text_size_md">{{txPayload.registrant}}</div>
+        </div>
+      </template>
+
+      <!-- Name Deletion -->
+      <template v-if="tx.txType ==='DeleteNameType' && txPayload">
+        <div class="card__item">
+          <div class="card__title">{{$t('hash')}}</div>
+          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+        </div>
+        <div class="card__divider"></div>
+        <div class="card__item">
+          <div class="card__title">{{$t('deletedName')}}</div>
+          <div class="card__text text_size_md">{{txPayload.name}}</div>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('registrant')}}</div>
+          <div class="card__text text_size_md">{{txPayload.registrant}}</div>
+        </div>
+      </template>
     </div>
   </Card>
 </template>
@@ -96,7 +130,6 @@
 <script>
 import Card from '~/components/Card/Card'
 import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
-
 import NodeTracing from '~/components/NodeTracing/NodeTracing'
 
 import { mapGetters } from 'vuex'
@@ -114,16 +147,13 @@ export default {
   data: () => {
     return {
       isOpen: false,
-      price: 0,
       txPayload: null
     }
   },
   computed: mapGetters({
     currentPrice: 'price/getCurrentPrice'
   }),
-  mounted: function() {
-    this.price = this.currentPrice.prices[0].price
-  },
+  mounted: function() {},
   methods: {
     toggle: function() {
       if (this.txPayload === null) {

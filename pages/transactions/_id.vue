@@ -36,6 +36,7 @@
     <CardLoader v-if="loading" :count="5"/>
     <div v-else>
       <SingleTransactionInfo v-if="activeGeneral" :tx="tx"/>
+      <SingleTransactionPayload v-if="activePayload" :tx="tx"/>
     </div>
   </section>
 </template>
@@ -43,6 +44,7 @@
 <script>
 import GetBack from '~/components/GetBack/GetBack'
 import SingleTransactionInfo from '~/components/SingleTransactionInfo/SingleTransactionInfo'
+import SingleTransactionPayload from '~/components/SingleTransactionPayload/SingleTransactionPayload'
 import CardSwitch from '~/components/CardSwitch/CardSwitch'
 import CardLoader from '~/components/Loaders/CardLoader'
 
@@ -50,6 +52,7 @@ export default {
   components: {
     GetBack,
     SingleTransactionInfo,
+    SingleTransactionPayload,
     CardSwitch,
     CardLoader
   },
@@ -84,8 +87,20 @@ export default {
 
       this.$axios.$get(`transactions/${txHash}`).then(function(response) {
         self.tx = response
+
+        // Load price only for mining reward or transfer
+        if (
+          self.tx.txType === 'CoinbaseType' ||
+          self.tx.txTyp === 'TransferAssetType'
+        ) {
+          self.getPrice()
+        }
+
         self.loading = false
       })
+    },
+    getPrice() {
+      this.$store.dispatch('price/getCurrentPrice')
     }
   }
 }

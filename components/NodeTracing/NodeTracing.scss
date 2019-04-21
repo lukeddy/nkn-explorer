@@ -1,4 +1,10 @@
 .node-tracing {
+  background: $white;
+
+  &_spacing {
+    padding: $padding-normal $padding-default;
+  }
+
   &__item {
     border-radius: $app-br;
     padding: $padding-micro;
@@ -98,5 +104,39 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: $font-size-xs;
+  }
+
+  &__addr {
+    margin-top: $padding-micro;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: $font-size-xs;
+  }
+
+  &__full {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $padding-normal;
+  }
+
+  &__toggle {
+    outline: none;
+    padding: $padding-small $padding-default;
+    color: $primary;
+    border: 1px solid $primary;
+    border-radius: $app-br;
+    transition: $transition-1;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: $font-size-base;
+
+    &:hover {
+      color: darken($primary, 20%);
+      border-color: darken($primary, 20%);
+    }
   }
 }

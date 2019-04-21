@@ -1,7 +1,7 @@
 <template>
   <div>
-    <CardLoader v-if="!transactions.length" :count="5"/>
-    <CardContainer v-if="transactions.length">
+    <CardLoader v-if="loading" :count="5"/>
+    <CardContainer else>
       <SingleBlockTxCard v-for="tx in transactions" :key="tx.id" :tx="tx"/>
     </CardContainer>
   </div>
@@ -26,7 +26,8 @@ export default {
   },
   data: () => {
     return {
-      transactions: []
+      transactions: [],
+      loading: true
     }
   },
   mounted: function() {
@@ -40,6 +41,7 @@ export default {
         .$get(`blocks/${this.blockId}/transactions`)
         .then(function(response) {
           self.transactions = response
+          self.loading = false
         })
     }
   }

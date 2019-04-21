@@ -1,5 +1,12 @@
 <template>
-  <div class="node-tracing">
+  <div class="node-tracing" :class="spacing ? 'node-tracing_spacing' : null">
+    <div v-if="showChain" class="node-tracing__full">
+      <h3>{{$t('relayedData')}}</h3>
+      <button class="node-tracing__toggle" @click="toggleChain">
+        <span v-if="fullChain">{{$t('overview')}}</span>
+        <span v-else>{{$t('showChain')}}</span>
+      </button>
+    </div>
     <div class="node-tracing__item node-tracing__item_type_send">
       <div class="node-tracing__header">
         <div class="node-tracing__title">
@@ -10,15 +17,31 @@
       </div>
       <div class="node-tracing__pk">{{sender}}</div>
     </div>
-    <div class="node-tracing__item node-tracing__item_type_relay">
+    <div v-if="!fullChain" class="node-tracing__item node-tracing__item_type_relay">
       <div class="node-tracing__header">
         <div class="node-tracing__title">
           <Relay class="node-tracing__icon"/>
           <span class="node-tracing__heading">{{$t('relayNodes')}}</span>
         </div>
-        <div class="node-tracing__label">{{miners}} {{$t('relayingData')}}</div>
+        <div class="node-tracing__label">{{miners.length}} {{$t('relayingData')}}</div>
       </div>
     </div>
+    <template v-else>
+      <div
+        v-for="miner in miners"
+        :key="miner.signature"
+        class="node-tracing__item node-tracing__item_type_relay"
+      >
+        <div class="node-tracing__header">
+          <div class="node-tracing__title">
+            <Relay class="node-tracing__icon"/>
+            <span class="node-tracing__heading">{{$t('node')}}</span>
+          </div>
+          <div class="node-tracing__label">{{$t('relayData')}}</div>
+        </div>
+        <div class="node-tracing__addr">{{miner.addr}}</div>
+      </div>
+    </template>
     <div class="node-tracing__item node-tracing__item_type_recieve">
       <div class="node-tracing__header">
         <div class="node-tracing__title">
@@ -51,11 +74,20 @@ export default {
       default: function() {
         return []
       }
+    },
+    spacing: {
+      type: Boolean,
+      default: false
+    },
+    showChain: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => {
     return {
       miners: 0,
+      fullChain: false,
       sender: '',
       reciever: ''
     }
@@ -66,8 +98,12 @@ export default {
 
     this.sender = sigchain.srcPubkey
     this.reciever = sigchain.destPubkey
-    this.miners = sigchainElemns.filter(i => i.mining != false).length
+    this.miners = sigchainElemns.filter(i => i.mining != false)
   },
-  methods: {}
+  methods: {
+    toggleChain() {
+      this.fullChain = !this.fullChain
+    }
+  }
 }
 </script>

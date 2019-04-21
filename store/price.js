@@ -1,5 +1,5 @@
 export const state = () => ({
-  currentPrice: false
+  currentPrice: 0
 })
 
 export const mutations = {
@@ -19,6 +19,6 @@ export const actions = {
     const data = await this.$axios.$get(
       'https://price.nknx.org/price?quote=NKN&currency=USD,ETH'
     )
-    commit('setCurrentPrice', data[0])
+    commit('setCurrentPrice', data[0].prices[0].price)
   }
 }
