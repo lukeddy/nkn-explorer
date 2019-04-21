@@ -17,11 +17,13 @@
         </div>
       </div>
     </div>
-    <CardLoader v-if="!transactions.length" :count="10"/>
-    <CardContainer v-else>
-      <TransactionCard v-for="tx in transactions" :key="tx.id" :tx="tx"/>
+    <CardContainer>
+      <TransactionFilter :filters="filters" :activeFilter="activeFilter" @update="updateFilters"/>
+      <CardLoader v-if="loading" :count="10" :container="false"/>
+      <TransactionCard v-for="tx in transactions" v-else :key="tx.id" :tx="tx"/>
     </CardContainer>
-    <div class="page-navigation">
+
+    <div v-if="transactions.length > 0" class="page-navigation">
       <div
         class="page-navigation__info"
       >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{sumTransactions}}</div>
@@ -38,11 +40,19 @@ import TransactionCard from '~/components/TransactionCard/TransactionCard'
 import CardContainer from '~/components/CardContainer/CardContainer'
 import CardLoader from '~/components/Loaders/CardLoader'
 import Pagination from '~/components/Pagination/Pagination'
+import TransactionFilter from '~/components/TransactionFilter/TransactionFilter'
 
 export default {
-  components: { TransactionCard, CardContainer, Pagination, CardLoader },
+  components: {
+    TransactionCard,
+    CardContainer,
+    Pagination,
+    CardLoader,
+    TransactionFilter
+  },
   data: () => {
     return {
+      loading: true,
       nextPage: null,
       prevPage: null,
       current_page: 1,
@@ -50,6 +60,44 @@ export default {
       to: 0,
       sumTransactions: 0,
       avgSize: 0,
+      filters: [
+        {
+          title: 'allTransactions',
+          value: 'all'
+        },
+        {
+          title: 'miningReward',
+          value: 'CoinbaseType'
+        },
+        {
+          title: 'transfer',
+          value: 'TransferAssetType'
+        },
+        {
+          title: 'signatureChain',
+          value: 'CommitType'
+        },
+        {
+          title: 'subscription',
+          value: 'SubscribeType'
+        },
+        {
+          title: 'walletNameRegistration',
+          value: 'RegisterNameType'
+        },
+        {
+          title: 'walletNameTransfer',
+          value: 'TransferNameType'
+        },
+        {
+          title: 'walletNameDeletion',
+          value: 'DeleteNameType'
+        }
+      ],
+      activeFilter: {
+        title: 'allTransactions',
+        value: 'all'
+      },
       transactions: []
     }
   },
@@ -57,20 +105,33 @@ export default {
     this.getTransactions(this.current_page)
   },
   methods: {
+    updateFilters(filter) {
+      this.activeFilter = filter
+      this.getTransactions(this.current_page)
+    },
     getTransactions(page) {
       const self = this
+      const filter = self.activeFilter.value
+
+      self.loading = true
 
       // Checking if page exists
       if (page === null) {
         return false
       }
 
+      // Making query depending on filter
+      const query =
+        filter === 'all'
+          ? `transactions?page=${page}`
+          : `transactions?page=${page}&txType=${filter}`
+
       // Disabling pagination untill data fetched
       self.nextPage = null
       self.prevPage = null
 
       // Fetcing data
-      this.$axios.$get(`transactions?page=${page}`).then(function(response) {
+      this.$axios.$get(query).then(function(response) {
         const { avgSize, sumTransactions, transactions } = response
         const {
           data,
@@ -91,6 +152,8 @@ export default {
 
         self.prevPage = prev_page_url != null ? self.currentPage - 1 : null
         self.nextPage = next_page_url != null ? self.currentPage + 1 : null
+
+        self.loading = false
       })
     }
   }

@@ -6,11 +6,11 @@
         <div class="single-page-header__info">
           <h6 class="text_color_grey-light text_transform_uppercase">{{$t('block')}}</h6>
           <h1 class="single-page-header__title">
-            <span v-if="block.header">{{block.header.height | commaNumber}}</span>
+            <span v-if="!loading">{{block.header.height | commaNumber}}</span>
             <span v-else>{{$t('loading')}}</span>
           </h1>
           <div class="text_opacity_75">
-            <span v-if="block.header">
+            <span v-if="!loading">
               {{$t('created')}}
               {{ $moment(block.header.timestamp).fromNow() }}
             </span>
@@ -28,7 +28,7 @@
           >{{$t('transactions')}}</CardSwitch>
         </div>
       </div>
-      <div v-if="block.header">
+      <div v-if="!loading">
         <SingleBlockInfo v-if="activeGeneral" :block="block"/>
         <SingleBlockTransactions v-if="activeTx" :blockId="block.id"/>
       </div>
@@ -54,6 +54,7 @@ export default {
   },
   data: () => {
     return {
+      loading: true,
       block: {},
       activeGeneral: true,
       activeTx: false
@@ -83,6 +84,7 @@ export default {
 
       this.$axios.$get(`blocks/${blockHash}`).then(function(response) {
         self.block = response
+        self.loading = false
       })
     },
     getPrice: function() {

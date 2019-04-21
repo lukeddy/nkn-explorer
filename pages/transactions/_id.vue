@@ -5,7 +5,7 @@
       <div class="single-page-header__info">
         <h6 class="text_color_grey-light text_transform_uppercase">{{$t('transaction')}}</h6>
         <h1 class="single-page-header__title">
-          <span v-if="!tx">{{$t('loading')}}</span>
+          <span v-if="loading">{{$t('loading')}}</span>
           <span v-else-if="tx.txType == 'CoinbaseType'">{{$t('miningReward')}}</span>
           <span v-else-if="tx.txType == 'TransferAssetType'">{{$t('transfer')}}</span>
           <span v-else-if="tx.txType == 'CommitType'">{{$t('signatureChain')}}</span>
@@ -15,11 +15,11 @@
           <span v-else-if="tx.txType == 'DeleteNameType'">{{$t('walletNameDeletion')}}</span>
         </h1>
         <div class="text_opacity_75">
-          <span v-if="tx">
+          <span v-if="loading">{{$t('loading')}}</span>
+          <span v-else>
             {{$t('created')}}
             {{ $moment(tx.created_at).fromNow() }}
           </span>
-          <span v-else>{{$t('loading')}}</span>
         </div>
       </div>
       <div class="single-page-header__switches">
@@ -33,10 +33,10 @@
         >{{$t('payload')}}</CardSwitch>
       </div>
     </div>
-    <div v-if="tx">
+    <CardLoader v-if="loading" :count="5"/>
+    <div v-else>
       <SingleTransactionInfo v-if="activeGeneral" :tx="tx"/>
     </div>
-    <CardLoader v-else :count="5"/>
   </section>
 </template>
 
@@ -55,6 +55,7 @@ export default {
   },
   data: () => {
     return {
+      loading: true,
       tx: null,
       activeGeneral: true,
       activePayload: false
@@ -83,6 +84,7 @@ export default {
 
       this.$axios.$get(`transactions/${txHash}`).then(function(response) {
         self.tx = response
+        self.loading = false
       })
     }
   }

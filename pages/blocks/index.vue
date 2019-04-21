@@ -22,11 +22,11 @@
         </div>
       </div>
     </div>
-    <CardLoader v-if="!blocks.length" :count="10"/>
+    <CardLoader v-if="loading" :count="10"/>
     <CardContainer v-else>
       <BlockCard v-for="block in blocks" :key="block.height" :block="block"/>
     </CardContainer>
-    <div class="page-navigation">
+    <div v-if="blocks.length>0" class="page-navigation">
       <div
         class="page-navigation__info"
       >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{sumBlocks}}</div>
@@ -48,6 +48,7 @@ export default {
   components: { BlockCard, CardContainer, Pagination, CardLoader },
   data: () => {
     return {
+      loading: true,
       nextPage: null,
       prevPage: null,
       current_page: 1,
@@ -69,6 +70,8 @@ export default {
       if (page === null) {
         return false
       }
+
+      self.loading = true
 
       // Disabling pagination untill data fetched
       self.nextPage = null
@@ -96,6 +99,8 @@ export default {
 
         self.prevPage = prev_page_url != null ? self.currentPage - 1 : null
         self.nextPage = next_page_url != null ? self.currentPage + 1 : null
+
+        self.loading = false
       })
     }
   }

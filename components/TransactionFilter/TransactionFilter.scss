@@ -1,0 +1,93 @@
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: $font-size-xs;
+    letter-spacing: 0.06em;
+    font-weight: bold;
+    color: $grey-light;
+    text-transform: uppercase;
+    display: none;
+
+    @media (min-width: 360px) {
+      display: block;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    background-color: transparent;
+    padding: $padding-micro $padding-default;
+    outline: none;
+    border: 1px solid #e0e0e0;
+    box-sizing: border-box;
+    border-radius: $app-br;
+    font-size: $font-size-sm;
+    display: flex;
+    align-items: center;
+    transition: $transition-1;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      border-color: $primary;
+    }
+
+    &_active {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+
+  &__icon {
+    margin-left: 20px;
+    transition: $transition-1;
+
+    &_open {
+      transform: scaleY(-1);
+      color: $primary;
+    }
+  }
+
+  &__wrapper {
+    min-width: 100%;
+    position: relative;
+
+    @media (min-width: 360px) {
+      min-width: 220px;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    z-index: 3;
+    background: $white;
+    border: 1px solid #e0e0e0;
+    border-radius: $app-br;
+    box-sizing: border-box;
+    visibility: hidden;
+    opacity: 0;
+    transition: $transition-1;
+    width: 100%;
+
+    &_open {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    padding: $padding-micro $padding-default;
+    transition: $transition-1;
+    color: $grey-dark;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
