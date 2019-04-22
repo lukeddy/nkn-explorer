@@ -1,11 +1,11 @@
 <template>
-  <Card class="latest-block">
-    <div class="latest-block__header">
+  <Card class="latest-card">
+    <div class="latest-card__header">
       <nuxt-link
-        class="latest-block__title text_link text_weight_bold"
+        class="latest-card__title text_link text_weight_bold"
         :to="`/blocks/${block.hash}`"
       >
-        <Block class="latest-block__icon"/>
+        <Block class="latest-card__icon"/>
         {{block.header.height | commaNumber}}
       </nuxt-link>
       <div
@@ -13,13 +13,13 @@
       >{{ $moment(block.header.created_at).fromNow() }}</div>
     </div>
     <nuxt-link
-      class="latest-block__address text_link text_size_xs text_wrap_none"
+      class="latest-card__address text_link text_size_sm text_wrap_none"
       :to="`/addresses/${block.header.wallet}`"
     >{{block.header.wallet}}</nuxt-link>
-    <div class="latest-block__bottom">
+    <div class="latest-card__bottom">
       <div class="text_size_md">{{block.transactions_count}} {{$t('transactions')}}</div>
       <div
-        class="latest-block__size text_size_md text_color_grey-light"
+        class="latest-card__size text_size_md text_color_grey-light"
       >{{ block.size }} {{$t('bytes')}}</div>
     </div>
   </Card>

@@ -1,6 +1,10 @@
-.latest-blocks {
+.latest {
   padding: $padding-default;
   margin-top: $padding-normal;
+
+  &:last-child {
+    margin-top: 0;
+  }
 
   &__header {
     display: flex;

@@ -14,7 +14,8 @@
       <MarketStats class="main-header__market-stats"/>
     </div>
     <NetworkStats class="main-header__network-stats"/>
-    <LatestBlocks/>
+    <Latest :title="$t('blocks')" link="/blocks" type="blocks"/>
+    <Latest :title="$t('transactions')" link="/transactions" type="transactions"/>
   </section>
 </template>
 
@@ -23,7 +24,7 @@ import Search from '~/components/Search/Search'
 import Button from '~/components/Button/Button'
 import MarketStats from '~/components/MarketStats/MarketStats'
 import NetworkStats from '~/components/NetworkStats/NetworkStats'
-import LatestBlocks from '~/components/LatestBlocks/LatestBlocks'
+import Latest from '~/components/Latest/Latest'
 
 export default {
   components: {
@@ -31,7 +32,7 @@ export default {
     Button,
     MarketStats,
     NetworkStats,
-    LatestBlocks
+    Latest
   }
 }
 </script>

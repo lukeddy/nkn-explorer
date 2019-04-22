@@ -1,5 +1,5 @@
 <template>
-  <div v-if="market && currentPrice && latestBlocks">
+  <div v-if="market && currentPrice && latestBlocks && latestTransactions">
     <template>
       <Header/>
       <nuxt/>
@@ -21,11 +21,13 @@ export default {
   computed: mapGetters({
     market: 'price/getMarketStats',
     currentPrice: 'price/getCurrentPrice',
-    latestBlocks: 'latestBlocks/getLatestBlocks'
+    latestBlocks: 'latestBlocks/getLatestBlocks',
+    latestTransactions: 'latestTransactions/getLatestTransactions'
   }),
   mounted: function() {
     this.$store.dispatch('price/getCurrentPrice')
     this.$store.dispatch('latestBlocks/getLatestBlocks')
+    this.$store.dispatch('latestTransactions/getLatestTransactions')
   }
 }
 </script>
