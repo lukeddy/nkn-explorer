@@ -28,10 +28,10 @@
           >{{$t('transactions')}}</CardSwitch>
         </div>
       </div>
-      <div v-if="!loading">
+      <template v-if="!loading">
         <SingleBlockInfo v-if="activeGeneral" :block="block"/>
         <SingleBlockTransactions v-if="activeTx" :blockId="block.id"/>
-      </div>
+      </template>
       <CardLoader v-else :count="5"/>
     </section>
   </div>
@@ -61,7 +61,6 @@ export default {
     }
   },
   mounted: function() {
-    this.getPrice()
     this.getBlock()
   },
   methods: {
@@ -86,9 +85,6 @@ export default {
         self.block = response
         self.loading = false
       })
-    },
-    getPrice: function() {
-      this.$store.dispatch('price/getCurrentPrice')
     }
   }
 }

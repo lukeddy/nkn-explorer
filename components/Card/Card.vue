@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="width ? `card_width_${width}` : null">
+  <div class="card" :class="[width ? `card_width_${width}` : null, border ? `card_border` : null]">
     <slot/>
   </div>
 </template>
@@ -15,6 +15,10 @@ export default {
     width: {
       type: String,
       default: 'full'
+    },
+    border: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => {

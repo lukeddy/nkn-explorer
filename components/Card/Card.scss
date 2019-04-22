@@ -2,6 +2,7 @@
   padding: $card-padding;
   background: $card-bg;
   border-radius: $app-br;
+  box-sizing: border-box;
 
   &_width {
     &_full {
@@ -11,5 +12,9 @@
     &_half {
       grid-column: span 1;
     }
+  }
+
+  &_border {
+    border: 1px solid #e0e0e0;
   }
 }

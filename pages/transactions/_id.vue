@@ -87,20 +87,8 @@ export default {
 
       this.$axios.$get(`transactions/${txHash}`).then(function(response) {
         self.tx = response
-
-        // Load price only for mining reward or transfer
-        if (
-          self.tx.txType === 'CoinbaseType' ||
-          self.tx.txType === 'TransferAssetType'
-        ) {
-          self.getPrice()
-        }
-
         self.loading = false
       })
-    },
-    getPrice() {
-      this.$store.dispatch('price/getCurrentPrice')
     }
   }
 }

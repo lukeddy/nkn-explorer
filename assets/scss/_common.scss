@@ -21,6 +21,36 @@ a {
   margin-top: $header-size;
 }
 
+.main-header {
+  padding: $padding-normal $padding-default;
+  margin-top: -$header-size;
+  padding-top: calc(#{$header-size} + #{$padding-medium});
+  background: $header-gradient;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__description {
+    font-size: $font-size-lg;
+    color: $white;
+    text-align: center;
+    margin: $padding-normal 0;
+  }
+
+  &__search {
+    margin-bottom: $padding-default;
+  }
+
+  &__market-stats {
+    margin-top: $padding-big;
+  }
+
+  &__network-stats {
+    margin-top: -$padding-normal;
+  }
+}
+
 .page-header {
   padding: $page-header-spacing;
   padding-top: calc(#{$header-size} + #{$padding-default});
@@ -35,7 +65,7 @@ a {
     margin-top: 32px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
     &_justify {
       &_center {
@@ -275,6 +305,14 @@ a {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+  }
+
+  &_link {
+    color: $primary;
+    transition: $transition-1;
+    &:hover {
+      color: darken($primary, 20%);
     }
   }
 }

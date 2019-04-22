@@ -21,8 +21,8 @@
         {{$t('miner')}}:
         <nuxt-link
           class="block-card__address card__link text_wrap_none"
-          :to="`/addresses/${block.header.signer}`"
-        >&nbsp;{{block.header.signer}}</nuxt-link>
+          :to="`/addresses/${block.header.wallet}`"
+        >&nbsp;{{block.header.wallet}}</nuxt-link>
       </div>
     </div>
   </Card>

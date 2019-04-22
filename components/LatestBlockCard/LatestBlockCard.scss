@@ -1,0 +1,65 @@
+.latest-block {
+  max-width: 300px;
+  margin-right: $padding-default;
+  position: relative;
+  padding: $padding-normal;
+
+  &:not(:last-child) {
+    &:after {
+      content: '';
+      display: block;
+      width: $padding-default;
+      background-color: #e0e0e0;
+      height: 1px;
+      position: absolute;
+      right: -17px;
+      top: 50%;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 8px;
+
+    &:hover {
+      path,
+      g {
+        fill: darken($primary, 20%);
+      }
+    }
+  }
+
+  &__icon {
+    height: 16px;
+    width: 16px;
+    margin-right: 6px;
+
+    path,
+    g {
+      transition: $transition-1;
+      fill: $primary;
+      opacity: 1;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+  }
+
+  &__size {
+    margin-left: 8px;
+  }
+
+  &__address {
+    display: block;
+    margin: $padding-default 0;
+  }
+}

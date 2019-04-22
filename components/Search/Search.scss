@@ -13,8 +13,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-style: italic;
+
     &::placeholder {
       color: $grey-light;
+      font-style: italic;
     }
   }
 

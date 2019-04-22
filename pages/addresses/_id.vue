@@ -20,8 +20,11 @@
         >{{$t('transactions')}}</CardSwitch>
       </div>
     </div>
-    <SingleAddressInfo v-if="activeGeneral" :address="address"/>
-    <SingleAddressTransactions v-if="activeTx"/>
+    <template v-if="!loading">
+      <SingleAddressInfo v-if="activeGeneral" :address="address"/>
+      <SingleAddressTransactions v-if="activeTx" :address="address.address"/>
+    </template>
+    <CardLoader v-else :count="5"/>
   </section>
 </template>
 
@@ -30,6 +33,7 @@ import GetBack from '~/components/GetBack/GetBack'
 import SingleAddressInfo from '~/components/SingleAddressInfo/SingleAddressInfo'
 import SingleAddressTransactions from '~/components/SingleAddressTransactions/SingleAddressTransactions'
 import CardSwitch from '~/components/CardSwitch/CardSwitch'
+import CardLoader from '~/components/Loaders/CardLoader'
 
 import Copy from '~/assets/icons/Copy.svg'
 
@@ -39,21 +43,20 @@ export default {
     SingleAddressInfo,
     CardSwitch,
     SingleAddressTransactions,
-    Copy
+    Copy,
+    CardLoader
   },
   data: () => {
     return {
-      address: {
-        address: 'NUPUc58Fk1dJxSgfdPvUtLp4kwyJTDpKFv',
-        last_transaction: '2019-04-18 17:46:31',
-        transactions: 152,
-        first_transaction: '2019-02-27 05:39:08'
-      },
+      address: {},
+      loading: true,
       activeGeneral: true,
       activeTx: false
     }
   },
-  mounted: function() {},
+  mounted: function() {
+    this.getAddress()
+  },
   methods: {
     toggleSwitch(name) {
       switch (name) {
@@ -67,6 +70,14 @@ export default {
           break
         default:
       }
+    },
+    getAddress: function() {
+      const self = this
+      const walletAddress = this.$route.params.id
+      this.$axios.$get(`addresses/${walletAddress}`).then(function(response) {
+        self.address = response[0]
+        self.loading = false
+      })
     }
   }
 }

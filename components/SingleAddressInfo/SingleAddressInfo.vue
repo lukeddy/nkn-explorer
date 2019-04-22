@@ -15,7 +15,7 @@
     </Card>
     <Card>
       <div class="card__title">{{$t('totalTransactions')}}</div>
-      <div class="card__text">{{address.transactions}}</div>
+      <div class="card__text">{{address.count_transactions}}</div>
     </Card>
   </CardContainer>
 </template>
@@ -41,9 +41,7 @@ export default {
     }
   },
   data: () => {
-    return {
-      balance: 111000
-    }
+    return {}
   },
   mounted: function() {},
   methods: {}

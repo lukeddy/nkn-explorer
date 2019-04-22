@@ -7,80 +7,88 @@
           <h6
             class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
           >{{$t('total')}}</h6>
-          <h4 class="page-header__stats-value text_color_white">{{totalAddresses | commaNumber}}</h4>
+          <h4 class="page-header__stats-value text_color_white">{{sumAddresses | commaNumber}}</h4>
         </div>
       </div>
     </div>
+    <CardLoader v-if="loading" :count="10"/>
+
     <CardContainer>
-      <AddressCard v-for="address in addressesSample" :key="address.address" :address="address"/>
+      <AddressCard v-for="address in addresses" :key="address.address" :address="address"/>
     </CardContainer>
+    <div v-if="addresses.length > 0" class="page-navigation">
+      <div
+        class="page-navigation__info"
+      >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{sumAddresses}}</div>
+      <div class="page-navigation__pagination">
+        <Pagination :page="prevPage" type="prev" @click.native="getAddresses(prevPage)"/>
+        <Pagination :page="nextPage" type="next" @click.native="getAddresses(nextPage)"/>
+      </div>
+    </div>
   </section>
 </template>
 
 <script>
 import AddressCard from '~/components/AddressCard/AddressCard'
 import CardContainer from '~/components/CardContainer/CardContainer'
+import CardLoader from '~/components/Loaders/CardLoader'
+import Pagination from '~/components/Pagination/Pagination'
 
 export default {
-  components: { AddressCard, CardContainer },
+  components: { AddressCard, CardContainer, CardLoader, Pagination },
   data: () => {
     return {
-      next_page: null,
-      prev_page: null,
+      loading: true,
+      nextPage: null,
+      prevPage: null,
       current_page: 1,
-      latestAddresses: [],
-      totalAddresses: 777693,
-      addressesSample: [
-        {
-          address: 'NUPUc58Fk1dJxSgfdPvUtLp4kwyJTDpKFv',
-          last_transaction: '2019-04-18 17:46:31',
-          transactions: 152,
-          first_transaction: '2019-02-27 05:39:08'
-        },
-        {
-          address: 'NUGBBeYCyJ8D7JBLDFkA4DWMswgPkvGqx5',
-          last_transaction: '2019-04-18 17:46:11',
-          transactions: 29,
-          first_transaction: '2019-03-12 08:24:46'
-        },
-        {
-          address: 'NQhpG7Bh8VZddrCPnKyc4hVdTFtdcFnYy9',
-          last_transaction: '2019-04-18 17:45:50',
-          transactions: 1631,
-          first_transaction: '2018-09-23 10:44:54'
-        }
-      ]
+      from: 0,
+      to: 0,
+      sumAddresses: 0,
+      addresses: []
     }
   },
   mounted() {
-    this.getLatestAddresses()
+    this.getAddresses(this.current_page)
   },
   methods: {
-    getLatestAddresses() {
+    getAddresses(page) {
       const self = this
-      this.$axios.$get('addresses').then(function(response) {
-        self.next_page = response.next_page_url
-        self.prev_page = response.prev_page_url
-        self.current_page = response.current_page
-        self.latestAddresses = response.data
-      })
-    },
-    getNextAddressPage() {
-      const self = this
-      this.$axios.$get(this.next_page).then(function(response) {
-        self.next_page = response.next_page_url
-        self.prev_page = response.prev_page_url
-        self.current_page = response.current_page
-        self.latestAddresses = response.data
-      })
-    },
-    getPrevAddressPage() {
-      const self = this
-      this.$axios.$get(this.prev_page).then(function(response) {
-        self.next_page = response.next_page_url
-        self.prev_page = response.prev_page_url
-        self.current_page = response.current_page
-        self.latestAddresses = response.data
+
+      // Checking if page exists
+      if (page === null) {
+        return false
+      }
+
+      self.loading = true
+
+      // Disabling pagination untill data fetched
+      self.nextPage = null
+      self.prevPage = null
+
+      // Fetcing data
+      this.$axios.$get(`addresses?page=${page}`).then(function(response) {
+        const { sumAddresses, addresses } = response
+        const {
+          data,
+          current_page,
+          prev_page_url,
+          next_page_url,
+          from,
+          to
+        } = addresses
+
+        self.sumAddresses = sumAddresses
+        self.addresses = data
+
+        self.from = from
+        self.to = to
+        self.currentPage = current_page
+
+        self.prevPage = prev_page_url != null ? self.currentPage - 1 : null
+        self.nextPage = next_page_url != null ? self.currentPage + 1 : null
+
+        self.loading = false
       })
     }
   }

@@ -8,8 +8,8 @@
         <div class="card__title">{{$t('miner')}}</div>
         <nuxt-link
           class="card__link"
-          :to="`/addresses/${txPayload.recipient}`"
-        >{{txPayload.recipient}}</nuxt-link>
+          :to="`/addresses/${txPayload.recipientWallet}`"
+        >{{txPayload.recipientWallet}}</nuxt-link>
       </Card>
       <Card>
         <div class="card__title">{{$t('amount')}}</div>
@@ -24,7 +24,10 @@
     <CardContainer v-if="tx.txType ==='TransferAssetType' && !loading">
       <Card>
         <div class="card__title">{{$t('from')}}</div>
-        <nuxt-link class="card__link" :to="`/addresses/${txPayload.sender}`">{{txPayload.sender}}</nuxt-link>
+        <nuxt-link
+          class="card__link"
+          :to="`/addresses/${txPayload.senderWallet}`"
+        >{{txPayload.senderWallet}}</nuxt-link>
       </Card>
       <Card>
         <div class="card__title">{{$t('amount')}}</div>
@@ -37,8 +40,8 @@
         <div class="card__title">{{$t('to')}}</div>
         <nuxt-link
           class="card__link text_size_md"
-          :to="`/addresses/${txPayload.recipient}`"
-        >{{txPayload.recipient}}</nuxt-link>
+          :to="`/addresses/${txPayload.recipientWallet}`"
+        >{{txPayload.recipientWallet}}</nuxt-link>
       </Card>
     </CardContainer>
 

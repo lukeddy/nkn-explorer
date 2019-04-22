@@ -1,0 +1,32 @@
+.network-stats {
+  padding: $padding-default;
+  border-radius: 26px 32px 0px 0px;
+  background-color: $white;
+
+  &__wrapper {
+    background-color: #f2f2f2;
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__item {
+    text-align: center;
+    padding: 24px;
+    background-color: $white;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: $font-size-xs;
+    color: $grey-light;
+    letter-spacing: 0.06em;
+    font-weight: bold;
+  }
+
+  &__value {
+    margin-top: 8px;
+    font-size: $number-small;
+    font-weight: bold;
+  }
+}

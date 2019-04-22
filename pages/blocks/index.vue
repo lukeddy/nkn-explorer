@@ -26,7 +26,7 @@
     <CardContainer v-else>
       <BlockCard v-for="block in blocks" :key="block.height" :block="block"/>
     </CardContainer>
-    <div v-if="blocks.length>0" class="page-navigation">
+    <div v-if="blocks.length > 0" class="page-navigation">
       <div
         class="page-navigation__info"
       >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{sumBlocks}}</div>

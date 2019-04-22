@@ -30,8 +30,8 @@
           <div class="card__title">{{$t('miner')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${txPayload.recipient}`"
-          >{{txPayload.recipient}}</nuxt-link>
+            :to="`/addresses/${txPayload.recipientWallet}`"
+          >{{txPayload.recipientWallet}}</nuxt-link>
           <div class="card__text card__subitem">+ {{txPayload.amount | nknValue | commaNumber}} NKN</div>
         </div>
       </template>
@@ -47,8 +47,8 @@
           <div class="card__title">{{$t('from')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${txPayload.sender}`"
-          >{{txPayload.sender}}</nuxt-link>
+            :to="`/addresses/${txPayload.senderWallet}`"
+          >{{txPayload.senderWallet}}</nuxt-link>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('amount')}}</div>
@@ -61,8 +61,8 @@
           <div class="card__title">{{$t('to')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${txPayload.recipient}`"
-          >{{txPayload.recipient}}</nuxt-link>
+            :to="`/addresses/${txPayload.recipientWallet}`"
+          >{{txPayload.recipientWallet}}</nuxt-link>
         </div>
       </template>
 

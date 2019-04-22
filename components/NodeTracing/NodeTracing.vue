@@ -15,7 +15,7 @@
         </div>
         <div class="node-tracing__label">{{$t('sentData')}}</div>
       </div>
-      <div class="node-tracing__pk">{{sender}}</div>
+      <div class="node-tracing__pk">{{sigchain.srcPubkey}}</div>
     </div>
     <div v-if="!fullChain" class="node-tracing__item node-tracing__item_type_relay">
       <div class="node-tracing__header">
@@ -39,7 +39,14 @@
           </div>
           <div class="node-tracing__label">{{$t('relayData')}}</div>
         </div>
-        <div class="node-tracing__addr">{{miner.addr}}</div>
+        <div class="node-tracing__addr">{{$t('nodePublicKey')}}: {{miner.addr}}</div>
+        <div class="node-tracing__addr">
+          {{$t('nodeWalletAddress')}}:
+          <nuxt-link
+            class="node-tracing__addr text_link"
+            :to="`/addresses/${miner.wallet}`"
+          >{{miner.wallet}}</nuxt-link>
+        </div>
       </div>
     </template>
     <div class="node-tracing__item node-tracing__item_type_recieve">
@@ -50,7 +57,7 @@
         </div>
         <div class="node-tracing__label">{{$t('recievedData')}}</div>
       </div>
-      <div class="node-tracing__pk">{{reciever}}</div>
+      <div class="node-tracing__pk">{{sigchain.destPubkey}}</div>
     </div>
   </div>
 </template>
@@ -88,16 +95,16 @@ export default {
     return {
       miners: 0,
       fullChain: false,
-      sender: '',
-      reciever: ''
+      senderWallet: '',
+      recieverWallet: ''
     }
   },
   mounted: function() {
     const { sigchain } = this
     const sigchainElemns = sigchain.sigchain_elems
 
-    this.sender = sigchain.srcPubkey
-    this.reciever = sigchain.destPubkey
+    this.senderWallet = sigchain.srcPubkey
+    this.recieverWallet = sigchain.destPubkey
     this.miners = sigchainElemns.filter(i => i.mining != false)
   },
   methods: {
