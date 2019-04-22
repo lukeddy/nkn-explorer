@@ -91,7 +91,7 @@ export default {
         // Load price only for mining reward or transfer
         if (
           self.tx.txType === 'CoinbaseType' ||
-          self.tx.txTyp === 'TransferAssetType'
+          self.tx.txType === 'TransferAssetType'
         ) {
           self.getPrice()
         }
