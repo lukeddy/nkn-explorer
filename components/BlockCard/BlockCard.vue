@@ -20,7 +20,7 @@
       <div class="block-card__miner text_size_sm">
         {{$t('miner')}}:
         <nuxt-link
-          class="block-card__address card__link text_wrap_none"
+          class="block-card__address text_link text_wrap_none"
           :to="`/addresses/${block.header.wallet}`"
         >&nbsp;{{block.header.wallet}}</nuxt-link>
       </div>

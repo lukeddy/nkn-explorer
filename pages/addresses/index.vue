@@ -12,8 +12,7 @@
       </div>
     </div>
     <CardLoader v-if="loading" :count="10"/>
-
-    <CardContainer>
+    <CardContainer v-else>
       <AddressCard v-for="address in addresses" :key="address.address" :address="address"/>
     </CardContainer>
     <div v-if="addresses.length > 0" class="page-navigation">

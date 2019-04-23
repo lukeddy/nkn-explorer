@@ -9,6 +9,13 @@
       <div class="card__text">{{tx.nonce}}</div>
     </Card>
     <Card>
+      <div class="card__title">{{$t('blockHeight')}}</div>
+      <nuxt-link
+        class="card__link"
+        :to="`/blocks/${tx.block_height}`"
+      >{{tx.block_height | commaNumber}}</nuxt-link>
+    </Card>
+    <Card>
       <div class="card__title">{{$t('attributes')}}</div>
       <div class="card__text">{{tx.attributes}}</div>
     </Card>

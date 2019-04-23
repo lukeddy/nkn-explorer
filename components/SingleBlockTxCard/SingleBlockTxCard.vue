@@ -25,6 +25,13 @@
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
         </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('block')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="`/blocks/${tx.block_height}`"
+          >{{tx.block_height | commaNumber}}</nuxt-link>
+        </div>
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('miner')}}</div>
@@ -41,6 +48,13 @@
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('block')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="`/blocks/${tx.block_height}`"
+          >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="card__divider"></div>
         <div class="card__item">
@@ -72,6 +86,13 @@
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
         </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('block')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="`/blocks/${tx.block_height}`"
+          >{{tx.block_height | commaNumber}}</nuxt-link>
+        </div>
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('dataSize')}}</div>
@@ -92,6 +113,13 @@
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
         </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('block')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="`/blocks/${tx.block_height}`"
+          >{{tx.block_height | commaNumber}}</nuxt-link>
+        </div>
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('registeredName')}}</div>
@@ -108,6 +136,13 @@
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('block')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="`/blocks/${tx.block_height}`"
+          >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="card__divider"></div>
         <div class="card__item">

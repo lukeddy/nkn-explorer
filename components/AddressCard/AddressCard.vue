@@ -1,10 +1,13 @@
 <template>
   <Card>
     <div class="address-card">
-      <nuxt-link class="address-card__header card__link" :to="`/addresses/${address.address}`">
+      <div class="address-card__header">
         <Wallet class="address-card__icon"/>
-        {{address.address}}
-      </nuxt-link>
+        <nuxt-link
+          class="text_link text_wrap_none"
+          :to="`/addresses/${address.address}`"
+        >{{address.address}}</nuxt-link>
+      </div>
       <div class="address-card__item">{{$t('transactions')}}: {{address.count_transactions}}</div>
       <div
         class="address-card__item"

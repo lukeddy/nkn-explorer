@@ -39,7 +39,7 @@
           </div>
           <div class="node-tracing__label">{{$t('relayData')}}</div>
         </div>
-        <div class="node-tracing__addr">{{$t('nodePublicKey')}}: {{miner.addr}}</div>
+        <div class="node-tracing__addr">{{$t('nodePublicKey')}}: {{miner.pubkey}}</div>
         <div class="node-tracing__addr">
           {{$t('nodeWalletAddress')}}:
           <nuxt-link

@@ -22,7 +22,7 @@
     </div>
     <template v-if="!loading">
       <SingleAddressInfo v-if="activeGeneral" :address="address"/>
-      <SingleAddressTransactions v-if="activeTx" :address="address.address"/>
+      <SingleAddressTransactions v-if="activeTx" :address="address"/>
     </template>
     <CardLoader v-else :count="5"/>
   </section>

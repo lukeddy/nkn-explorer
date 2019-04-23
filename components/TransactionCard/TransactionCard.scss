@@ -12,6 +12,7 @@
   &__item {
     display: flex;
     font-size: $font-size-xs;
+    align-items: center;
 
     &:not(:last-child) {
       margin-bottom: 8px;

@@ -7,11 +7,17 @@
     </Card>
     <Card>
       <div class="card__title">{{$t('firstTransactions')}}</div>
-      <div class="card__text">{{address.first_transaction}}</div>
+      <div class="card__text">
+        <span v-if="address.first_transaction !=null">{{address.first_transaction}}</span>
+        <span v-else>{{$t('never')}}</span>
+      </div>
     </Card>
     <Card>
       <div class="card__title">{{$t('latestTransaction')}}</div>
-      <div class="card__text">{{address.last_transaction}}</div>
+      <div class="card__text">
+        <span v-if="address.last_transaction !=null">{{address.last_transaction}}</span>
+        <span v-else>{{$t('never')}}</span>
+      </div>
     </Card>
     <Card>
       <div class="card__title">{{$t('totalTransactions')}}</div>

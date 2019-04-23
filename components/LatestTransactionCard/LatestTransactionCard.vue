@@ -10,11 +10,10 @@
     >{{tx.hash}}</nuxt-link>
     <div class="latest-card__bottom">
       <Block class="latest-card__icon latest-card__icon_small"/>
-      <!-- TODO: Change to block height -->
       <nuxt-link
-        :to="`/blocks/${tx.block_id}`"
+        :to="`/blocks/${tx.block_height}`"
         class="text_link text_size_sm text_color_grey-light"
-      >{{ tx.block_id | commaNumber}}</nuxt-link>
+      >{{ tx.block_height | commaNumber}}</nuxt-link>
     </div>
   </Card>
 </template>
