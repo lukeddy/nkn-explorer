@@ -12,7 +12,6 @@
           :class="market.prices[0].percent_change_24h > 0 ? 'market-stats__change_positive' : 'market-stats__change_negative'"
         >
           <span v-if="market.prices[0].percent_change_24h > 0">+</span>
-          <span v-else>-</span>
           {{market.prices[0].percent_change_24h.toFixed(2)}}%
         </span>
       </div>
