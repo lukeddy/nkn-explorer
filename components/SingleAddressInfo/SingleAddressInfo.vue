@@ -2,7 +2,7 @@
   <CardContainer>
     <Card class="single-address-info__balance">
       <div class="card__title">{{$t('balance')}}</div>
-      <div class="card__text">{{111000 | commaNumber}} NKN</div>
+      <div class="card__text">{{address.balance | commaNumber}} NKN</div>
       <Logo class="single-address-info__logo"/>
     </Card>
     <Card>

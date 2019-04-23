@@ -75,7 +75,7 @@ export default {
       const self = this
       const walletAddress = this.$route.params.id
       this.$axios.$get(`addresses/${walletAddress}`).then(function(response) {
-        self.address = response[0]
+        self.address = response
         self.loading = false
       })
     }
