@@ -41,4 +41,14 @@
       color: #d63649;
     }
   }
+
+  &__chart {
+    margin-left: -50px;
+    width: calc(100% + #{$padding-normal} * 4);
+    height: 225px;
+    margin-top: 10px;
+    margin-bottom: -50px;
+    z-index: 1;
+    position: relative;
+  }
 }

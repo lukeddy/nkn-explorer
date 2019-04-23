@@ -2,6 +2,8 @@
   padding: $padding-default;
   border-radius: 26px 32px 0px 0px;
   background-color: $white;
+  position: relative;
+  z-index: 2;
 
   &__wrapper {
     background-color: #f2f2f2;

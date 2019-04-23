@@ -48,9 +48,7 @@ export default {
     latestBlocks: 'latestBlocks/getLatestBlocks',
     latestTransactions: 'latestTransactions/getLatestTransactions'
   }),
-  mounted: function() {
-    console.log(this.latestTransactions)
-  },
+  mounted: function() {},
   methods: {}
 }
 </script>

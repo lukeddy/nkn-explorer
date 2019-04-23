@@ -17,6 +17,7 @@
         </span>
       </div>
     </div>
+    <MarketChart class="market-stats__chart"/>
   </div>
 </template>
 
@@ -26,9 +27,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import MarketChart from '~/components/Charts/MarketChart'
 
 export default {
-  components: {},
+  components: { MarketChart },
   data: () => {
     return {
       usdPrice: 0
