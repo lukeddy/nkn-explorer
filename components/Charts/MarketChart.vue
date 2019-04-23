@@ -17,7 +17,11 @@ export default {
   mounted() {
     const chart = am4core.create(this.$refs.chartdiv, am4charts.XYChart)
     const data = []
-    let price = this.dailyHistoryPrice.USD
+    const price = this.dailyHistoryPrice.USD
+
+    const priceArray = price.map(i => i.price)
+    const minPrice = Math.min.apply(0, priceArray)
+    const maxPrice = Math.max.apply(null, priceArray)
 
     for (let i = price.length - 1; i >= 0; i--) {
       data.push({
@@ -37,7 +41,8 @@ export default {
     dateAxis.periodChangeDateFormats.setKey('day', 'dd/MM')
 
     const valueAxis = chart.yAxes.push(new am4charts.ValueAxis())
-    valueAxis.min = 0
+    valueAxis.min = minPrice
+    valueAxis.max = maxPrice
     valueAxis.renderer.grid.template.disabled = true
     valueAxis.renderer.baseGrid.disabled = true
     valueAxis.renderer.labels.template.disabled = true
