@@ -1,0 +1,41 @@
+<template>
+  <div class="network-nodes">
+    <h2 class="network-nodes__title">{{$t('networkMap')}}</h2>
+    <p class="network-nodes__subtitle">{{$t('updateTime')}}: {{networkStats.updatedTime}}</p>
+    <div class="network-nodes__data">
+      <div class="network-nodes__data-item">
+        <div class="network-nodes__data-title">{{$t('consensusNodes')}}</div>
+        <div class="network-nodes__data-value">{{networkStats.totalNodes | commaNumber}}</div>
+      </div>
+      <div class="network-nodes__data-item">
+        <div class="network-nodes__data-title">{{$t('countries')}}</div>
+        <div class="network-nodes__data-value">{{networkStats.totalCountries | commaNumber}}</div>
+      </div>
+    </div>
+    <NetworkMapChart class="network-nodes__map"/>
+    <NetworkCountries/>
+  </div>
+</template>
+
+<style lang="scss">
+@import './NetworkNodes';
+</style>
+
+<script>
+import NetworkMapChart from '~/components/Charts/NetworkMapChart'
+import NetworkCountries from '~/components/NetworkCountries/NetworkCountries'
+
+import { mapGetters } from 'vuex'
+
+export default {
+  components: { NetworkMapChart, NetworkCountries },
+  data: () => {
+    return {}
+  },
+  computed: mapGetters({
+    networkStats: 'network/getNetworkStats'
+  }),
+  mounted: function() {},
+  methods: {}
+}
+</script>

@@ -2,10 +2,10 @@
   <div class="node-tracing" :class="spacing ? 'node-tracing_spacing' : null">
     <div v-if="showChain" class="node-tracing__full">
       <h3>{{$t('relayedData')}}</h3>
-      <button class="node-tracing__toggle" @click="toggleChain">
+      <Button type="button" theme="ghost" @click.native="toggleChain">
         <span v-if="fullChain">{{$t('overview')}}</span>
         <span v-else>{{$t('showChain')}}</span>
-      </button>
+      </Button>
     </div>
     <div class="node-tracing__item node-tracing__item_type_send">
       <div class="node-tracing__header">
@@ -35,7 +35,15 @@
         <div class="node-tracing__header">
           <div class="node-tracing__title">
             <Relay class="node-tracing__icon"/>
-            <span class="node-tracing__heading">{{$t('node')}}</span>
+            <div class="node-tracing__heading">
+              {{$t('node')}}
+              <CountryFlag
+                v-if="miner.country_code2 != null"
+                class="node-tracing__flag"
+                :country="miner.country_code2"
+                size="normal"
+              />
+            </div>
           </div>
           <div class="node-tracing__label">{{$t('relayData')}}</div>
         </div>
@@ -67,13 +75,19 @@
 </style>
 
 <script>
+import Button from '~/components/Button/Button'
+
 import Client from '~/assets/icons/Client.svg'
 import Relay from '~/assets/icons/Relay.svg'
+
+import CountryFlag from 'vue-country-flag'
 
 export default {
   components: {
     Client,
-    Relay
+    Relay,
+    Button,
+    CountryFlag
   },
   props: {
     sigchain: {

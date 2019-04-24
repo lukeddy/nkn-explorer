@@ -3,7 +3,7 @@
     <div class="start-mining__icon">
       <Mining/>
     </div>
-    <h4 class="start-mining__nodes">{{networkNodes}} {{$t('currentNodes')}}</h4>
+    <h4 class="start-mining__nodes">{{networkStats.totalNodes | commaNumber}} {{$t('currentNodes')}}</h4>
     <div class="start-mining__text">{{$t('wantToJoinNKN')}}</div>
     <Button
       class="start-mining__button"
@@ -23,13 +23,16 @@ import Button from '~/components/Button/Button'
 
 import Mining from '~/assets/icons/mining.svg'
 
+import { mapGetters } from 'vuex'
+
 export default {
   components: { Button, Mining },
   data: () => {
-    return {
-      networkNodes: 10000
-    }
+    return {}
   },
+  computed: mapGetters({
+    networkStats: 'network/getNetworkStats'
+  }),
   mounted: function() {},
   methods: {}
 }

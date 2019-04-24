@@ -1,5 +1,7 @@
 <template>
-  <div v-if="market && currentPrice && latestBlocks && latestTransactions && dailyHistoryPrice">
+  <div
+    v-if="market && currentPrice && latestBlocks && latestTransactions && dailyHistoryPrice && networkCities && networkCountries && networkStats && latestSigchain"
+  >
     <template>
       <Header/>
       <nuxt/>
@@ -23,13 +25,21 @@ export default {
     currentPrice: 'price/getCurrentPrice',
     latestBlocks: 'latestBlocks/getLatestBlocks',
     latestTransactions: 'latestTransactions/getLatestTransactions',
-    dailyHistoryPrice: 'price/getDailyHistoryPrice'
+    dailyHistoryPrice: 'price/getDailyHistoryPrice',
+    networkCities: 'network/getNetworkCities',
+    networkCountries: 'network/getNetworkCountries',
+    networkStats: 'network/getNetworkStats',
+    latestSigchain: 'latestSigchain/getLatestSigchain'
   }),
   mounted: function() {
     this.$store.dispatch('price/getCurrentPrice')
     this.$store.dispatch('latestBlocks/getLatestBlocks')
     this.$store.dispatch('latestTransactions/getLatestTransactions')
     this.$store.dispatch('price/getDailyHistoryPrice')
+    this.$store.dispatch('network/getNetworkCities')
+    this.$store.dispatch('network/getNetworkCountries')
+    this.$store.dispatch('network/getNetworkStats')
+    this.$store.dispatch('latestSigchain/getLatestSigchain')
   }
 }
 </script>

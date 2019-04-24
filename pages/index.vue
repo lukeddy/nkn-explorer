@@ -16,6 +16,7 @@
     <NetworkStats class="main-header__network-stats"/>
     <Latest :title="$t('blocks')" link="/blocks" type="blocks"/>
     <Latest :title="$t('transactions')" link="/transactions" type="transactions"/>
+    <NetworkNodes/>
   </section>
 </template>
 
@@ -25,6 +26,7 @@ import Button from '~/components/Button/Button'
 import MarketStats from '~/components/MarketStats/MarketStats'
 import NetworkStats from '~/components/NetworkStats/NetworkStats'
 import Latest from '~/components/Latest/Latest'
+import NetworkNodes from '~/components/NetworkNodes/NetworkNodes'
 
 export default {
   components: {
@@ -32,7 +34,8 @@ export default {
     Button,
     MarketStats,
     NetworkStats,
-    Latest
+    Latest,
+    NetworkNodes
   }
 }
 </script>

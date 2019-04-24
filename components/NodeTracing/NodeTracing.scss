@@ -86,6 +86,7 @@
   &__heading {
     font-weight: bold;
     font-size: $font-size-sm;
+    position: relative;
   }
 
   &__label {
@@ -121,22 +122,10 @@
     margin-bottom: $padding-normal;
   }
 
-  &__toggle {
-    outline: none;
-    padding: $padding-small $padding-default;
-    color: $primary;
-    border: 1px solid $primary;
-    border-radius: $app-br;
-    transition: $transition-1;
-    box-sizing: border-box;
-    background-color: transparent;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: $font-size-base;
-
-    &:hover {
-      color: darken($primary, 20%);
-      border-color: darken($primary, 20%);
-    }
+  &__flag {
+    position: absolute;
+    top: -23px;
+    left: 42px;
+    border-radius: 26px;
   }
 }

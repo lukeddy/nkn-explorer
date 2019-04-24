@@ -3,19 +3,19 @@
     <div class="network-stats__wrapper">
       <div class="network-stats__item">
         <div class="network-stats__title">{{$t('network')}} {{$t('nodes')}}</div>
-        <div class="network-stats__value">{{8331 | commaNumber}}</div>
+        <div class="network-stats__value">{{networkStats.totalNodes | commaNumber}}</div>
       </div>
       <div class="network-stats__item">
-        <div class="network-stats__title">{{$t('block')}}</div>
-        <div class="network-stats__value">{{8331 | commaNumber}}</div>
+        <div class="network-stats__title">{{$t('blocks')}}</div>
+        <div class="network-stats__value">{{networkStats.totalBlocks | commaNumber}}</div>
       </div>
       <div class="network-stats__item">
         <div class="network-stats__title">{{$t('transactions')}}</div>
-        <div class="network-stats__value">{{8331 | commaNumber}}</div>
+        <div class="network-stats__value">{{networkStats.totalTransactions | commaNumber}}</div>
       </div>
       <div class="network-stats__item">
-        <div class="network-stats__title">{{$t('tps')}}</div>
-        <div class="network-stats__value">{{8331 | commaNumber}}</div>
+        <div class="network-stats__title">{{$t('providers')}}</div>
+        <div class="network-stats__value">{{networkStats.totalProviders | commaNumber}}</div>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ export default {
   data: () => {
     return {}
   },
-  computed: mapGetters({}),
+  computed: mapGetters({ networkStats: 'network/getNetworkStats' }),
   mounted: function() {},
   methods: {}
 }

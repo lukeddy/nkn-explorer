@@ -5,37 +5,56 @@
   text-align: center;
   transition: $transition-1;
   cursor: pointer;
-  color: $white;
   border: none;
   outline: none;
   text-decoration: none;
   width: 100%;
   box-sizing: border-box;
   display: block;
-  min-height: 50px;
+  background: $white;
 
   &_theme {
     &_primary {
+      min-height: 50px;
+      color: $white;
       background-color: $primary;
 
       &:hover {
         background-color: lighten($primary, 10%);
       }
 
-      &:focus {
+      &:active {
         background-color: lighten($primary, 20%);
       }
     }
 
     &_dark-blue {
+      min-height: 50px;
+      color: $white;
       background-color: $dark-blue;
 
       &:hover {
         background-color: lighten($dark-blue, 10%);
       }
 
-      &:focus {
+      &:active {
         background-color: lighten($dark-blue, 20%);
+      }
+    }
+
+    &_ghost {
+      color: $primary;
+      border: 1px solid $primary;
+      padding: 8px $padding-default;
+
+      &:hover {
+        color: darken($primary, 20%);
+        border-color: darken($primary, 20%);
+      }
+
+      &:active {
+        color: lighten($primary, 20%);
+        border-color: lighten($primary, 20%);
       }
     }
   }

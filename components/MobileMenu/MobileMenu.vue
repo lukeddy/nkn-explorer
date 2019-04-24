@@ -18,9 +18,13 @@
       class="mobile-menu__descr"
     >NKN is a New Kind of Network, a Cellular Automata powered, decentralized data relay network built on Blockchain & incentivized by a native token.</p>
     <div class="mobile-menu__stats">
-      <div class="mobile-menu__stats-item">{{networkNodes}} {{$t('nodes')}}</div>
-      <div class="mobile-menu__stats-item">{{networkCountries}} {{$t('differentCountries')}}</div>
-      <div class="mobile-menu__stats-item">{{networkProviders}} {{$t('providers')}}</div>
+      <div class="mobile-menu__stats-item">{{networkStats.totalNodes | commaNumber}} {{$t('nodes')}}</div>
+      <div
+        class="mobile-menu__stats-item"
+      >{{networkStats.totalCountries | commaNumber}} {{$t('differentCountries')}}</div>
+      <div
+        class="mobile-menu__stats-item"
+      >{{networkStats.totalProviders | commaNumber}} {{$t('providers')}}</div>
     </div>
     <Button theme="primary" url="https://nknx.org/" type="link">{{$t('joinTheNetwork')}}</Button>
   </div>
@@ -81,14 +85,12 @@ export default {
           icon: 'Address',
           title: 'Addresses'
         }
-      ],
-      networkNodes: 10000,
-      networkCountries: 42,
-      networkProviders: 231
+      ]
     }
   },
   computed: mapGetters({
-    isMobileMenuOpen: 'mobileMenu/get'
+    isMobileMenuOpen: 'mobileMenu/get',
+    networkStats: 'network/getNetworkStats'
   }),
   mounted: function() {},
   methods: {

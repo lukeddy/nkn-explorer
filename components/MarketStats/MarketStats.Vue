@@ -31,9 +31,7 @@ import MarketChart from '~/components/Charts/MarketChart'
 export default {
   components: { MarketChart },
   data: () => {
-    return {
-      usdPrice: 0
-    }
+    return {}
   },
   computed: mapGetters({
     market: 'price/getMarketStats',

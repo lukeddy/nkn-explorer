@@ -1,0 +1,67 @@
+.network-countries {
+  margin-top: $padding-medium;
+
+  &__table {
+    width: 100%;
+    font-size: $font-size-xs;
+  }
+
+  &__header {
+    background: #f9fbfd;
+    border-radius: $app-br;
+    letter-spacing: 0.06em;
+    color: #95aac9;
+  }
+
+  &__title {
+    padding: $padding-micro;
+    text-align: left;
+    text-transform: uppercase;
+
+    &:first-child {
+      width: 1%;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  &__item {
+    padding: $padding-default $padding-micro;
+    font-weight: normal;
+    text-align: left;
+    position: relative;
+
+    &:first-child {
+      text-align: center;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+
+  &__row {
+    &_type {
+      &_data {
+        border-bottom: 1px solid #f2f2f2;
+      }
+    }
+  }
+
+  &__flag {
+    position: absolute;
+    top: -9px;
+    border-radius: 26px;
+  }
+
+  &__country {
+    margin-left: 40px;
+  }
+
+  &__toggle {
+    margin-top: $padding-default;
+    display: inline-block;
+  }
+}
