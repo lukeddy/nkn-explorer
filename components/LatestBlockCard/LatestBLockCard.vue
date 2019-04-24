@@ -1,5 +1,5 @@
 <template>
-  <Card class="latest-card">
+  <Card class="latest-card" :border="true">
     <div class="latest-card__header">
       <nuxt-link
         class="latest-card__title text_link text_weight_bold"

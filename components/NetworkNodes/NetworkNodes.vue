@@ -4,11 +4,11 @@
     <p class="network-nodes__subtitle">{{$t('updateTime')}}: {{networkStats.updatedTime}}</p>
     <div class="network-nodes__data">
       <div class="network-nodes__data-item">
-        <div class="network-nodes__data-title">{{$t('consensusNodes')}}</div>
+        <h6 class="network-nodes__data-title">{{$t('consensusNodes')}}</h6>
         <div class="network-nodes__data-value">{{networkStats.totalNodes | commaNumber}}</div>
       </div>
       <div class="network-nodes__data-item">
-        <div class="network-nodes__data-title">{{$t('countries')}}</div>
+        <h6 class="network-nodes__data-title">{{$t('countries')}}</h6>
         <div class="network-nodes__data-value">{{networkStats.totalCountries | commaNumber}}</div>
       </div>
     </div>

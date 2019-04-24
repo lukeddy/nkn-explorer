@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="container container_white">
     <div class="main-header">
       <h1 class="main-header__title text_color_white">NKN {{$t('block')}} {{$t('explorer')}}</h1>
       <div class="main-header__description">

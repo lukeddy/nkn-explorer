@@ -2,19 +2,19 @@
   <div class="network-stats">
     <div class="network-stats__wrapper">
       <div class="network-stats__item">
-        <div class="network-stats__title">{{$t('network')}} {{$t('nodes')}}</div>
+        <h6 class="network-stats__title">{{$t('network')}} {{$t('nodes')}}</h6>
         <div class="network-stats__value">{{networkStats.totalNodes | commaNumber}}</div>
       </div>
       <div class="network-stats__item">
-        <div class="network-stats__title">{{$t('blocks')}}</div>
+        <h6 class="network-stats__title">{{$t('blocks')}}</h6>
         <div class="network-stats__value">{{networkStats.totalBlocks | commaNumber}}</div>
       </div>
       <div class="network-stats__item">
-        <div class="network-stats__title">{{$t('transactions')}}</div>
+        <h6 class="network-stats__title">{{$t('transactions')}}</h6>
         <div class="network-stats__value">{{networkStats.totalTransactions | commaNumber}}</div>
       </div>
       <div class="network-stats__item">
-        <div class="network-stats__title">{{$t('providers')}}</div>
+        <h6 class="network-stats__title">{{$t('providers')}}</h6>
         <div class="network-stats__value">{{networkStats.totalProviders | commaNumber}}</div>
       </div>
     </div>

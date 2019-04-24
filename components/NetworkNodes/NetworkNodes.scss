@@ -1,5 +1,5 @@
 .network-nodes {
-  margin-top: $padding-medium;
+  margin-top: 8px;
   padding: $padding-medium $padding-default;
   background: $white;
   font-weight: bold;
@@ -18,7 +18,7 @@
     justify-content: space-around;
 
     &-title {
-      font-size: 11px;
+      text-transform: uppercase;
       letter-spacing: 0.06em;
       color: $grey-light;
       margin-bottom: 8px;

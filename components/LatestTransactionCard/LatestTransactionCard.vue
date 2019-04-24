@@ -1,5 +1,5 @@
 <template>
-  <Card class="latest-card">
+  <Card class="latest-card" :border="true">
     <div class="latest-card__header">
       <TransactionTypeTitle :type="tx.txType" class="latest-card__title"/>
       <div class="text_size_xs text_color_grey-light">{{ $moment(tx.created_at).fromNow() }}</div>

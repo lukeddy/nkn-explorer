@@ -19,6 +19,10 @@ a {
 /*========== Layout ==========*/
 .container {
   margin-top: $header-size;
+
+  &_white {
+    background-color: $white;
+  }
 }
 
 .main-header {
