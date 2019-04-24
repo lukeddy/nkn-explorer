@@ -15,7 +15,7 @@
           class="network-countries__row network-countries__row_type_data"
         >
           <td class="network-countries__item">{{i + 1}}</td>
-          <td class="network-countries__item network-countries__item_country">
+          <td class="network-countries__item network-countries__item_country text_wrap_none">
             <CountryFlag
               class="network-countries__flag"
               :country="country.country_code"

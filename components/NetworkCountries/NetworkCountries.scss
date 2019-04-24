@@ -33,6 +33,11 @@
     text-align: left;
     position: relative;
 
+    &_country {
+      max-width: 50px;
+      overflow: hidden;
+    }
+
     &:first-child {
       text-align: center;
     }
