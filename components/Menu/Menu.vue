@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <Burger/>
-    <Logo/>
+    <nuxt-link to="/" class="menu__logo"><Logo/></nuxt-link>
     <LanguageSelect/>
     <MobileMenu/>
   </div>

@@ -4,21 +4,24 @@
   >
     <template>
       <Header/>
-      <nuxt/>
+      <nuxt v-if="!isMobileMenuOpen"/>
       <Footer/>
     </template>
   </div>
+  <Preloader v-else/>
 </template>
 <script>
 import Header from '~/components/Header/Header'
 import Footer from '~/components/Footer/Footer'
+import Preloader from '~/components/Preloader/Preloader'
 
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
     Header,
-    Footer
+    Footer,
+    Preloader
   },
   computed: mapGetters({
     market: 'price/getMarketStats',
@@ -29,7 +32,8 @@ export default {
     networkCities: 'network/getNetworkCities',
     networkCountries: 'network/getNetworkCountries',
     networkStats: 'network/getNetworkStats',
-    latestSigchain: 'latestSigchain/getLatestSigchain'
+    latestSigchain: 'latestSigchain/getLatestSigchain',
+    isMobileMenuOpen: 'mobileMenu/get'
   }),
   mounted: function() {
     this.$store.dispatch('price/getCurrentPrice')

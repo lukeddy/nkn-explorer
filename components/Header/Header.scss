@@ -8,4 +8,8 @@
   left: 0;
   max-height: calc(100vh - #{$padding-normal}* 2);
   overflow: auto;
+
+  &_open {
+    height: 100%;
+  }
 }

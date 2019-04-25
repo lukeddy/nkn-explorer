@@ -16,3 +16,22 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  80% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #0b163c;
+  }
+}

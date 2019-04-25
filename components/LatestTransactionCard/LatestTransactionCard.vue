@@ -1,20 +1,22 @@
 <template>
   <Card class="latest-card" :border="true">
-    <div class="latest-card__header">
-      <TransactionTypeTitle :type="tx.txType" class="latest-card__title"/>
-      <div class="text_size_xs text_color_grey-light">{{ $moment(tx.created_at).fromNow() }}</div>
-    </div>
-    <nuxt-link
-      class="latest-card__address text_link text_size_sm text_wrap_none"
-      :to="`/transactions/${tx.hash}`"
-    >{{tx.hash}}</nuxt-link>
-    <div class="latest-card__bottom">
-      <Block class="latest-card__icon latest-card__icon_small"/>
+    <nuxt-link to="/transactions">
+      <div class="latest-card__header">
+        <TransactionTypeTitle :type="tx.txType" class="latest-card__title"/>
+        <div class="text_size_xs text_color_grey-light">{{ $moment(tx.created_at).fromNow() }}</div>
+      </div>
       <nuxt-link
-        :to="`/blocks/${tx.block_height}`"
-        class="text_link text_size_sm text_color_grey-light"
-      >{{ tx.block_height | commaNumber}}</nuxt-link>
-    </div>
+        class="latest-card__address text_link text_size_sm text_wrap_none"
+        :to="`/transactions/${tx.hash}`"
+      >{{tx.hash}}</nuxt-link>
+      <div class="latest-card__bottom">
+        <Block class="latest-card__icon latest-card__icon_small"/>
+        <nuxt-link
+          :to="`/blocks/${tx.block_height}`"
+          class="text_link text_size_sm text_color_grey-light"
+        >{{ tx.block_height | commaNumber}}</nuxt-link>
+      </div>
+    </nuxt-link>
   </Card>
 </template>
 

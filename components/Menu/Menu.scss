@@ -8,4 +8,8 @@
     font-size: $menu-button-size;
     cursor: pointer;
   }
+
+  &__logo {
+    display: flex;
+  }
 }

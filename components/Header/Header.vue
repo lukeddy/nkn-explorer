@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" :class="isMobileMenuOpen ? 'header_open' : null">
     <Menu/>
   </div>
 </template>
@@ -11,9 +11,14 @@
 <script>
 import Menu from '~/components/Menu/Menu'
 
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     Menu
-  }
+  },
+  computed: mapGetters({
+    isMobileMenuOpen: 'mobileMenu/get'
+  })
 }
 </script>
