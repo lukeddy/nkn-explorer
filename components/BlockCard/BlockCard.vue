@@ -21,8 +21,14 @@
           class="block-card__txs text_size_sm"
         >{{$t('transactions')}}: {{block.transactions_count}}</div>
         <div class="block-card__miner text_size_sm">
-          {{$t('miner')}}:
+          {{$t('rewardedAddress')}}:
           <nuxt-link
+            v-if="block.header.benificiaryWallet"
+            class="block-card__address text_link text_wrap_none"
+            :to="`/addresses/${block.header.benificiaryWallet}`"
+          >&nbsp;{{block.header.benificiaryWallet}}</nuxt-link>
+          <nuxt-link
+            v-else
             class="block-card__address text_link text_wrap_none"
             :to="`/addresses/${block.header.wallet}`"
           >&nbsp;{{block.header.wallet}}</nuxt-link>

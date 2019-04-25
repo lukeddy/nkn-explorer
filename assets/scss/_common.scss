@@ -20,7 +20,7 @@ a {
 /*========== Layout ==========*/
 .container {
   margin-top: $header-size;
-  padding-bottom: 56px;
+  padding-bottom: $padding-normal;
 
   &_white {
     background-color: $white;

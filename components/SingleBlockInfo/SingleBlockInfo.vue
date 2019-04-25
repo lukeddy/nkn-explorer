@@ -16,10 +16,23 @@
       <div class="card__title">{{$t('timestamp')}}</div>
       <div class="card__text">{{block.header.timestamp}}</div>
     </Card>
-    <!-- <Card>
-      <div class="card__title">{{$t('rewardedMinerAddress')}}</div>
-      <nuxt-link class="card__link" :to="`/addresses/${block.miner}`">{{block.miner}}</nuxt-link>
-    </Card>-->
+    <Card>
+      <div class="card__title">{{$t('signer')}}</div>
+      <div class="card__text">{{block.header.signer}}</div>
+    </Card>
+    <Card>
+      <div class="card__title">{{$t('rewardedAddress')}}</div>
+      <nuxt-link
+        v-if="block.header.benificiaryWallet != null"
+        class="card__link"
+        :to="`/addresses/${block.header.benificiaryWallet}`"
+      >{{block.header.benificiaryWallet}}</nuxt-link>
+      <nuxt-link
+        v-else
+        class="card__link"
+        :to="`/addresses/${block.header.wallet}`"
+      >{{block.header.wallet}}</nuxt-link>
+    </Card>
     <Card>
       <div class="card__title">{{$t('hash')}}</div>
       <div class="card__text">{{block.hash}}</div>
