@@ -6,7 +6,7 @@
           <TransactionTypeTitle :type="tx.txType"/>
           <div
             class="transaction-card__timestamp text_size_sm text_color_grey-light"
-          >{{ $moment(tx.created_at).fromNow() }}</div>
+          >{{ $moment(tx.created_at+"Z").fromNow() }}</div>
         </div>
         <div class="transaction-card__item">
           {{$t('block')}}:&nbsp;

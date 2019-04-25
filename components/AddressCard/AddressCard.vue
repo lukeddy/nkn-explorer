@@ -12,7 +12,7 @@
         <div class="address-card__item">{{$t('transactions')}}: {{address.count_transactions}}</div>
         <div
           class="address-card__item"
-        >{{$t('latestTransaction')}}: {{ $moment(address.last_transaction).fromNow() }}</div>
+        >{{$t('latestTransaction')}}: {{ $moment(address.last_transaction+"Z").fromNow() }}</div>
       </div>
     </nuxt-link>
   </Card>

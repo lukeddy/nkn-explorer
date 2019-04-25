@@ -12,7 +12,7 @@
           <div class="text_opacity_75">
             <span v-if="!loading">
               {{$t('created')}}
-              {{ $moment(block.header.timestamp).fromNow() }}
+              {{ $moment(block.header.timestamp+"Z").fromNow() }}
             </span>
             <span v-else>{{$t('loading')}}</span>
           </div>

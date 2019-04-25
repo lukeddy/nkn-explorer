@@ -1,7 +1,9 @@
 <template>
   <div class="network-nodes">
     <h2 class="network-nodes__title">{{$t('networkMap')}}</h2>
-    <p class="network-nodes__subtitle">{{$t('updateTime')}}: {{networkStats.updatedTime}}</p>
+    <p
+      class="network-nodes__subtitle"
+    >{{$t('updateTime')}}: {{$moment(networkStats.updatedTime + "Z").fromNow()}}</p>
     <div class="network-nodes__data">
       <div class="network-nodes__data-item">
         <h6 class="network-nodes__data-title">{{$t('consensusNodes')}}</h6>

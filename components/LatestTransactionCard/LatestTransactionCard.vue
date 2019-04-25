@@ -3,7 +3,7 @@
     <nuxt-link to="/transactions">
       <div class="latest-card__header">
         <TransactionTypeTitle :type="tx.txType" class="latest-card__title"/>
-        <div class="text_size_xs text_color_grey-light">{{ $moment(tx.created_at).fromNow() }}</div>
+        <div class="text_size_xs text_color_grey-light">{{ $moment(tx.created_at+"Z").fromNow() }}</div>
       </div>
       <nuxt-link
         class="latest-card__address text_link text_size_sm text_wrap_none"

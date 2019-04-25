@@ -18,7 +18,7 @@
           <span v-if="loading">{{$t('loading')}}</span>
           <span v-else>
             {{$t('created')}}
-            {{ $moment(tx.created_at).fromNow() }}
+            {{ $moment(tx.created_at+"Z").fromNow() }}
           </span>
         </div>
       </div>
