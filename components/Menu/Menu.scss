@@ -4,6 +4,12 @@
   align-items: center;
   flex-flow: row wrap;
 
+  @include size-desktop {
+    max-width: $desktop-size;
+    margin: 0 auto;
+    padding: $padding-default 0;
+  }
+
   &__burger {
     font-size: $menu-button-size;
     cursor: pointer;

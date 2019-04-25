@@ -8,6 +8,10 @@
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1),
     padding-top 0.2s ease-in-out, opacity 0.2s ease-in-out;
 
+  @include size-desktop {
+    display: none;
+  }
+
   &_open {
     padding-top: $padding-normal;
     max-height: 1000px;

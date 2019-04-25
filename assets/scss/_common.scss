@@ -18,9 +18,13 @@ a {
 }
 
 /*========== Layout ==========*/
-.container {
+.section {
   margin-top: $header-size;
   padding-bottom: $padding-normal;
+
+  @include size-desktop {
+    margin-top: 0;
+  }
 
   &_white {
     background-color: $white;
@@ -34,8 +38,24 @@ a {
   padding-top: calc(#{$header-size} + #{$padding-medium});
   background: $header-gradient;
 
+  @include size-desktop {
+    margin-top: 0;
+    padding-top: 72px;
+  }
+
   &__title {
     text-align: center;
+
+    @include size-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__search-bar {
+    @include size-desktop {
+      margin: 0 100px;
+      display: flex;
+    }
   }
 
   &__description {
@@ -43,10 +63,28 @@ a {
     color: $white;
     text-align: center;
     margin: $padding-normal 0;
+
+    @include size-desktop {
+      font-size: 22px;
+    }
   }
 
   &__search {
     margin-bottom: $padding-default;
+
+    @include size-desktop {
+      flex: 1;
+      margin-right: $padding-normal;
+      margin-bottom: 0;
+    }
+  }
+
+  &__search-button {
+    @include size-desktop {
+      font-size: $font-size-lg !important;
+      padding: $padding-default 72px !important;
+      width: auto !important;
+    }
   }
 
   &__market-stats {

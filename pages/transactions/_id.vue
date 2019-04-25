@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="section">
     <div class="single-page-header">
       <GetBack :text="$t('allTransactions')" route="/transactions"/>
       <div class="single-page-header__info">

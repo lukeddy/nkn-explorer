@@ -6,6 +6,10 @@
   transform: scale(1, -1);
   cursor: pointer;
 
+  @include size-desktop {
+    display: none;
+  }
+
   &__inner {
     top: auto;
     bottom: 0;

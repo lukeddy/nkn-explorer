@@ -1,40 +1,38 @@
 <template>
-  <div>
-    <section class="container">
-      <div class="single-page-header">
-        <GetBack :text="$t('allBlocks')" route="/blocks"/>
-        <div class="single-page-header__info">
-          <h6 class="text_color_grey-light text_transform_uppercase">{{$t('block')}}</h6>
-          <h1 class="single-page-header__title">
-            <span v-if="!loading">{{block.header.height | commaNumber}}</span>
-            <span v-else>{{$t('loading')}}</span>
-          </h1>
-          <div class="text_opacity_75">
-            <span v-if="!loading">
-              {{$t('created')}}
-              {{ $moment(block.header.timestamp+"Z").fromNow() }}
-            </span>
-            <span v-else>{{$t('loading')}}</span>
-          </div>
-        </div>
-        <div class="single-page-header__switches">
-          <CardSwitch
-            :active="activeGeneral"
-            @click.native="toggleSwitch('activeGeneral')"
-          >{{$t('generalInfo')}}</CardSwitch>
-          <CardSwitch
-            :active="activeTx"
-            @click.native="toggleSwitch('activeTx')"
-          >{{$t('transactions')}}</CardSwitch>
+  <section class="section">
+    <div class="single-page-header">
+      <GetBack :text="$t('allBlocks')" route="/blocks"/>
+      <div class="single-page-header__info">
+        <h6 class="text_color_grey-light text_transform_uppercase">{{$t('block')}}</h6>
+        <h1 class="single-page-header__title">
+          <span v-if="!loading">{{block.header.height | commaNumber}}</span>
+          <span v-else>{{$t('loading')}}</span>
+        </h1>
+        <div class="text_opacity_75">
+          <span v-if="!loading">
+            {{$t('created')}}
+            {{ $moment(block.header.timestamp + "Z").fromNow() }}
+          </span>
+          <span v-else>{{$t('loading')}}</span>
         </div>
       </div>
-      <template v-if="!loading">
-        <SingleBlockInfo v-if="activeGeneral" :block="block"/>
-        <SingleBlockTransactions v-if="activeTx" :blockId="block.id"/>
-      </template>
-      <CardLoader v-else :count="5"/>
-    </section>
-  </div>
+      <div class="single-page-header__switches">
+        <CardSwitch
+          :active="activeGeneral"
+          @click.native="toggleSwitch('activeGeneral')"
+        >{{$t('generalInfo')}}</CardSwitch>
+        <CardSwitch
+          :active="activeTx"
+          @click.native="toggleSwitch('activeTx')"
+        >{{$t('transactions')}}</CardSwitch>
+      </div>
+    </div>
+    <template v-if="!loading">
+      <SingleBlockInfo v-if="activeGeneral" :block="block"/>
+      <SingleBlockTransactions v-if="activeTx" :blockId="block.id"/>
+    </template>
+    <CardLoader v-else :count="5"/>
+  </section>
 </template>
 
 <script>

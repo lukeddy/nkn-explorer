@@ -1,6 +1,6 @@
 /*========== Custom Variable ==========*/
 
-//Grid system
+// Grid system
 
 // Set the number of columns you want to use on your layout.
 $flexboxgrid-grid-columns: 12 !default;
@@ -9,8 +9,6 @@ $flexboxgrid-gutter-width: 1rem !default;
 // Set a margin for the container sides.
 $flexboxgrid-outer-margin: 2rem !default;
 // Create or remove breakpoints for your project
-// Syntax:
-// name SIZErem,
 $flexboxgrid-breakpoints: sm 48em 46rem, md 62em 61rem, lg 75em 71rem !default;
 $flexboxgrid-max-width: 1200px !default;
 
@@ -22,6 +20,9 @@ $html-font-size: 16px;
 
 // App Font Family
 $html-font-family: 'Inter', Arial;
+
+// Media Size
+$desktop-size: 1440px;
 
 //Default Colors
 $white: #fff;

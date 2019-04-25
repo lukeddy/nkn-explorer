@@ -72,7 +72,10 @@ export default {
    ** Style Resources module configuration
    */
   styleResources: {
-    scss: ['~/assets/scss/_app.variables.scss']
+    scss: [
+      '~/assets/scss/_app.variables.scss',
+      '~/assets/scss/_app.mixins.scss'
+    ]
   },
   /*
    ** Axios module configuration

@@ -8,10 +8,10 @@
   border: none;
   outline: none;
   text-decoration: none;
-  width: 100%;
   box-sizing: border-box;
   display: block;
   background: $white;
+  font-size: inherit;
 
   &_theme {
     &_primary {
@@ -57,5 +57,9 @@
         border-color: lighten($primary, 20%);
       }
     }
+  }
+
+  &_full {
+    width: 100%;
   }
 }

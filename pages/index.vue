@@ -1,5 +1,5 @@
 <template>
-  <section class="container container_white">
+  <section class="section section_white">
     <div class="main-header">
       <h1 class="main-header__title text_color_white">NKN {{$t('block')}} {{$t('explorer')}}</h1>
       <div class="main-header__description">
@@ -9,8 +9,15 @@
         or
         <nuxt-link class="text_link" to="/addresses">{{$t('address')}}</nuxt-link>
       </div>
-      <Search class="main-header__search" :text="$t('singleSearch')"/>
-      <Button theme="primary" type="button">{{$t('singleSearch')}}</Button>
+      <div class="main-header__search-bar">
+        <Search class="main-header__search" :text="$t('singleSearch')"/>
+        <Button
+          class="main-header__search-button"
+          theme="primary"
+          type="button"
+          :full="true"
+        >{{$t('singleSearch')}}</Button>
+      </div>
       <MarketStats class="main-header__market-stats"/>
     </div>
     <NetworkStats class="main-header__network-stats"/>

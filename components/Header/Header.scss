@@ -9,6 +9,11 @@
   max-height: calc(100vh - #{$padding-normal}* 2);
   overflow: auto;
 
+  @include size-desktop {
+    position: relative;
+    padding: 0;
+  }
+
   &_open {
     height: 100%;
   }

@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="section">
     <div class="page-header">
       <h1 class="page-header__title text_color_white">{{$t('transactions')}}</h1>
       <div class="page-header__stats">

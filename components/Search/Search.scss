@@ -5,6 +5,10 @@
   padding: $padding-small $padding-default;
   border-radius: $app-br;
 
+  @include size-desktop {
+    padding: $padding-default 20px;
+  }
+
   &__control {
     flex: 1;
     background-color: $white;
@@ -13,6 +17,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    @include size-desktop {
+      font-size: $font-size-lg;
+      order: 2;
+    }
 
     &::placeholder {
       color: $grey-light;
@@ -25,5 +34,12 @@
     font-size: 22px;
     margin-left: $padding-normal;
     cursor: pointer;
+
+    @include size-desktop {
+      margin-left: 0;
+      order: 1;
+      margin-right: 18px;
+      color: #303159;
+    }
   }
 }

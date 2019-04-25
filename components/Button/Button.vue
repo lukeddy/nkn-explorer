@@ -1,18 +1,20 @@
 <template>
-  <div>
-    <button v-if="type=='button'" class="button" :class="theme ? `button_theme_${theme}` : null">
-      <slot/>
-    </button>
-    <a
-      v-if="type=='link'"
-      :href="url"
-      target="_blank"
-      class="button"
-      :class="theme ? `button_theme_${theme}` : null"
-    >
-      <slot/>
-    </a>
-  </div>
+  <button
+    v-if="type=='button'"
+    class="button"
+    :class="[theme ? `button_theme_${theme}` : null, full ? `button_full` : null]"
+  >
+    <slot/>
+  </button>
+  <a
+    v-else
+    :href="url"
+    target="_blank"
+    class="button"
+    :class="[theme ? `button_theme_${theme}` : null, full ? `button_full` : null]"
+  >
+    <slot/>
+  </a>
 </template>
 
 <style lang="scss">
@@ -34,6 +36,10 @@ export default {
     url: {
       type: String,
       default: ''
+    },
+    full: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => {
