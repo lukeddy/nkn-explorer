@@ -10,7 +10,7 @@
 </style>
 
 <script>
-import Back from '~/assets/icons/back.svg'
+import Back from '@/assets/icons/back.svg'
 
 export default {
   components: { Back },

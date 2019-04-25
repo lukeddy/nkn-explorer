@@ -24,7 +24,7 @@
 
 <script>
 import Card from '~/components/Card/Card'
-import Block from '~/assets/icons/Block.svg'
+import Block from '@/assets/icons/Block.svg'
 import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
 
 export default {

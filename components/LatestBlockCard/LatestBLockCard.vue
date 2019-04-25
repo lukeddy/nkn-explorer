@@ -31,7 +31,7 @@
 
 <script>
 import Card from '~/components/Card/Card'
-import Block from '~/assets/icons/Block.svg'
+import Block from '@/assets/icons/Block.svg'
 
 export default {
   components: { Card, Block },

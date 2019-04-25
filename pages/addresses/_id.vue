@@ -35,7 +35,7 @@ import SingleAddressTransactions from '~/components/SingleAddressTransactions/Si
 import CardSwitch from '~/components/CardSwitch/CardSwitch'
 import CardLoader from '~/components/Loaders/CardLoader'
 
-import Copy from '~/assets/icons/Copy.svg'
+import Copy from '@/assets/icons/Copy.svg'
 
 export default {
   components: {

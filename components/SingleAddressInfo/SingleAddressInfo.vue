@@ -34,7 +34,7 @@
 import Card from '~/components/Card/Card'
 import CardContainer from '~/components/CardContainer/CardContainer'
 
-import Logo from '~/assets/icons/logo.svg'
+import Logo from '@/assets/icons/logo.svg'
 
 export default {
   components: { Card, CardContainer, Logo },

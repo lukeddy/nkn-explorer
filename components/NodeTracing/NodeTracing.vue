@@ -77,8 +77,8 @@
 <script>
 import Button from '~/components/Button/Button'
 
-import Client from '~/assets/icons/Client.svg'
-import Relay from '~/assets/icons/Relay.svg'
+import Client from '@/assets/icons/Client.svg'
+import Relay from '@/assets/icons/Relay.svg'
 
 import CountryFlag from 'vue-country-flag'
 

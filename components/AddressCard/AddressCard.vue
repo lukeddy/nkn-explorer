@@ -23,7 +23,7 @@
 <script>
 import Card from '~/components/Card/Card'
 
-import Wallet from '~/assets/icons/Wallet.svg'
+import Wallet from '@/assets/icons/Wallet.svg'
 
 export default {
   components: { Wallet, Card },
