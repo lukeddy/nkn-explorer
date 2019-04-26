@@ -7,6 +7,7 @@
   opacity: 0;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1),
     padding-top 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  width: 100%;
 
   @include size-desktop {
     display: none;

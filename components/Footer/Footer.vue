@@ -22,14 +22,14 @@
         </div>
 
         <div v-for="nav in navigation" :key="nav.title" class="footer__nav-item">
-          <div class="footer__nav-title">{{nav.title}}</div>
+          <div class="footer__nav-title">{{$t(nav.title)}}</div>
           <a
             v-for="link in nav.links"
             :key="link.title"
             class="footer__nav-link"
             :href="link.url"
             target="_blank"
-          >{{link.title}}</a>
+          >{{$t(link.title)}}</a>
         </div>
       </div>
       <div class="footer__bottom">
@@ -69,27 +69,27 @@ export default {
     return {
       navigation: [
         {
-          title: 'Company',
+          title: 'company',
           links: [
             {
-              title: 'About',
+              title: 'about',
               url: 'https://www.nkn.org/#/about'
             },
             {
-              title: 'Official Website',
+              title: 'officialWebsite',
               url: 'https://www.nkn.org/'
             }
           ]
         },
         {
-          title: 'Community',
+          title: 'community',
           links: [
             {
-              title: 'NKNx Node Manager',
+              title: 'nknxNodeManager',
               url: 'https://www.nknx.org'
             },
             {
-              title: 'NKN Wallet',
+              title: 'nknWallet',
               url: 'https://nknwallet.io'
             }
           ]

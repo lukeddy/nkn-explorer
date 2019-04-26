@@ -1,0 +1,42 @@
+.desktop-menu {
+  display: none;
+
+  @include size-desktop {
+    display: flex;
+    position: relative;
+
+    &__item {
+      width: 25%;
+      padding: 26px $padding-default;
+      opacity: 0.75;
+      transition: $transition-1, font-weight 0s;
+      cursor: pointer;
+
+      &.nuxt-link-exact-active {
+        font-weight: bold;
+        opacity: 1;
+        position: relative;
+
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 5px;
+          width: 100%;
+          background: $primary;
+          border-radius: $app-br;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
   @include size-desktop {
     max-width: $desktop-size-lg;
     margin: 0 auto;
-    padding: $padding-default 0;
+    padding-top: 0;
   }
 
   &__burger {
@@ -17,5 +17,75 @@
 
   &__logo {
     display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    display: none;
+
+    @include size-desktop {
+      display: block;
+      font-weight: bold;
+      letter-spacing: 0.06em;
+      margin-left: $padding-default;
+      margin-right: 48px;
+    }
+  }
+
+  &__left {
+    @include size-desktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__right {
+    @include size-desktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__search {
+    display: none;
+
+    @include size-desktop {
+      display: flex;
+      width: 330px;
+      position: relative;
+
+      &:after {
+        display: block;
+        content: '';
+        height: 100%;
+        width: 1px;
+        background-color: rgba($white, 0.25);
+        position: absolute;
+        right: -24px;
+      }
+      margin-right: $padding-normal;
+    }
+  }
+
+  &__mining-button {
+    display: none;
+
+    @include size-desktop {
+      position: relative;
+      display: block;
+      margin: 0 24px;
+      min-height: auto;
+      padding: $padding-micro $padding-normal;
+      overflow: hidden;
+
+      &-icon {
+        position: absolute;
+        opacity: 0.15;
+        height: 45px;
+        width: 45px;
+        left: -15px;
+        top: 5px;
+      }
+    }
   }
 }

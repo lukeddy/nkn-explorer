@@ -10,13 +10,11 @@
         @click.native="toggleMobileMenu()"
       >
         <component :is="route.icon" class="mobile-menu__nav-icon"></component>
-        {{route.title}}
+        {{$t(route.title)}}
       </nuxt-link>
     </div>
     <h3 class="mobile-menu__title">{{$t('about')}}</h3>
-    <p
-      class="mobile-menu__descr"
-    >NKN is a New Kind of Network, a Cellular Automata powered, decentralized data relay network built on Blockchain & incentivized by a native token.</p>
+    <p class="mobile-menu__descr">{{$t('nknDescription')}}</p>
     <div class="mobile-menu__stats">
       <div class="mobile-menu__stats-item">{{networkStats.totalNodes | commaNumber}} {{$t('nodes')}}</div>
       <div

@@ -42,4 +42,32 @@
       color: #303159;
     }
   }
+
+  &_type {
+    &_ghost {
+      padding: $padding-micro $padding-default;
+      border: 1px solid rgba($white, 0.25);
+      background: transparent;
+      box-sizing: border-box;
+      border-radius: 100px;
+
+      .search__control {
+        background: transparent;
+        font-size: $font-size-md;
+        color: $white;
+        opacity: 0.75;
+        order: 1;
+
+        &::placeholder {
+          font-style: normal;
+        }
+      }
+
+      .search__icon {
+        order: 2;
+        color: $white;
+        margin-right: 0;
+      }
+    }
+  }
 }

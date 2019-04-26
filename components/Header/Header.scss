@@ -6,12 +6,14 @@
   z-index: 1000;
   top: 0;
   left: 0;
-  max-height: calc(100vh - #{$padding-normal}* 2);
+  max-height: calc(100vh - #{$padding-normal} * 2);
   overflow: auto;
+  width: calc(100% - (#{$padding-default} * 2));
 
   @include size-desktop {
     position: relative;
     padding: 0;
+    width: 100%;
   }
 
   &_open {

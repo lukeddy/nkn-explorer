@@ -9,7 +9,7 @@
 
   &__wrapper {
     @include size-desktop {
-      max-width: $desktop-size-lg;
+      max-width: $desktop-size-md;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
