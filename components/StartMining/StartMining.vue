@@ -3,8 +3,12 @@
     <div class="start-mining__icon">
       <Mining/>
     </div>
-    <h4 class="start-mining__nodes">{{networkStats.totalNodes | commaNumber}} {{$t('currentNodes')}}</h4>
-    <div class="start-mining__text">{{$t('wantToJoinNKN')}}</div>
+    <div class="start-mining__descr">
+      <h4
+        class="start-mining__nodes"
+      >{{networkStats.totalNodes | commaNumber}} {{$t('currentNodes')}}</h4>
+      <div class="start-mining__text">{{$t('wantToJoinNKN')}}</div>
+    </div>
     <Button
       class="start-mining__button"
       theme="dark-blue"

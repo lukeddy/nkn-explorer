@@ -1,20 +1,44 @@
 <template>
   <footer class="footer">
-    <StartMining/>
-    <div class="footer__nav">
-      <div v-for="nav in navigation" :key="nav.title" class="footer__nav-item">
-        <div class="footer__nav-title">{{nav.title}}</div>
-        <a
-          v-for="link in nav.links"
-          :key="link.title"
-          class="footer__nav-link"
-          :href="link.url"
-          target="_blank"
-        >{{link.title}}</a>
+    <div class="footer__wrapper">
+      <StartMining/>
+      <div class="footer__nav">
+        <div class="footer__description">
+          <div class="footer__description-title">
+            <Logo class="footer__description-logo"/>New Kind of Network
+          </div>
+          <div class="footer__description-text">{{$t('nknDescription')}}</div>
+          <div class="footer__description-socials">
+            <a
+              v-for="social in socials"
+              :key="social.url"
+              :href="social.url"
+              target="_blank"
+              class="footer__description-social"
+            >
+              <component :is="social.icon"></component>
+            </a>
+          </div>
+        </div>
+
+        <div v-for="nav in navigation" :key="nav.title" class="footer__nav-item">
+          <div class="footer__nav-title">{{nav.title}}</div>
+          <a
+            v-for="link in nav.links"
+            :key="link.title"
+            class="footer__nav-link"
+            :href="link.url"
+            target="_blank"
+          >{{link.title}}</a>
+        </div>
       </div>
-    </div>
-    <div class="footer__bottom">
-      <div class="footer__bottom-item">© NKN Explorer 2019</div>
+      <div class="footer__bottom">
+        <div class="footer__bottom-item">© NKN Explorer 2019</div>
+        <div
+          class="footer__bottom-item"
+        >{{$t('copyright')}} © NKN Explorer 2019. {{$t('allRightsReserved')}}.</div>
+        <div class="footer__bottom-item">{{$t('donateAddress')}}:</div>
+      </div>
     </div>
   </footer>
 </template>
@@ -27,9 +51,18 @@
 <script>
 import StartMining from '~/components/StartMining/StartMining'
 
+import Logo from '@/assets/icons/logo.svg'
+import Twitter from '@/assets/icons/Twitter.svg'
+import Telegram from '@/assets/icons/Telegram.svg'
+import Medium from '@/assets/icons/Medium.svg'
+
 export default {
   components: {
-    StartMining
+    StartMining,
+    Logo,
+    Twitter,
+    Telegram,
+    Medium
   },
 
   data: () => {
@@ -61,6 +94,11 @@ export default {
             }
           ]
         }
+      ],
+      socials: [
+        { icon: 'Twitter', url: 'https://twitter.com/NKN_ORG' },
+        { icon: 'Telegram', url: 'https://t.me/nknorg' },
+        { icon: 'Medium', url: 'https://medium.com/nknetwork' }
       ]
     }
   }

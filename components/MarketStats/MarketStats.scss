@@ -7,6 +7,15 @@
     align-items: center;
   }
 
+  &__wrapper {
+    @include size-desktop {
+      max-width: $desktop-size-lg;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
   &__rank {
     padding: 8px;
     border-radius: $app-br;
@@ -16,18 +25,35 @@
     font-weight: bold;
     display: inline-block;
     letter-spacing: 0.06em;
+
+    @include size-desktop {
+      display: none;
+    }
   }
 
   &__title {
     color: $white;
     opacity: 0.75;
+
+    @include size-desktop {
+      font-weight: bold;
+      font-size: $font-size-md;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
   }
 
   &__number {
-    margin-top: 4px;
+    margin-top: 8px;
     font-size: $number-big;
     color: $white;
     font-weight: bold;
+
+    @include size-desktop {
+      &_small {
+        font-size: $h4-font-size;
+      }
+    }
   }
 
   &__change {
@@ -50,5 +76,23 @@
     margin-bottom: -25px;
     z-index: 1;
     position: relative;
+
+    @include size-desktop {
+      height: 250px;
+      margin-top: -20px;
+      margin-bottom: -40px;
+    }
+  }
+
+  &__item {
+    &:not(:first-child) {
+      display: none;
+    }
+
+    @include size-desktop {
+      &:not(:first-child) {
+        display: block;
+      }
+    }
   }
 }

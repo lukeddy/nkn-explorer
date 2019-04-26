@@ -5,12 +5,37 @@
   font-weight: bold;
   text-align: center;
 
+  @include size-desktop {
+    margin-top: 0;
+    padding-top: 80px;
+    padding-bottom: 72px;
+  }
+
+  &__wrapper {
+    @include size-desktop {
+      max-width: $desktop-size-md;
+      margin: 0 auto;
+    }
+  }
+
+  &__title {
+    @include size-desktop {
+      font-size: $h1-font-size;
+    }
+  }
+
   &__subtitle {
     font-size: $font-size-xs;
     color: $grey-light;
     margin-top: 8px;
     margin-bottom: $padding-normal;
     font-weight: normal;
+
+    @include size-desktop {
+      font-size: $font-size-base;
+      color: $body-color;
+      margin-bottom: 46px;
+    }
   }
 
   &__data {
@@ -23,17 +48,45 @@
       color: $grey-light;
       margin-bottom: 8px;
       text-align: center;
+
+      @include size-desktop {
+        font-size: $h5-font-size;
+        margin-bottom: 14px;
+      }
     }
 
     &-value {
       text-align: center;
       letter-spacing: 0.06em;
       font-size: $number-small;
+
+      @include size-desktop {
+        font-size: $h2-font-size;
+      }
+    }
+
+    &-item {
+      &:last-child {
+        display: none;
+      }
+
+      @include size-desktop {
+        flex: 1;
+
+        &:last-child {
+          display: block;
+        }
+      }
     }
   }
 
   &__map {
     height: 340px;
     margin-top: $padding-medium;
+
+    @include size-desktop {
+      margin-top: 46px;
+      height: 580px;
+    }
   }
 }

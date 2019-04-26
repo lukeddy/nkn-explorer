@@ -5,7 +5,7 @@
   flex-flow: row wrap;
 
   @include size-desktop {
-    max-width: $desktop-size;
+    max-width: $desktop-size-lg;
     margin: 0 auto;
     padding: $padding-default 0;
   }

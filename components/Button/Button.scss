@@ -4,7 +4,7 @@
   border-radius: $app-br;
   text-align: center;
   transition: $transition-1;
-  cursor: pointer;
+  cursor: pointer !important;
   border: none;
   outline: none;
   text-decoration: none;

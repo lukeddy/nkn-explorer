@@ -5,6 +5,7 @@
         <tr class="network-countries__row">
           <th class="network-countries__title">{{$t('rank')}}</th>
           <th class="network-countries__title">{{$t('country')}}</th>
+          <th class="network-countries__title"></th>
           <th class="network-countries__title">{{$t('nodes')}}</th>
         </tr>
       </thead>
@@ -23,6 +24,9 @@
             />
             <span class="network-countries__country">{{country.country_name}}</span>
           </td>
+          <td class="network-countries__item network-countries__item_percentage">
+            <span class="network-countries__percentage" :style="{width: country.percent+'%'}"></span>
+          </td>
           <td
             class="network-countries__item"
           >{{country.count}} {{'('+(Number(country.percent)).toFixed(2)+'%)'}}</td>
@@ -30,7 +34,12 @@
       </tbody>
     </table>
     <div class="network-countries__toggle">
-      <Button type="button" theme="ghost" @click.native="toggleCountries">
+      <Button
+        class="network-countries__button"
+        type="button"
+        theme="ghost"
+        @click.native="toggleCountries"
+      >
         <span v-if="!fullCountries">{{$t('showMore')}}</span>
         <span v-else>{{$t('showLess')}}</span>
       </Button>

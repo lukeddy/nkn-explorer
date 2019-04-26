@@ -6,12 +6,24 @@
   position: relative;
   overflow: hidden;
 
+  @include size-desktop {
+    padding: 42px 72px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__icon {
     position: absolute;
     left: 5px;
     top: 5px;
     z-index: 1;
     opacity: 0.1;
+
+    @include size-desktop {
+      left: -60px;
+      top: 24px;
+    }
   }
 
   &__nodes {
@@ -19,6 +31,10 @@
     z-index: 2;
     color: $grey-dark;
     margin-bottom: $padding-micro;
+
+    @include size-desktop {
+      font-size: 28px;
+    }
   }
 
   &__text {
@@ -27,10 +43,20 @@
     margin-bottom: $padding-default;
     font-size: $font-size-md;
     font-weight: bold;
+
+    @include size-desktop {
+      font-size: $h2-font-size;
+      margin-bottom: 0;
+    }
   }
 
   &__button {
     position: relative;
     z-index: 2;
+
+    @include size-desktop {
+      font-size: $font-size-lg;
+      padding: $padding-default $padding-big;
+    }
   }
 }

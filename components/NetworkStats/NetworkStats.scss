@@ -5,17 +5,36 @@
   position: relative;
   z-index: 2;
 
+  @include size-desktop {
+    max-width: $desktop-size-md;
+    margin: 0 auto;
+    border-radius: $app-br;
+    box-shadow: $shadow-1;
+    padding: 0;
+  }
+
   &__wrapper {
     background-color: #f2f2f2;
     display: grid;
     grid-gap: 1px;
     grid-template-columns: repeat(2, 1fr);
+
+    @include size-desktop {
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 0;
+      background-color: transparent;
+      margin-top: -63.5px;
+    }
   }
 
   &__item {
     text-align: center;
     padding: 24px;
     background-color: $white;
+
+    @include size-desktop {
+      padding: 32px;
+    }
   }
 
   &__title {
@@ -23,11 +42,22 @@
     color: $grey-light;
     letter-spacing: 0.06em;
     font-weight: bold;
+
+    @include size-desktop {
+      font-size: $h5-font-size;
+      letter-spacing: normal;
+    }
   }
 
   &__value {
     margin-top: 8px;
     font-size: $number-small;
     font-weight: bold;
+
+    @include size-desktop {
+      margin-top: 14px;
+      font-size: $h2-font-size;
+      letter-spacing: 0.06em;
+    }
   }
 }

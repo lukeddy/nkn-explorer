@@ -24,10 +24,15 @@ a {
 
   @include size-desktop {
     margin-top: 0;
+    padding-bottom: 0;
   }
 
   &_white {
     background-color: $white;
+
+    @include size-desktop {
+      background-color: transparent;
+    }
   }
 }
 
@@ -53,8 +58,9 @@ a {
 
   &__search-bar {
     @include size-desktop {
-      margin: 0 100px;
+      margin: 0 auto;
       display: flex;
+      max-width: $desktop-size-sm;
     }
   }
 
@@ -89,6 +95,10 @@ a {
 
   &__market-stats {
     margin-top: $padding-big;
+
+    @include size-desktop {
+      margin-top: $padding-max;
+    }
   }
 
   &__network-stats {

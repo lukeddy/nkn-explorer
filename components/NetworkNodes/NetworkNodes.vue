@@ -1,21 +1,27 @@
 <template>
   <div class="network-nodes">
-    <h2 class="network-nodes__title">{{$t('networkMap')}}</h2>
-    <p
-      class="network-nodes__subtitle"
-    >{{$t('updateTime')}}: {{$moment(networkStats.updatedTime + "Z").fromNow()}}</p>
-    <div class="network-nodes__data">
-      <div class="network-nodes__data-item">
-        <h6 class="network-nodes__data-title">{{$t('consensusNodes')}}</h6>
-        <div class="network-nodes__data-value">{{networkStats.totalNodes | commaNumber}}</div>
+    <div class="network-nodes__wrapper">
+      <h2 class="network-nodes__title">{{$t('networkMap')}}</h2>
+      <p
+        class="network-nodes__subtitle"
+      >{{$t('updateTime')}}: {{$moment(networkStats.updatedTime + "Z").fromNow()}}</p>
+      <div class="network-nodes__data">
+        <div class="network-nodes__data-item">
+          <h6 class="network-nodes__data-title">{{$t('consensusNodes')}}</h6>
+          <div class="network-nodes__data-value">{{networkStats.totalNodes | commaNumber}}</div>
+        </div>
+        <div class="network-nodes__data-item">
+          <h6 class="network-nodes__data-title">{{$t('countries')}}</h6>
+          <div class="network-nodes__data-value">{{networkStats.totalCountries | commaNumber}}</div>
+        </div>
+        <div class="network-nodes__data-item">
+          <h6 class="network-nodes__data-title">{{$t('provider')}}</h6>
+          <div class="network-nodes__data-value">{{networkStats.totalProviders | commaNumber}}</div>
+        </div>
       </div>
-      <div class="network-nodes__data-item">
-        <h6 class="network-nodes__data-title">{{$t('countries')}}</h6>
-        <div class="network-nodes__data-value">{{networkStats.totalCountries | commaNumber}}</div>
-      </div>
+      <NetworkMapChart class="network-nodes__map"/>
+      <NetworkCountries/>
     </div>
-    <NetworkMapChart class="network-nodes__map"/>
-    <NetworkCountries/>
   </div>
 </template>
 
