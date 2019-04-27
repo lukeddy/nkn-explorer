@@ -113,8 +113,44 @@ a {
   margin-top: -$header-size;
   background: $header-gradient;
 
+  @include size-desktop {
+    margin-top: 0;
+    padding: 72px 0;
+  }
+
+  &__wrapper {
+    @include size-desktop {
+      margin: 0 auto;
+      max-width: $desktop-size-md;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__left {
+    min-width: 50%;
+  }
+
   &__title {
     text-align: center;
+
+    @include size-desktop {
+      text-align: left;
+      font-size: $number-big;
+      padding-bottom: 32px;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        content: '';
+        display: block;
+        height: 4px;
+        width: 52px;
+        background: $primary;
+      }
+    }
   }
 
   &__stats {
@@ -122,6 +158,10 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    @include size-desktop {
+      justify-content: space-between !important;
+    }
 
     &_justify {
       &_center {
@@ -131,14 +171,35 @@ a {
 
     &-item {
       text-align: center;
+
+      @include size-desktop {
+        text-align: left;
+      }
+    }
+
+    &-value {
+      @include size-desktop {
+        font-size: 28px;
+        letter-spacing: 0.06em;
+      }
     }
 
     &-title {
       margin-bottom: 8px;
+
+      @include size-desktop {
+        font-size: $h5-font-size;
+        letter-spacing: 0.06em;
+        text-align: left;
+      }
     }
 
     &-index {
       font-weight: normal;
+
+      @include size-desktop {
+        font-size: $font-size-base;
+      }
     }
   }
 }

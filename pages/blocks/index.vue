@@ -1,25 +1,30 @@
 <template>
   <section class="section">
     <div class="page-header">
-      <h1 class="page-header__title text_color_white">{{$t('blocks')}}</h1>
-      <div class="page-header__stats">
-        <div class="page-header__stats-item">
-          <h6
-            class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
-          >{{$t('total')}}</h6>
-          <h4 class="page-header__stats-value text_color_white">{{sumBlocks | commaNumber}}</h4>
+      <div class="page-header__wrapper">
+        <div class="page-header__left">
+          <h1 class="page-header__title text_color_white">{{$t('blocks')}}</h1>
+          <div class="page-header__stats">
+            <div class="page-header__stats-item">
+              <h6
+                class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
+              >{{$t('total')}}</h6>
+              <h4 class="page-header__stats-value text_color_white">{{sumBlocks | commaNumber}}</h4>
+            </div>
+            <div class="page-header__stats-item">
+              <h6
+                class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
+              >{{$t('avgSize')}}</h6>
+              <h4 class="page-header__stats-value text_color_white">
+                {{avgSize}}
+                <span
+                  class="page-header__stats-index text_color_white text_size_sm text_opacity_75"
+                >{{$t('bytes')}}</span>
+              </h4>
+            </div>
+          </div>
         </div>
-        <div class="page-header__stats-item">
-          <h6
-            class="page-header__stats-title text_color_white text_transform_uppercase text_opacity_75"
-          >{{$t('avgSize')}}</h6>
-          <h4 class="page-header__stats-value text_color_white">
-            {{avgSize}}
-            <span
-              class="page-header__stats-index text_color_white text_size_sm text_opacity_75"
-            >{{$t('bytes')}}</span>
-          </h4>
-        </div>
+        <div class="page-header__right"></div>
       </div>
     </div>
     <CardLoader v-if="loading" :count="10"/>
