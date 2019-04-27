@@ -11,7 +11,8 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "vue-i18n-extract": "vue-i18n-extract"
   },
   "dependencies": {
     "@amcharts/amcharts4": "^4.4.1",
@@ -46,6 +47,7 @@
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.9",
     "prettier": "^1.16.4",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "vue-i18n-extract": "^0.4.14"
   }
 }
