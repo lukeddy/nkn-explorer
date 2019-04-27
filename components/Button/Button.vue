@@ -3,6 +3,7 @@
     v-if="type=='button'"
     class="button"
     :class="[theme ? `button_theme_${theme}` : null, full ? `button_full` : null]"
+    @click="onClickButton"
   >
     <slot/>
   </button>
@@ -46,6 +47,10 @@ export default {
     return {}
   },
   mounted: function() {},
-  methods: {}
+  methods: {
+    onClickButton(event) {
+      this.$emit('clicked', '')
+    }
+  }
 }
 </script>

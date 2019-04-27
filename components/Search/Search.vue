@@ -1,6 +1,12 @@
 <template>
   <div class="search" :class="`search_type_${type}`">
-    <input type="text" class="search__control" :placeholder="text">
+    <input
+      v-model="searchContext"
+      type="text"
+      class="search__control"
+      :placeholder="text"
+      @keyup.enter="onEnterPressed"
+    >
     <span class="search__icon fe fe-search"></span>
   </div>
 </template>
@@ -22,10 +28,14 @@ export default {
     }
   },
   data: () => {
-    return {}
+    return { searchContext: '' }
   },
 
   mounted: function() {},
-  methods: {}
+  methods: {
+    onEnterPressed() {
+      this.$emit('sent', '')
+    }
+  }
 }
 </script>

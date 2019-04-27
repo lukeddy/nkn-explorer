@@ -10,12 +10,18 @@
         <nuxt-link class="text_link" to="/addresses">{{$t('address')}}</nuxt-link>
       </div>
       <div class="main-header__search-bar">
-        <Search class="main-header__search" :text="$t('singleSearch')"/>
+        <Search
+          ref="searchField"
+          class="main-header__search"
+          :text="$t('singleSearch')"
+          @sent="search()"
+        />
         <Button
           class="main-header__search-button"
           theme="primary"
           type="button"
           :full="true"
+          @clicked="search()"
         >{{$t('singleSearch')}}</Button>
       </div>
       <MarketStats class="main-header__market-stats"/>
@@ -43,6 +49,35 @@ export default {
     NetworkStats,
     Latest,
     NetworkNodes
+  },
+  methods: {
+    search() {
+      let searchContext = this.$refs.searchField.searchContext
+      if (searchContext.startsWith('NKN') && searchContext.length == 36) {
+        this.$router.push('/addresses/' + searchContext)
+      } else if (searchContext.length == 64) {
+        var self = this
+        this.$axios
+          .$get(`transactions/${searchContext}`)
+          .then(function(response) {
+            if (!Object.entries(response).length) {
+              self.$axios
+                .$get(`blocks/${searchContext}`)
+                .then(function(response) {
+                  if (!Object.entries(response).length) {
+                    console.log('no data found')
+                  } else {
+                    self.$router.push('/blocks/' + searchContext)
+                  }
+                })
+            } else {
+              self.$router.push('/transactions/' + searchContext)
+            }
+          })
+      } else {
+        console.log('no search context')
+      }
+    }
   }
 }
 </script>
