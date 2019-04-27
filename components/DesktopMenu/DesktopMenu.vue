@@ -21,19 +21,19 @@ export default {
       routes: [
         {
           path: '/',
-          title: 'Home'
+          title: 'home'
         },
         {
           path: '/blocks',
-          title: 'Blocks'
+          title: 'blocks'
         },
         {
           path: '/transactions',
-          title: 'Transactions'
+          title: 'transactions'
         },
         {
           path: '/addresses',
-          title: 'Addresses'
+          title: 'addresses'
         }
       ]
     }
