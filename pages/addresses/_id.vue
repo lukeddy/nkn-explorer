@@ -1,23 +1,25 @@
 <template>
   <section class="section">
     <div class="single-page-header">
-      <GetBack :text="$t('allAddresses')" route="/addresses"/>
-      <div class="single-page-header__info">
-        <h1 class="single-page-header__title">{{ $t('addressDetails')}}</h1>
-        <div v-clipboard:copy="$route.params.id" class="single-page-header__address">
-          {{$route.params.id}}
-          <Copy class="single-page-header__address-copy"/>
+      <div class="single-page-header__wrapper">
+        <GetBack :text="$t('allAddresses')" route="/addresses"/>
+        <div class="single-page-header__info">
+          <h1 class="single-page-header__title">{{ $t('addressDetails')}}</h1>
+          <div v-clipboard:copy="$route.params.id" class="single-page-header__address">
+            {{$route.params.id}}
+            <Copy class="single-page-header__address-copy"/>
+          </div>
         </div>
-      </div>
-      <div class="single-page-header__switches">
-        <CardSwitch
-          :active="activeGeneral"
-          @click.native="toggleSwitch('activeGeneral')"
-        >{{$t('generalInfo')}}</CardSwitch>
-        <CardSwitch
-          :active="activeTx"
-          @click.native="toggleSwitch('activeTx')"
-        >{{$t('transactions')}}</CardSwitch>
+        <div class="single-page-header__switches">
+          <CardSwitch
+            :active="activeGeneral"
+            @click.native="toggleSwitch('activeGeneral')"
+          >{{$t('generalInfo')}}</CardSwitch>
+          <CardSwitch
+            :active="activeTx"
+            @click.native="toggleSwitch('activeTx')"
+          >{{$t('transactions')}}</CardSwitch>
+        </div>
       </div>
     </div>
     <template v-if="!loading">

@@ -208,20 +208,131 @@ a {
   background: $white;
   padding: $padding-default;
 
+  @include size-desktop {
+    padding: 0;
+  }
+
+  &__wrapper {
+    @include size-desktop {
+      margin: 0 auto;
+      max-width: $desktop-size-md;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__subtitle {
+    @include size-desktop {
+      letter-spacing: 0.06em;
+      font-size: $h5-font-size;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include size-desktop {
+      margin-right: 38px;
+      display: block;
+      height: 48px;
+      width: 48px;
+
+      g {
+        opacity: 1;
+      }
+
+      &_block {
+        path {
+          fill: #0b163c;
+        }
+      }
+
+      &_mining {
+        path {
+          fill: $tx-reward-color;
+        }
+      }
+
+      &_transfer {
+        path {
+          fill: $tx-transfer-color;
+        }
+      }
+
+      &_sigchain {
+        path {
+          fill: $tx-sigchain-color;
+        }
+      }
+
+      &_subscription {
+        path {
+          fill: $tx-subscription-color;
+        }
+      }
+
+      &_wallet-name-registration {
+        path {
+          fill: $tx-wallet-name-registration-color;
+        }
+      }
+
+      &_wallet-name-transfer {
+        path {
+          fill: $tx-wallet-name-transfer-color;
+        }
+      }
+
+      &_wallet-name-deletion {
+        path {
+          fill: $tx-wallet-name-deletion-color;
+        }
+      }
+    }
+  }
+
+  &__hash {
+    display: none;
+
+    @include size-desktop {
+      display: block;
+    }
+  }
+
   &__info {
     margin-top: $padding-normal;
     margin-bottom: 32px;
     text-align: center;
+
+    @include size-desktop {
+      margin: 54px 0;
+      text-align: left;
+    }
   }
 
   &__title {
     margin: 4px 0;
+
+    @include size-desktop {
+      margin: 8px 8px 16px 0;
+      display: inline-block;
+    }
   }
 
   &__switches {
     display: grid;
     grid-gap: $card-container-gap;
     grid-template-columns: repeat(2, 1fr);
+
+    @include size-desktop {
+      display: none;
+    }
+  }
+
+  .get-back {
+    @include size-desktop {
+      display: none;
+    }
   }
 
   &__address {
@@ -234,6 +345,11 @@ a {
 
     @media (min-width: 360px) {
       font-size: $font-size-md;
+    }
+
+    @include size-desktop {
+      margin-top: 0;
+      font-size: $h5-font-size;
     }
 
     &:hover {

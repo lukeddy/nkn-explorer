@@ -15,7 +15,7 @@
         :to="`/blocks/${tx.block_height}`"
       >{{tx.block_height | commaNumber}}</nuxt-link>
     </Card>
-    <Card>
+    <Card v-if="tx.attributes">
       <div class="card__title">{{$t('attributes')}}</div>
       <div class="card__text">{{tx.attributes}}</div>
     </Card>
