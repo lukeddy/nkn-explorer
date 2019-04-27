@@ -414,6 +414,26 @@ a {
   position: relative;
   padding: $padding-normal;
 
+  @include size-desktop {
+    max-width: unset;
+    margin-right: 0;
+    margin-bottom: $padding-default;
+    border: none !important;
+  }
+
+  &__mobile {
+    @include size-desktop {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+    @include size-desktop {
+      display: block;
+    }
+  }
+
   &:not(:last-child) {
     &:after {
       content: '';
@@ -424,6 +444,17 @@ a {
       position: absolute;
       right: -17px;
       top: 50%;
+
+      @include size-desktop {
+        width: 1px;
+        background-color: #bdbdbd;
+        height: $padding-default;
+        position: absolute;
+        right: auto;
+        top: auto;
+        left: $padding-normal;
+        bottom: -17px;
+      }
     }
   }
 

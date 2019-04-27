@@ -8,7 +8,7 @@
     <slot/>
   </button>
   <a
-    v-else
+    v-else-if="type==='link'"
     :href="url"
     target="_blank"
     class="button"
@@ -16,6 +16,14 @@
   >
     <slot/>
   </a>
+  <nuxt-link
+    v-else-if="type==='router'"
+    :to="url"
+    class="button"
+    :class="[theme ? `button_theme_${theme}` : null, full ? `button_full` : null]"
+  >
+    <slot/>
+  </nuxt-link>
 </template>
 
 <style lang="scss">

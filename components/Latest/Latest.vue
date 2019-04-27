@@ -2,7 +2,7 @@
   <div class="latest">
     <div class="latest__header">
       <h2>{{$t('latest')}} {{title}}</h2>
-      <nuxt-link class="text_link" :to="link">{{$t('viewAll')}}</nuxt-link>
+      <nuxt-link class="latest__all text_link" :to="link">{{$t('viewAll')}}</nuxt-link>
     </div>
     <div class="latest__wrapper">
       <template v-if="type ==='blocks'">
@@ -11,6 +11,14 @@
       <template v-if="type ==='transactions'">
         <LatestTransactionCard v-for="tx in latestTransactions" :key="tx.id" :tx="tx"/>
       </template>
+    </div>
+    <div class="latest__nav">
+      <Button
+        class="latest__button"
+        type="router"
+        :url="type==='blocks' ? '/blocks' : '/transactions'"
+        theme="ghost"
+      >{{$t('viewAll')}}</Button>
     </div>
   </div>
 </template>
@@ -24,9 +32,10 @@ import { mapGetters } from 'vuex'
 
 import LatestBlockCard from '~/components/LatestBlockCard/LatestBlockCard'
 import LatestTransactionCard from '~/components/LatestTransactionCard/LatestTransactionCard'
+import Button from '~/components/Button/Button'
 
 export default {
-  components: { LatestBlockCard, LatestTransactionCard },
+  components: { LatestBlockCard, LatestTransactionCard, Button },
   props: {
     title: {
       type: String,

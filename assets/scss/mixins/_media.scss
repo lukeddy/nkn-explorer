@@ -1,5 +1,5 @@
 @mixin size-desktop {
-  @media (min-width: 860px) {
+  @media (min-width: 1200px) {
     @content;
   }
 }

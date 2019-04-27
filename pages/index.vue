@@ -27,8 +27,10 @@
       <MarketStats class="main-header__market-stats"/>
     </div>
     <NetworkStats class="main-header__network-stats"/>
-    <Latest :title="$t('blocks')" link="/blocks" type="blocks"/>
-    <Latest :title="$t('transactions')" link="/transactions" type="transactions"/>
+    <div class="latest__grid">
+      <Latest :title="$t('blocks')" link="/blocks" type="blocks"/>
+      <Latest :title="$t('transactions')" link="/transactions" type="transactions"/>
+    </div>
     <NetworkNodes/>
   </section>
 </template>
