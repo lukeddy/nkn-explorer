@@ -65,7 +65,7 @@ export default {
                 .$get(`blocks/${searchContext}`)
                 .then(function(response) {
                   if (!Object.entries(response).length) {
-                    console.log('no data found')
+                    console.log(self.$t('blockOrTransactionNotFound'))
                   } else {
                     self.$router.push('/blocks/' + searchContext)
                   }
@@ -74,16 +74,16 @@ export default {
               self.$router.push('/transactions/' + searchContext)
             }
           })
-      } else if (!isNaN(searchContext)) {
+      } else if (!isNaN(searchContext) && searchContext.length) {
         this.$axios.$get(`blocks/${searchContext}`).then(function(response) {
           if (!Object.entries(response).length) {
-            console.log('no data found')
+            console.log(self.$t('blockHeightNotFound'))
           } else {
             self.$router.push('/blocks/' + searchContext)
           }
         })
       } else {
-        console.log('no search context')
+        console.log(self.$t('invalidData'))
       }
     }
   }
