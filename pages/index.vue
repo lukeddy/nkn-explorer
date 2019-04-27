@@ -53,10 +53,10 @@ export default {
   methods: {
     search() {
       let searchContext = this.$refs.searchField.searchContext
+      let self = this
       if (searchContext.startsWith('NKN') && searchContext.length == 36) {
         this.$router.push('/addresses/' + searchContext)
       } else if (searchContext.length == 64) {
-        var self = this
         this.$axios
           .$get(`transactions/${searchContext}`)
           .then(function(response) {
@@ -74,6 +74,14 @@ export default {
               self.$router.push('/transactions/' + searchContext)
             }
           })
+      } else if (!isNaN(searchContext)) {
+        this.$axios.$get(`blocks/${searchContext}`).then(function(response) {
+          if (!Object.entries(response).length) {
+            console.log('no data found')
+          } else {
+            self.$router.push('/blocks/' + searchContext)
+          }
+        })
       } else {
         console.log('no search context')
       }
