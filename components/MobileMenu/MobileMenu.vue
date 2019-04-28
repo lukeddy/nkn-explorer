@@ -7,7 +7,7 @@
         :key="route.title"
         :to="localePath(route.path)"
         class="mobile-menu__nav-item"
-        :exact="route.path=='/' ? true : false"
+        :exact="route.path=='index' ? true : false"
         @click.native="toggleMobileMenu()"
       >
         <component :is="route.icon" class="mobile-menu__nav-icon"></component>

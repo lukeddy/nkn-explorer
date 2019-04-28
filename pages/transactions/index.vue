@@ -24,11 +24,21 @@
         <div class="page-header__right"></div>
       </div>
     </div>
-    <CardContainer>
-      <TransactionFilter :filters="filters" :activeFilter="activeFilter" @update="updateFilters"/>
-      <CardLoader v-if="loading" :count="10" :container="false"/>
-      <TransactionCard v-for="tx in transactions" v-else :key="tx.id" :tx="tx"/>
-    </CardContainer>
+
+    <mq-layout :mq="['sm','md']">
+      <CardContainer>
+        <TransactionFilter :filters="filters" :activeFilter="activeFilter" @update="updateFilters"/>
+        <CardLoader v-if="loading" :count="10" :container="false"/>
+        <TransactionCard v-for="tx in transactions" v-else :key="tx.id" :tx="tx"/>
+      </CardContainer>
+    </mq-layout>
+
+    <mq-layout mq="lg">
+      <DesktopWrapper>
+        <TableLoader v-if="loading" :count="10"/>
+        <DesktopTransactions v-else :transactions="transactions"/>
+      </DesktopWrapper>
+    </mq-layout>
 
     <div v-if="transactions.length > 0" class="page-navigation">
       <div
@@ -46,8 +56,12 @@
 import TransactionCard from '~/components/TransactionCard/TransactionCard'
 import CardContainer from '~/components/CardContainer/CardContainer'
 import CardLoader from '~/components/Loaders/CardLoader'
+import TableLoader from '~/components/Loaders/TableLoader'
 import Pagination from '~/components/Pagination/Pagination'
 import TransactionFilter from '~/components/TransactionFilter/TransactionFilter'
+
+import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
+import DesktopTransactions from '~/components/DesktopTransactions/DesktopTransactions'
 
 export default {
   components: {
@@ -55,7 +69,10 @@ export default {
     CardContainer,
     Pagination,
     CardLoader,
-    TransactionFilter
+    TransactionFilter,
+    DesktopWrapper,
+    DesktopTransactions,
+    TableLoader
   },
   data: () => {
     return {
