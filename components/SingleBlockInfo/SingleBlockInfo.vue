@@ -25,12 +25,12 @@
       <nuxt-link
         v-if="block.header.benificiaryWallet != null"
         class="card__link"
-        :to="`/addresses/${block.header.benificiaryWallet}`"
+        :to="localePath({ name: 'addresses-id', params: { id: block.header.benificiaryWallet} })"
       >{{block.header.benificiaryWallet}}</nuxt-link>
       <nuxt-link
         v-else
         class="card__link"
-        :to="`/addresses/${block.header.wallet}`"
+        :to="localePath({ name: 'addresses-id', params: { id: block.header.wallet} })"
       >{{block.header.wallet}}</nuxt-link>
     </Card>
     <Card>

@@ -8,7 +8,7 @@
         <div class="card__title">{{$t('miner')}}</div>
         <nuxt-link
           class="card__link"
-          :to="`/addresses/${txPayload.recipientWallet}`"
+          :to="localePath({ name: 'addresses-id', params: { id: txPayload.recipientWallet} })"
         >{{txPayload.recipientWallet}}</nuxt-link>
       </Card>
       <Card>
@@ -26,7 +26,7 @@
         <div class="card__title">{{$t('from')}}</div>
         <nuxt-link
           class="card__link"
-          :to="`/addresses/${txPayload.senderWallet}`"
+          :to="localePath({ name: 'addresses-id', params: { id: txPayload.senderWallet} })"
         >{{txPayload.senderWallet}}</nuxt-link>
       </Card>
       <Card>
@@ -40,7 +40,7 @@
         <div class="card__title">{{$t('to')}}</div>
         <nuxt-link
           class="card__link text_size_md"
-          :to="`/addresses/${txPayload.recipientWallet}`"
+          :to="localePath({ name: 'addresses-id', params: { id: txPayload.recipientWallet} })"
         >{{txPayload.recipientWallet}}</nuxt-link>
       </Card>
     </CardContainer>

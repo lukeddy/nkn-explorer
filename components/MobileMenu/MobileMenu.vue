@@ -5,7 +5,7 @@
       <nuxt-link
         v-for="route in routes"
         :key="route.title"
-        :to="route.path"
+        :to="localePath(route.path)"
         class="mobile-menu__nav-item"
         :exact="route.path=='/' ? true : false"
         @click.native="toggleMobileMenu()"
@@ -65,22 +65,22 @@ export default {
     return {
       routes: [
         {
-          path: '/',
+          path: 'index',
           icon: 'Home',
           title: 'home'
         },
         {
-          path: '/blocks',
+          path: 'blocks',
           icon: 'Block',
           title: 'blocks'
         },
         {
-          path: '/transactions',
+          path: 'transactions',
           icon: 'Transaction',
           title: 'transactions'
         },
         {
-          path: '/addresses',
+          path: 'addresses',
           icon: 'Address',
           title: 'addresses'
         }

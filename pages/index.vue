@@ -4,10 +4,10 @@
       <h1 class="main-header__title text_color_white">NKN {{$t('block')}} {{$t('explorer')}}</h1>
       <div class="main-header__description">
         {{$t('searchFor')}}
-        <nuxt-link class="text_link" to="/blocks">{{$t('block')}}</nuxt-link>,
-        <nuxt-link class="text_link" to="/transactions">{{$t('transaction')}}</nuxt-link>&nbsp;
+        <nuxt-link class="text_link" :to="localePath('blocks')">{{$t('block')}}</nuxt-link>,
+        <nuxt-link class="text_link" :to="localePath('transactions')">{{$t('transaction')}}</nuxt-link>&nbsp;
         or
-        <nuxt-link class="text_link" to="/addresses">{{$t('address')}}</nuxt-link>
+        <nuxt-link class="text_link" :to="localePath('addresses')">{{$t('address')}}</nuxt-link>
       </div>
       <div class="main-header__search-bar">
         <Search
@@ -28,8 +28,8 @@
     </div>
     <NetworkStats class="main-header__network-stats"/>
     <div class="latest__grid">
-      <Latest :title="$t('blocks')" link="/blocks" type="blocks"/>
-      <Latest :title="$t('transactions')" link="/transactions" type="transactions"/>
+      <Latest :title="$t('blocks')" link="blocks" type="blocks"/>
+      <Latest :title="$t('transactions')" link="transactions" type="transactions"/>
     </div>
     <NetworkNodes/>
   </section>
@@ -69,11 +69,23 @@ export default {
                   if (!Object.entries(response).length) {
                     console.log(self.$t('blockOrTransactionNotFound'))
                   } else {
-                    self.$router.push('/blocks/' + searchContext)
+                    self.$router.push(
+                      self.localePath({
+                        name: 'blocks-id',
+                        params: { id: searchContext }
+                      })
+                    )
+                    //self.$router.push('/blocks/' + searchContext)
                   }
                 })
             } else {
-              self.$router.push('/transactions/' + searchContext)
+              self.$router.push(
+                self.localePath({
+                  name: 'transactions-id',
+                  params: { id: searchContext }
+                })
+              )
+              //self.$router.push('/transactions/' + searchContext)
             }
           })
       } else if (!isNaN(searchContext) && searchContext.length) {
@@ -81,7 +93,12 @@ export default {
           if (!Object.entries(response).length) {
             console.log(self.$t('blockHeightNotFound'))
           } else {
-            self.$router.push('/blocks/' + searchContext)
+            self.$router.push(
+              self.localePath({
+                name: 'blocks-id',
+                params: { id: searchContext }
+              })
+            )
           }
         })
       } else {

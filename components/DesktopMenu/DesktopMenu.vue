@@ -3,7 +3,7 @@
     <nuxt-link
       v-for="route in routes"
       :key="route.title"
-      :to="route.path"
+      :to="localePath(route.path)"
       class="desktop-menu__item"
       :exact="route.path=='/' ? true : false"
     >{{$t(route.title)}}</nuxt-link>
@@ -21,19 +21,19 @@ export default {
     return {
       routes: [
         {
-          path: '/',
+          path: 'index',
           title: 'home'
         },
         {
-          path: '/blocks',
+          path: 'blocks',
           title: 'blocks'
         },
         {
-          path: '/transactions',
+          path: 'transactions',
           title: 'transactions'
         },
         {
-          path: '/addresses',
+          path: 'addresses',
           title: 'addresses'
         }
       ]

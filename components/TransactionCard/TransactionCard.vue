@@ -1,6 +1,6 @@
 <template>
   <Card>
-    <nuxt-link :to="`/transactions/${tx.hash}`">
+    <nuxt-link :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })">
       <div class="transaction-card">
         <div class="transaction-card__header">
           <TransactionTypeTitle :type="tx.txType"/>
@@ -12,12 +12,15 @@
           {{$t('block')}}:&nbsp;
           <nuxt-link
             class="text_link text_wrap_none"
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
           >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="transaction-card__item">
           {{$t('hash')}}:&nbsp;
-          <nuxt-link class="text_link text_wrap_none" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+          <nuxt-link
+            class="text_link text_wrap_none"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
         </div>
       </div>
     </nuxt-link>

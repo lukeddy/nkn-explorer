@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="route" class="get-back">
+  <nuxt-link :to="localePath(route)" class="get-back">
     <Back class="get-back__icon"/>
     {{text}}
   </nuxt-link>
@@ -21,7 +21,7 @@ export default {
     },
     route: {
       type: String,
-      default: '/'
+      default: 'index'
     }
   },
   data: () => {

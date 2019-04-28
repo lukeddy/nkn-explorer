@@ -18,7 +18,7 @@
   </a>
   <nuxt-link
     v-else-if="type==='router'"
-    :to="url"
+    :to="localePath(url)"
     class="button"
     :class="[theme ? `button_theme_${theme}` : null, full ? `button_full` : null]"
   >

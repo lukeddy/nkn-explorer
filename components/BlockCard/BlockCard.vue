@@ -1,11 +1,11 @@
 <template>
   <Card>
-    <nuxt-link :to="`/blocks/${block.hash}`">
+    <nuxt-link :to="localePath({ name: 'blocks-id', params: { id: block.hash } })">
       <div class="block-card">
         <div class="block-card__header">
           <nuxt-link
             class="block-card__height text_color_primary text_weight_bold"
-            :to="`/blocks/${block.hash}`"
+            :to="localePath({ name: 'blocks-id', params: { id: block.hash } })"
           >
             <Block class="block-card__icon"/>
             {{block.header.height | commaNumber}}
@@ -25,12 +25,12 @@
           <nuxt-link
             v-if="block.header.benificiaryWallet"
             class="block-card__address text_link text_wrap_none"
-            :to="`/addresses/${block.header.benificiaryWallet}`"
+            :to="localePath({ name: 'addresses-id', params: { id: block.header.benificiaryWallet } })"
           >{{block.header.benificiaryWallet}}</nuxt-link>
           <nuxt-link
             v-else
             class="block-card__address text_link text_wrap_none"
-            :to="`/addresses/${block.header.wallet}`"
+            :to="localePath({ name: 'addresses-id', params: { id: block.header.wallet } })"
           >{{block.header.wallet}}</nuxt-link>
         </div>
       </div>

@@ -52,7 +52,7 @@
           {{$t('nodeWalletAddress')}}:
           <nuxt-link
             class="node-tracing__addr text_link"
-            :to="`/addresses/${miner.wallet}`"
+            :to="localePath({ name: 'addresses-id', params: { id: miner.wallet} })"
           >{{miner.wallet}}</nuxt-link>
         </div>
       </div>

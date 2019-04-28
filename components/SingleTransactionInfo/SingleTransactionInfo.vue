@@ -12,7 +12,7 @@
       <div class="card__title">{{$t('blockHeight')}}</div>
       <nuxt-link
         class="card__link"
-        :to="`/blocks/${tx.block_height}`"
+        :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
       >{{tx.block_height | commaNumber}}</nuxt-link>
     </Card>
     <Card v-if="tx.attributes">

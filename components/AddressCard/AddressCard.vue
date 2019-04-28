@@ -1,12 +1,12 @@
 <template>
   <Card>
-    <nuxt-link :to="`/addresses/${address.address}`">
+    <nuxt-link :to="localePath({ name: 'addresses-id', params: { id: address.address } })">
       <div class="address-card">
         <div class="address-card__header">
           <Wallet class="address-card__icon"/>
           <nuxt-link
             class="text_link text_wrap_none"
-            :to="`/addresses/${address.address}`"
+            :to="localePath({ name: 'addresses-id', params: { id: address.address } })"
           >{{address.address}}</nuxt-link>
         </div>
         <div class="address-card__item">{{$t('transactions')}}: {{address.count_transactions}}</div>

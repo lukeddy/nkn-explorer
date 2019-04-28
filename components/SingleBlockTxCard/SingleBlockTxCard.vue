@@ -10,7 +10,7 @@
     <nuxt-link
       v-if="!isOpen"
       class="card__link text_size_xs text_wrap_none"
-      :to="`/transactions/${tx.hash}`"
+      :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
     >
       <span class="text_color_default">{{$t('hash')}}:</span>
       {{tx.hash}}
@@ -23,13 +23,16 @@
       <template v-if="tx.txType ==='CoinbaseType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
-          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('block')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
           >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="card__divider"></div>
@@ -37,7 +40,7 @@
           <div class="card__title">{{$t('miner')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${txPayload.recipientWallet}`"
+            :to="localePath({ name: 'addresses-id', params: { id: txPayload.recipientWallet} })"
           >{{txPayload.recipientWallet}}</nuxt-link>
           <div class="card__text card__subitem">+ {{txPayload.amount | nknValue | commaNumber}} NKN</div>
         </div>
@@ -47,13 +50,16 @@
       <template v-if="tx.txType ==='TransferAssetType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
-          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('block')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
           >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="card__divider"></div>
@@ -61,7 +67,7 @@
           <div class="card__title">{{$t('from')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${txPayload.senderWallet}`"
+            :to="localePath({ name: 'addresses-id', params: { id: txPayload.senderWallet} })"
           >{{txPayload.senderWallet}}</nuxt-link>
         </div>
         <div class="card__item">
@@ -75,7 +81,7 @@
           <div class="card__title">{{$t('to')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/addresses/${txPayload.recipientWallet}`"
+            :to="localePath({ name: 'addresses-id', params: { id: txPayload.recipientWallet} })"
           >{{txPayload.recipientWallet}}</nuxt-link>
         </div>
       </template>
@@ -84,13 +90,16 @@
       <template v-if="tx.txType ==='CommitType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
-          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('block')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
           >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="card__divider"></div>
@@ -111,13 +120,16 @@
       <template v-if="tx.txType ==='RegisterNameType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
-          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('block')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
           >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="card__divider"></div>
@@ -135,13 +147,16 @@
       <template v-if="tx.txType ==='DeleteNameType' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
-          <nuxt-link class="card__link text_size_md" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('block')}}</div>
           <nuxt-link
             class="card__link text_size_md"
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
           >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="card__divider"></div>

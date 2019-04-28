@@ -1,6 +1,6 @@
 <template>
   <Card class="latest-card" :border="true">
-    <nuxt-link :to="`/transactions/${tx.hash}`">
+    <nuxt-link :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })">
       <div class="latest-card__mobile">
         <div class="latest-card__header">
           <TransactionTypeTitle :type="tx.txType" class="latest-card__title"/>
@@ -8,12 +8,12 @@
         </div>
         <nuxt-link
           class="latest-card__address text_link text_size_sm text_wrap_none"
-          :to="`/transactions/${tx.hash}`"
+          :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
         >{{tx.hash}}</nuxt-link>
         <div class="latest-card__bottom">
           <Block class="latest-card__icon latest-card__icon_small"/>
           <nuxt-link
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
             class="text_link text_size_sm text_color_grey-light"
           >{{ tx.block_height | commaNumber}}</nuxt-link>
         </div>
@@ -29,12 +29,15 @@
           {{$t('block')}}:&nbsp;
           <nuxt-link
             class="text_link text_wrap_none"
-            :to="`/blocks/${tx.block_height}`"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
           >{{tx.block_height | commaNumber}}</nuxt-link>
         </div>
         <div class="transaction-card__item">
           {{$t('hash')}}:&nbsp;
-          <nuxt-link class="text_link text_wrap_none" :to="`/transactions/${tx.hash}`">{{tx.hash}}</nuxt-link>
+          <nuxt-link
+            class="text_link text_wrap_none"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
         </div>
       </div>
     </nuxt-link>

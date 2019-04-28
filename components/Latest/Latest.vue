@@ -2,7 +2,7 @@
   <div class="latest">
     <div class="latest__header">
       <h2>{{$t('latest')}} {{title}}</h2>
-      <nuxt-link class="latest__all text_link" :to="link">{{$t('viewAll')}}</nuxt-link>
+      <nuxt-link class="latest__all text_link" :to="localePath(link)">{{$t('viewAll')}}</nuxt-link>
     </div>
     <div class="latest__wrapper">
       <template v-if="type ==='blocks'">
@@ -16,7 +16,7 @@
       <Button
         class="latest__button"
         type="router"
-        :url="type==='blocks' ? '/blocks' : '/transactions'"
+        :url="type==='blocks' ? 'blocks' : 'transactions'"
         theme="ghost"
       >{{$t('viewAll')}}</Button>
     </div>
