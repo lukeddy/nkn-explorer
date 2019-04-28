@@ -55,6 +55,15 @@
         background-color: $primary;
         transition: $transition-1;
 
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        path {
+          fill: $white;
+        }
+
         &:not(:last-child) {
           margin-right: 8px;
         }

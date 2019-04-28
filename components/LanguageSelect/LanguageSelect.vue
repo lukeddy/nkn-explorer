@@ -14,9 +14,13 @@
       </div>
 
       <ul class="language-select__list" :class="open ? 'language-select__list_open' : null">
-        <li v-for="locale in availableLocales" :key="locale.code" class="language-select__item">
-          <nuxt-link :to="switchLocalePath(locale.code)">{{ locale.code }}</nuxt-link>
-        </li>
+        <nuxt-link
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          :to="switchLocalePath(locale.code)"
+        >
+          <li class="language-select__item">{{ locale.code }}</li>
+        </nuxt-link>
       </ul>
     </div>
   </div>

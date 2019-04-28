@@ -55,6 +55,7 @@ import Logo from '@/assets/icons/logo.svg'
 import Twitter from '@/assets/icons/Twitter.svg'
 import Telegram from '@/assets/icons/Telegram.svg'
 import Medium from '@/assets/icons/Medium.svg'
+import Discord from '@/assets/icons/Discord.svg'
 
 export default {
   components: {
@@ -62,7 +63,8 @@ export default {
     Logo,
     Twitter,
     Telegram,
-    Medium
+    Medium,
+    Discord
   },
 
   data: () => {
@@ -98,7 +100,8 @@ export default {
       socials: [
         { icon: 'Twitter', url: 'https://twitter.com/NKN_ORG' },
         { icon: 'Telegram', url: 'https://t.me/nknorg' },
-        { icon: 'Medium', url: 'https://medium.com/nknetwork' }
+        { icon: 'Medium', url: 'https://medium.com/nknetwork' },
+        { icon: 'Discord', url: 'https://discord.gg/aHUtAG' }
       ]
     }
   }

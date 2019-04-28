@@ -51,7 +51,7 @@
 
     @include size-desktop {
       display: flex;
-      width: 330px;
+      width: 270px;
       position: relative;
 
       &:after {
@@ -64,6 +64,10 @@
         right: -24px;
       }
       margin-right: $padding-normal;
+    }
+
+    @media (min-width: 1440px) {
+      width: 330px;
     }
   }
 

@@ -12,7 +12,7 @@
       transition: $transition-1, font-weight 0s;
       cursor: pointer;
 
-      &.nuxt-link-exact-active {
+      &.nuxt-link-active {
         font-weight: bold;
         opacity: 1;
         position: relative;

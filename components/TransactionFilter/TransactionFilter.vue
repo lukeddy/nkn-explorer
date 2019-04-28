@@ -21,7 +21,7 @@
             :key="filter.title"
             class="filter__item"
             @click="setFilter(filter),toggleFilter()"
-          >{{filter.title}}</li>
+          >{{$t(filter.title)}}</li>
         </ul>
       </div>
     </div>

@@ -7,6 +7,7 @@
         :key="route.title"
         :to="route.path"
         class="mobile-menu__nav-item"
+        :exact="route.path=='/' ? true : false"
         @click.native="toggleMobileMenu()"
       >
         <component :is="route.icon" class="mobile-menu__nav-icon"></component>
@@ -66,22 +67,22 @@ export default {
         {
           path: '/',
           icon: 'Home',
-          title: 'Home'
+          title: 'home'
         },
         {
           path: '/blocks',
           icon: 'Block',
-          title: 'Blocks'
+          title: 'blocks'
         },
         {
           path: '/transactions',
           icon: 'Transaction',
-          title: 'Transactions'
+          title: 'transactions'
         },
         {
           path: '/addresses',
           icon: 'Address',
-          title: 'Addresses'
+          title: 'addresses'
         }
       ]
     }

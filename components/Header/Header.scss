@@ -7,7 +7,6 @@
   top: 0;
   left: 0;
   max-height: calc(100vh - #{$padding-normal} * 2);
-  overflow: auto;
   width: calc(100% - (#{$padding-default} * 2));
 
   @include size-desktop {
@@ -18,5 +17,6 @@
 
   &_open {
     height: 100%;
+    overflow: auto;
   }
 }
