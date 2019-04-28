@@ -75,7 +75,6 @@ export default {
                         params: { id: searchContext }
                       })
                     )
-                    //self.$router.push('/blocks/' + searchContext)
                   }
                 })
             } else {
@@ -85,7 +84,6 @@ export default {
                   params: { id: searchContext }
                 })
               )
-              //self.$router.push('/transactions/' + searchContext)
             }
           })
       } else if (!isNaN(searchContext) && searchContext.length) {

@@ -5,7 +5,7 @@
       :key="route.title"
       :to="localePath(route.path)"
       class="desktop-menu__item"
-      :exact="route.path=='/' ? true : false"
+      :exact="route.path=='index' ? true : false"
     >{{$t(route.title)}}</nuxt-link>
   </div>
 </template>

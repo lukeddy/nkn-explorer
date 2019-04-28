@@ -2,7 +2,7 @@
   <section class="section">
     <div class="single-page-header">
       <div class="single-page-header__wrapper">
-        <GetBack :text="$t('allBlocks')" route="/blocks"/>
+        <GetBack :text="$t('allBlocks')" route="blocks"/>
         <Block class="single-page-header__icon single-page-header__icon_block"/>
         <div class="single-page-header__info">
           <h6
