@@ -553,6 +553,16 @@ a {
       color: darken($primary, 20%);
     }
   }
+
+  &_align {
+    &_left {
+      text-align: left !important;
+    }
+
+    &_right {
+      text-align: right !important;
+    }
+  }
 }
 
 /*========== Page Animation ==========*/
@@ -581,6 +591,11 @@ a {
     margin-bottom: $padding-default;
     width: 100%;
     text-align: center;
+  }
+
+  @include size-desktop {
+    margin-top: 28px;
+    margin-bottom: 128px;
   }
 }
 
@@ -684,5 +699,73 @@ a {
   &__address {
     display: block;
     margin: $padding-default 0;
+  }
+}
+
+/*========== Table ==========*/
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+
+  &__head {
+  }
+
+  &__head-row {
+  }
+
+  &__title {
+    color: #95aac9;
+    letter-spacing: 0.06em;
+    font-size: $font-size-md;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &:not(:first-child) {
+      padding: 0 24px 8px;
+    }
+
+    &:first-child {
+      padding-left: 24px;
+    }
+  }
+
+  &__body {
+  }
+
+  &__row {
+    background: $white;
+    box-shadow: $shadow-2;
+  }
+
+  &__item {
+    &:not(:first-child) {
+      padding: 21px 24px;
+    }
+
+    &:first-child {
+      padding-left: 24px;
+      border-top-left-radius: $app-br;
+      border-bottom-left-radius: $app-br;
+    }
+
+    &:last-child {
+      border-top-right-radius: $app-br;
+      border-bottom-right-radius: $app-br;
+    }
+  }
+
+  &__icon {
+    height: 20px;
+    width: 20px;
+    top: 4px;
+    position: relative;
+    margin-right: 8px;
+
+    path,
+    g {
+      fill: $primary;
+      opacity: 1;
+    }
   }
 }

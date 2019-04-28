@@ -27,10 +27,21 @@
         <div class="page-header__right"></div>
       </div>
     </div>
-    <CardLoader v-if="loading" :count="10"/>
-    <CardContainer v-else>
-      <BlockCard v-for="block in blocks" :key="block.height" :block="block"/>
-    </CardContainer>
+
+    <mq-layout :mq="['sm','md']">
+      <CardLoader v-if="loading" :count="10"/>
+      <CardContainer v-else>
+        <BlockCard v-for="block in blocks" :key="block.height" :block="block"/>
+      </CardContainer>
+    </mq-layout>
+
+    <mq-layout mq="lg">
+      <DesktopWrapper>
+        <TableLoader v-if="loading" :count="10"/>
+        <DesktopBlocks v-else :blocks="blocks"/>
+      </DesktopWrapper>
+    </mq-layout>
+
     <div v-if="blocks.length > 0" class="page-navigation">
       <div
         class="page-navigation__info"
@@ -47,10 +58,22 @@
 import BlockCard from '~/components/BlockCard/BlockCard'
 import CardContainer from '~/components/CardContainer/CardContainer'
 import CardLoader from '~/components/Loaders/CardLoader'
+import TableLoader from '~/components/Loaders/TableLoader'
 import Pagination from '~/components/Pagination/Pagination'
 
+import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
+import DesktopBlocks from '~/components/DesktopBlocks/DesktopBlocks'
+
 export default {
-  components: { BlockCard, CardContainer, Pagination, CardLoader },
+  components: {
+    BlockCard,
+    CardContainer,
+    Pagination,
+    CardLoader,
+    DesktopWrapper,
+    DesktopBlocks,
+    TableLoader
+  },
   data: () => {
     return {
       loading: true,

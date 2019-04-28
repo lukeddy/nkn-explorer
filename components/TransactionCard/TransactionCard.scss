@@ -13,6 +13,7 @@
     display: flex;
     font-size: $font-size-sm;
     align-items: center;
+    white-space: nowrap;
 
     &:not(:last-child) {
       margin-bottom: 8px;

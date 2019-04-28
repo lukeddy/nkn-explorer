@@ -1,0 +1,7 @@
+.desktop-wrapper {
+  @include size-desktop {
+    max-width: $desktop-size-md;
+    margin: 0 auto;
+    margin-top: 72px;
+  }
+}
