@@ -19,6 +19,7 @@
           :key="locale.code"
           class="language-select__link"
           :to="switchLocalePath(locale.code)"
+          @click.native="toggleLanguage()"
         >
           <CountryFlag
             class="language-select__flag"
