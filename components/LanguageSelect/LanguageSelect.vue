@@ -1,5 +1,25 @@
 <template>
-  <div class="lanuage-select">EN</div>
+  <div class="language-select">
+    <div class="language-select__wrapper">
+      <div
+        class="language-select__button"
+        :class="open ? 'language-select__button_active' : null"
+        @click="toggleLanguage()"
+      >
+        {{$i18n.locale}}
+        <span
+          class="language-select__icon fe fe-chevron-down"
+          :class="open ? 'language-select__icon_open' : null"
+        />
+      </div>
+
+      <ul class="language-select__list" :class="open ? 'language-select__list_open' : null">
+        <li v-for="locale in availableLocales" :key="locale.code" class="language-select__item">
+          <nuxt-link :to="switchLocalePath(locale.code)">{{ locale.code }}</nuxt-link>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
@@ -10,9 +30,20 @@
 export default {
   components: {},
   data: () => {
-    return {}
+    return {
+      open: false
+    }
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
   },
   mounted: function() {},
-  methods: {}
+  methods: {
+    toggleLanguage() {
+      this.open = !this.open
+    }
+  }
 }
 </script>
