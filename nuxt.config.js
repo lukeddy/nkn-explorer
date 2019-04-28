@@ -111,6 +111,11 @@ export default {
             code: 'tr',
             iso: 'tr-TR',
             file: 'tr-TR.js'
+          },
+          {
+            code: 'es',
+            iso: 'es-ES',
+            file: 'es-ES.js'
           }
         ],
         lazy: true,

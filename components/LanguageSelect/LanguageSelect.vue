@@ -17,8 +17,14 @@
         <nuxt-link
           v-for="locale in availableLocales"
           :key="locale.code"
+          class="language-select__link"
           :to="switchLocalePath(locale.code)"
         >
+          <CountryFlag
+            class="language-select__flag"
+            :country="locale.code == 'en' ? 'us' : locale.code"
+            size="normal"
+          />
           <li class="language-select__item">{{ locale.code }}</li>
         </nuxt-link>
       </ul>
@@ -31,8 +37,10 @@
 </style>
 
 <script>
+import CountryFlag from 'vue-country-flag'
+
 export default {
-  components: {},
+  components: { CountryFlag },
   data: () => {
     return {
       open: false

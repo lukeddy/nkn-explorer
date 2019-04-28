@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-transform: uppercase;
 
   &__title {
     font-size: $font-size-xs;
@@ -70,13 +71,25 @@
   }
 
   &__item {
-    padding: $padding-micro $padding-default;
+    margin-left: 40px;
     transition: $transition-1;
     color: $grey-dark;
+  }
+
+  &__flag {
+    position: absolute;
+  }
+
+  &__link {
+    padding: $padding-micro $padding-default;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 
     &:hover {
-      color: $primary;
+      * {
+        color: $primary;
+      }
     }
   }
 }

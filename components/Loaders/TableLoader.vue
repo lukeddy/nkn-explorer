@@ -1,10 +1,10 @@
 <template>
   <div style="padding-top: 1px;">
     <ContentLoader
-      style="margin-top: 8px"
       v-for="i in count"
       :key="i"
       class="card_width_full"
+      style="margin-top: 8px"
       primaryColor="#fff"
       secondaryColor="#BDBDBD"
       :speed="1"
@@ -22,8 +22,6 @@
       <rect x="1039" y="31" rx="3" ry="3" width="85" height="6"/>
     </ContentLoader>
   </div>
-</template>
-
 </template>
 
 <script>
