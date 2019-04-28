@@ -77,6 +77,16 @@ export default {
             code: 'de',
             iso: 'de-DE',
             file: 'de-DE.js'
+          },
+          {
+            code: 'fr',
+            iso: 'fr-FR',
+            file: 'fr-FR.js'
+          },
+          {
+            code: 'tr',
+            iso: 'tr-TR',
+            file: 'tr-TR.js'
           }
         ],
         lazy: true,
