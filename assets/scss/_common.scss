@@ -36,6 +36,10 @@ a {
   }
 }
 
+.desktop-heading {
+  margin-bottom: $padding-normal;
+}
+
 .main-header {
   overflow: hidden;
   padding: $padding-normal $padding-default;
@@ -477,6 +481,15 @@ a {
         }
       }
     }
+  }
+}
+
+/*========== Desktop Card ==========*/
+.desktop-card {
+  &__item {
+    margin-top: $padding-default;
+    font-size: $font-size-lg;
+    word-break: break-word;
   }
 }
 

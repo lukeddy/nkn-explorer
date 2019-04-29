@@ -3,6 +3,8 @@
     <div class="single-page-header">
       <div class="single-page-header__wrapper">
         <GetBack :text="$t('allAddresses')" route="/addresses"/>
+        <Wallet class="single-page-header__icon single-page-header__icon_block"/>
+
         <div class="single-page-header__info">
           <h1 class="single-page-header__title">{{ $t('addressDetails')}}</h1>
           <div v-clipboard:copy="$route.params.id" class="single-page-header__address">
@@ -22,11 +24,21 @@
         </div>
       </div>
     </div>
-    <template v-if="!loading">
-      <SingleAddressInfo v-if="activeGeneral" :address="address"/>
-      <SingleAddressTransactions v-if="activeTx" :address="address"/>
-    </template>
-    <CardLoader v-else :count="5"/>
+
+    <mq-layout :mq="['sm','md']">
+      <template v-if="!loading">
+        <SingleAddressInfo v-if="activeGeneral" :address="address"/>
+        <SingleAddressTransactions v-if="activeTx" :address="address"/>
+      </template>
+      <CardLoader v-else :count="5"/>
+    </mq-layout>
+
+    <mq-layout mq="lg">
+      <DesktopWrapper>
+        <TableLoader v-if="loading" :count="5"/>
+        <DesktopAddressInfo v-else :address="address"/>
+      </DesktopWrapper>
+    </mq-layout>
   </section>
 </template>
 
@@ -36,8 +48,13 @@ import SingleAddressInfo from '~/components/SingleAddressInfo/SingleAddressInfo'
 import SingleAddressTransactions from '~/components/SingleAddressTransactions/SingleAddressTransactions'
 import CardSwitch from '~/components/CardSwitch/CardSwitch'
 import CardLoader from '~/components/Loaders/CardLoader'
+import TableLoader from '~/components/Loaders/TableLoader'
+
+import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
+import DesktopAddressInfo from '~/components/DesktopAddressInfo/DesktopAddressInfo'
 
 import Copy from '@/assets/icons/Copy.svg'
+import Wallet from '@/assets/icons/Wallet.svg'
 
 export default {
   components: {
@@ -46,7 +63,11 @@ export default {
     CardSwitch,
     SingleAddressTransactions,
     Copy,
-    CardLoader
+    Wallet,
+    CardLoader,
+    TableLoader,
+    DesktopWrapper,
+    DesktopAddressInfo
   },
   data: () => {
     return {
