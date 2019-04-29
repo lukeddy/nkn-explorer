@@ -35,15 +35,66 @@ export default {
     latestSigchain: 'latestSigchain/getLatestSigchain',
     isMobileMenuOpen: 'mobileMenu/get'
   }),
+  destroyed() {
+    clearInterval(this.intervalPrice)
+    clearInterval(this.intervalBlocks)
+    clearInterval(this.intervalTransactions)
+    clearInterval(this.intervalDailyHistoryPrice)
+    clearInterval(this.intervalNetworkCities)
+    clearInterval(this.intervalNetworkCountries)
+    clearInterval(this.intervalNetworkStats)
+    clearInterval(this.intervalLatestSigchain)
+  },
   mounted: function() {
-    this.$store.dispatch('price/updateCurrentPrice')
-    this.$store.dispatch('latestBlocks/updateLatestBlocks')
-    this.$store.dispatch('latestTransactions/updateLatestTransactions')
-    this.$store.dispatch('price/updateDailyHistoryPrice')
-    this.$store.dispatch('network/updateNetworkCities')
-    this.$store.dispatch('network/updateNetworkCountries')
-    this.$store.dispatch('network/updateNetworkStats')
-    this.$store.dispatch('latestSigchain/updateLatestSigchain')
+    this.updatePrice()
+    this.updateBlocks()
+    this.updateTransactions()
+    this.updateDailyHistoryPrice()
+    this.updateNetworkCountries()
+    this.updateNetworkCities()
+    this.updateNetworkStats()
+    this.updateLatestSigchain()
+
+    this.intervalPrice = setInterval(this.updatePrice, 300000)
+    this.intervalBlocks = setInterval(this.updateBlocks, 10000)
+    this.intervalTransactions = setInterval(this.updateTransactions, 10000)
+    this.intervalDailyHistoryPrice = setInterval(
+      this.updateDailyHistoryPrice,
+      300000
+    )
+    this.intervalNetworkCities = setInterval(this.updateNetworkCities, 60000)
+    this.intervalNetworkCountries = setInterval(
+      this.updateNetworkCountries,
+      60000
+    )
+    this.intervalNetworkStats = setInterval(this.updateNetworkStats, 60000)
+    this.intervalLatestSigchain = setInterval(this.updateLatestSigchain, 10000)
+  },
+  methods: {
+    updatePrice() {
+      this.$store.dispatch('price/updateCurrentPrice')
+    },
+    updateBlocks() {
+      this.$store.dispatch('latestBlocks/updateLatestBlocks')
+    },
+    updateTransactions() {
+      this.$store.dispatch('latestTransactions/updateLatestTransactions')
+    },
+    updateDailyHistoryPrice() {
+      this.$store.dispatch('price/updateDailyHistoryPrice')
+    },
+    updateNetworkCities() {
+      this.$store.dispatch('network/updateNetworkCities')
+    },
+    updateNetworkCountries() {
+      this.$store.dispatch('network/updateNetworkCountries')
+    },
+    updateNetworkStats() {
+      this.$store.dispatch('network/updateNetworkStats')
+    },
+    updateLatestSigchain() {
+      this.$store.dispatch('latestSigchain/updateLatestSigchain')
+    }
   }
 }
 </script>

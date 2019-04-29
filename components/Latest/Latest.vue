@@ -56,28 +56,6 @@ export default {
   computed: mapGetters({
     latestBlocks: 'latestBlocks/getLatestBlocks',
     latestTransactions: 'latestTransactions/getLatestTransactions'
-  }),
-  destroyed() {
-    if (this.type == 'blocks') {
-      clearInterval(this.intervalBlocks)
-    } else if (this.type == 'transactions') {
-      clearInterval(this.intervalTransactions)
-    }
-  },
-  mounted: function() {
-    if (this.type == 'blocks') {
-      this.intervalBlocks = setInterval(this.updateBlocks, 10000)
-    } else if (this.type == 'transactions') {
-      this.intervalTransactions = setInterval(this.updateTransactions, 10000)
-    }
-  },
-  methods: {
-    updateBlocks() {
-      this.$store.dispatch('latestBlocks/updateLatestBlocks')
-    },
-    updateTransactions() {
-      this.$store.dispatch('latestTransactions/updateLatestTransactions')
-    }
-  }
+  })
 }
 </script>
