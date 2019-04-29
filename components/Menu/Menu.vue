@@ -9,7 +9,13 @@
       <DesktopMenu/>
     </div>
     <div class="menu__right">
-      <Search class="menu__search" :text="$t('search')" type="ghost"/>
+      <Search
+        ref="searchField"
+        class="menu__search"
+        :text="$t('search')"
+        type="ghost"
+        @sent="search()"
+      />
       <div class="menu__divider"></div>
       <Button class="menu__mining-button" type="link" url="https://nknx.org">
         <Mining class="menu__mining-button-icon"/>
@@ -51,6 +57,57 @@ export default {
     return {}
   },
   mounted: function() {},
-  methods: {}
+  methods: {
+    search() {
+      let searchContext = this.$refs.searchField.searchContext
+      let self = this
+      if (searchContext.startsWith('NKN') && searchContext.length == 36) {
+        this.$router.push('/addresses/' + searchContext)
+      } else if (searchContext.length == 64) {
+        this.$axios
+          .$get(`transactions/${searchContext}`)
+          .then(function(response) {
+            if (!Object.entries(response).length) {
+              self.$axios
+                .$get(`blocks/${searchContext}`)
+                .then(function(response) {
+                  if (!Object.entries(response).length) {
+                    console.log(self.$t('blockOrTransactionNotFound'))
+                  } else {
+                    self.$router.push(
+                      self.localePath({
+                        name: 'blocks-id',
+                        params: { id: searchContext }
+                      })
+                    )
+                  }
+                })
+            } else {
+              self.$router.push(
+                self.localePath({
+                  name: 'transactions-id',
+                  params: { id: searchContext }
+                })
+              )
+            }
+          })
+      } else if (!isNaN(searchContext) && searchContext.length) {
+        this.$axios.$get(`blocks/${searchContext}`).then(function(response) {
+          if (!Object.entries(response).length) {
+            console.log(self.$t('blockHeightNotFound'))
+          } else {
+            self.$router.push(
+              self.localePath({
+                name: 'blocks-id',
+                params: { id: searchContext }
+              })
+            )
+          }
+        })
+      } else {
+        console.log(self.$t('invalidData'))
+      }
+    }
+  }
 }
 </script>

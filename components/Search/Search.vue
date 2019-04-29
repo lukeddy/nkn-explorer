@@ -7,7 +7,7 @@
       :placeholder="text"
       @keyup.enter="onEnterPressed"
     >
-    <span class="search__icon fe fe-search"></span>
+    <span class="search__icon fe fe-search" @click="onEnterPressed"></span>
   </div>
 </template>
 

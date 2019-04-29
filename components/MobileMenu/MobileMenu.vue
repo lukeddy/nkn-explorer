@@ -1,6 +1,6 @@
 <template>
   <div class="mobile-menu" :class="isMobileMenuOpen ? 'mobile-menu_open' : null">
-    <Search :text="$t('search')"/>
+    <Search ref="searchField" :text="$t('search')" @sent="search()"/>
     <div class="mobile-menu__nav">
       <nuxt-link
         v-for="route in routes"
@@ -95,6 +95,60 @@ export default {
   methods: {
     toggleMobileMenu() {
       this.$store.dispatch('mobileMenu/toggleMobileMenu')
+    },
+    search() {
+      let searchContext = this.$refs.searchField.searchContext
+      let self = this
+      if (searchContext.startsWith('NKN') && searchContext.length == 36) {
+        this.$router.push('/addresses/' + searchContext)
+        this.$store.dispatch('mobileMenu/toggleMobileMenu')
+      } else if (searchContext.length == 64) {
+        this.$axios
+          .$get(`transactions/${searchContext}`)
+          .then(function(response) {
+            if (!Object.entries(response).length) {
+              self.$axios
+                .$get(`blocks/${searchContext}`)
+                .then(function(response) {
+                  if (!Object.entries(response).length) {
+                    console.log(self.$t('blockOrTransactionNotFound'))
+                  } else {
+                    self.$router.push(
+                      self.localePath({
+                        name: 'blocks-id',
+                        params: { id: searchContext }
+                      })
+                    )
+                    self.$store.dispatch('mobileMenu/toggleMobileMenu')
+                  }
+                })
+            } else {
+              self.$router.push(
+                self.localePath({
+                  name: 'transactions-id',
+                  params: { id: searchContext }
+                })
+              )
+              self.$store.dispatch('mobileMenu/toggleMobileMenu')
+            }
+          })
+      } else if (!isNaN(searchContext) && searchContext.length) {
+        this.$axios.$get(`blocks/${searchContext}`).then(function(response) {
+          if (!Object.entries(response).length) {
+            console.log(self.$t('blockHeightNotFound'))
+          } else {
+            self.$router.push(
+              self.localePath({
+                name: 'blocks-id',
+                params: { id: searchContext }
+              })
+            )
+            self.$store.dispatch('mobileMenu/toggleMobileMenu')
+          }
+        })
+      } else {
+        console.log(self.$t('invalidData'))
+      }
     }
   }
 }
