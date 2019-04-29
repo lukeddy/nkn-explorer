@@ -36,14 +36,14 @@ export default {
     isMobileMenuOpen: 'mobileMenu/get'
   }),
   mounted: function() {
-    this.$store.dispatch('price/getCurrentPrice')
-    this.$store.dispatch('latestBlocks/getLatestBlocks')
-    this.$store.dispatch('latestTransactions/getLatestTransactions')
-    this.$store.dispatch('price/getDailyHistoryPrice')
-    this.$store.dispatch('network/getNetworkCities')
-    this.$store.dispatch('network/getNetworkCountries')
-    this.$store.dispatch('network/getNetworkStats')
-    this.$store.dispatch('latestSigchain/getLatestSigchain')
+    this.$store.dispatch('price/updateCurrentPrice')
+    this.$store.dispatch('latestBlocks/updateLatestBlocks')
+    this.$store.dispatch('latestTransactions/updateLatestTransactions')
+    this.$store.dispatch('price/updateDailyHistoryPrice')
+    this.$store.dispatch('network/updateNetworkCities')
+    this.$store.dispatch('network/updateNetworkCountries')
+    this.$store.dispatch('network/updateNetworkStats')
+    this.$store.dispatch('latestSigchain/updateLatestSigchain')
   }
 }
 </script>

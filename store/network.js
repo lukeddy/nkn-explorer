@@ -29,15 +29,15 @@ export const getters = {
 }
 
 export const actions = {
-  async getNetworkStats({ commit }) {
+  async updateNetworkStats({ commit }) {
     const data = await this.$axios.$get('https://api2.nknx.org/network/stats')
     commit('setNetworkStats', data)
   },
-  async getNetworkCities({ commit }) {
+  async updateNetworkCities({ commit }) {
     const data = await this.$axios.$get('https://api2.nknx.org/network/cities')
     commit('setNetworkCities', data)
   },
-  async getNetworkCountries({ commit }) {
+  async updateNetworkCountries({ commit }) {
     const data = await this.$axios.$get(
       'https://api2.nknx.org/network/countries'
     )

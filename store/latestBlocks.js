@@ -15,7 +15,7 @@ export const getters = {
 }
 
 export const actions = {
-  async getLatestBlocks({ commit }) {
+  async updateLatestBlocks({ commit }) {
     const data = await this.$axios.$get('blocks')
     commit('setLatestBlocks', data.blocks.data.slice(0, 5))
   }

@@ -15,7 +15,7 @@ export const getters = {
 }
 
 export const actions = {
-  async getLatestTransactions({ commit }) {
+  async updateLatestTransactions({ commit }) {
     const data = await this.$axios.$get('transactions')
     commit('setLatestTransactions', data.transactions.data.slice(0, 5))
   }

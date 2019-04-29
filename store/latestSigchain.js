@@ -15,7 +15,7 @@ export const getters = {
 }
 
 export const actions = {
-  async getLatestSigchain({ commit }) {
+  async updateLatestSigchain({ commit }) {
     const data = await this.$axios.$get('sigchains/latest')
     commit('setLatestSigchain', data)
   }

@@ -53,11 +53,25 @@ export default {
   data: () => {
     return {}
   },
+  destroyed() {
+    clearInterval(this.intervalBlocks)
+    clearInterval(this.intervalTransactions)
+  },
   computed: mapGetters({
     latestBlocks: 'latestBlocks/getLatestBlocks',
     latestTransactions: 'latestTransactions/getLatestTransactions'
   }),
-  mounted: function() {},
-  methods: {}
+  mounted: function() {
+    this.intervalBlocks = setInterval(this.updateBlocks, 10000)
+    this.intervalTransactions = setInterval(this.updateTransactions, 10000)
+  },
+  methods: {
+    updateBlocks() {
+      this.$store.dispatch('latestBlocks/updateLatestBlocks')
+    },
+    updateTransactions() {
+      this.$store.dispatch('latestTransactions/updateLatestTransactions')
+    }
+  }
 }
 </script>
