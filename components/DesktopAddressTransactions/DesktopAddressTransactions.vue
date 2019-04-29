@@ -1,7 +1,7 @@
 <template>
   <div class="desktop-block-transactions">
     <h2 class="desktop-heading">{{$t('transactions')}}</h2>
-    <TableLoader v-if="loading" :count="5"/>
+    <TableLoader v-if="loading" :count="10"/>
     <table v-else class="table">
       <thead class="table__head">
         <tr class="table__head-row">
