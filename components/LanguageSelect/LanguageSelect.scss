@@ -46,7 +46,7 @@
   }
 
   &__list {
-    min-width: 100px;
+    min-width: 185px;
     position: absolute;
     top: 30px;
     right: 0;
@@ -71,6 +71,7 @@
   }
 
   &__item {
+    text-transform: capitalize;
     margin-left: 40px;
     transition: $transition-1;
     color: $grey-dark;

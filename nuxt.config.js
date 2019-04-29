@@ -83,7 +83,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
-    ['@nuxtjs/moment', { locales: ['de', 'fr', 'tr', 'es'], defaultLocale: 'en' }],
+    ['@nuxtjs/moment', { locales: ['de', 'fr', 'tr', 'es', 'nl', 'hu', 'ja'], defaultLocale: 'en' }],
     'nuxt-clipboard2',
     'nuxt-mq',
 
@@ -93,29 +93,60 @@ export default {
         defaultLocale: 'en',
         locales: [
           {
+            name: 'English',
             code: 'en',
             iso: 'en-US',
+            flag: 'us',
             file: 'en-US.js'
           },
           {
+            name: 'Deutsch',
             code: 'de',
             iso: 'de-DE',
+            flag: 'de',
             file: 'de-DE.js'
           },
           {
+            name: 'Nederlands',
+            code: 'nl',
+            iso: 'nl-NL',
+            flag: 'nl',
+            file: 'nl-NL.js'
+          },
+          {
+            name: 'Français',
             code: 'fr',
             iso: 'fr-FR',
+            flag: 'fr',
             file: 'fr-FR.js'
           },
           {
+            name: 'Magyar',
+            code: 'hu',
+            iso: 'hu-HU',
+            flag: 'hu',
+            file: 'hu-HU.js'
+          },
+          {
+            name: 'Türkçe',
             code: 'tr',
             iso: 'tr-TR',
+            flag: 'tr',
             file: 'tr-TR.js'
           },
           {
+            name: 'Español',
             code: 'es',
             iso: 'es-ES',
+            flag: 'es',
             file: 'es-ES.js'
+          },
+          {
+            name: '日本語',
+            code: 'ja',
+            iso: 'ja-JA',
+            flag: 'jp',
+            file: 'ja-JA.js'
           }
         ],
         lazy: true,

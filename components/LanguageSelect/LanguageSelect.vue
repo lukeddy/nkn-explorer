@@ -21,12 +21,8 @@
           :to="switchLocalePath(locale.code)"
           @click.native="toggleLanguage()"
         >
-          <CountryFlag
-            class="language-select__flag"
-            :country="locale.code == 'en' ? 'us' : locale.code"
-            size="normal"
-          />
-          <li class="language-select__item">{{ locale.code }}</li>
+          <CountryFlag class="language-select__flag" :country="locale.flag" size="normal"/>
+          <li class="language-select__item">{{ locale.name }}</li>
         </nuxt-link>
       </ul>
     </div>
