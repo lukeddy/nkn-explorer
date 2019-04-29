@@ -72,7 +72,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~plugins/filters.js'],
+  plugins: ['~plugins/filters.js', '~plugins/i18n.js'],
 
   /*
    ** Nuxt.js modules
@@ -83,7 +83,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
-    '@nuxtjs/moment',
+    ['@nuxtjs/moment', { locales: ['de', 'fr', 'tr', 'es'], defaultLocale: 'en' }],
     'nuxt-clipboard2',
     'nuxt-mq',
 
