@@ -5,8 +5,8 @@
       <div class="main-header__description">
         {{$t('searchFor')}}
         <nuxt-link class="text_link" :to="localePath('blocks')">{{$t('block')}}</nuxt-link>,
-        <nuxt-link class="text_link" :to="localePath('transactions')">{{$t('transaction')}}</nuxt-link>&nbsp;
-        or
+        <nuxt-link class="text_link" :to="localePath('transactions')">{{$t('transaction')}}</nuxt-link>
+        {{ $t('or') }}
         <nuxt-link class="text_link" :to="localePath('addresses')">{{$t('address')}}</nuxt-link>
       </div>
       <div class="main-header__search-bar">
