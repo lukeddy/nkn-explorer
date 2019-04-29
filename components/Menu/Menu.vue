@@ -2,7 +2,7 @@
   <div class="menu">
     <Burger/>
     <div class="menu__left">
-      <nuxt-link to="/" class="menu__logo">
+      <nuxt-link :to="localePath('index')" class="menu__logo">
         <Logo/>
         <span class="menu__title">NKN</span>
       </nuxt-link>
