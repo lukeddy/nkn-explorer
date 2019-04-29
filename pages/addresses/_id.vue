@@ -36,7 +36,8 @@
     <mq-layout mq="lg">
       <DesktopWrapper>
         <TableLoader v-if="loading" :count="5"/>
-        <DesktopAddressInfo v-else :address="address"/>
+        <DesktopAddressInfo v-if="!loading" :address="address"/>
+        <DesktopAddressTransactions v-if="!loading" :address="address"/>
       </DesktopWrapper>
     </mq-layout>
   </section>
@@ -52,6 +53,7 @@ import TableLoader from '~/components/Loaders/TableLoader'
 
 import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
 import DesktopAddressInfo from '~/components/DesktopAddressInfo/DesktopAddressInfo'
+import DesktopAddressTransactions from '~/components/DesktopAddressTransactions/DesktopAddressTransactions'
 
 import Copy from '@/assets/icons/Copy.svg'
 import Wallet from '@/assets/icons/Wallet.svg'
@@ -67,7 +69,8 @@ export default {
     CardLoader,
     TableLoader,
     DesktopWrapper,
-    DesktopAddressInfo
+    DesktopAddressInfo,
+    DesktopAddressTransactions
   },
   data: () => {
     return {
