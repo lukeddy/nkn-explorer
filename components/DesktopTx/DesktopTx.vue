@@ -18,7 +18,10 @@
         />
       </td>
     </tr>
-    <tr class="table__row desktop-tx__body" :class="isOpen ? 'desktop-tx__body_open' : null">
+    <tr
+      class="table__row desktop-tx__body"
+      :class="isOpen && txPayload ? 'desktop-tx__body_open' : null"
+    >
       <td colspan="4" class="desktop-tx__wrapper">
         <!-- Mining Reward -->
         <template v-if="tx.txType ==='CoinbaseType' && txPayload">
