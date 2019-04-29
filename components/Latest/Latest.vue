@@ -53,17 +53,23 @@ export default {
   data: () => {
     return {}
   },
-  destroyed() {
-    clearInterval(this.intervalBlocks)
-    clearInterval(this.intervalTransactions)
-  },
   computed: mapGetters({
     latestBlocks: 'latestBlocks/getLatestBlocks',
     latestTransactions: 'latestTransactions/getLatestTransactions'
   }),
+  destroyed() {
+    if (this.type == 'blocks') {
+      clearInterval(this.intervalBlocks)
+    } else if (this.type == 'transactions') {
+      clearInterval(this.intervalTransactions)
+    }
+  },
   mounted: function() {
-    this.intervalBlocks = setInterval(this.updateBlocks, 10000)
-    this.intervalTransactions = setInterval(this.updateTransactions, 10000)
+    if (this.type == 'blocks') {
+      this.intervalBlocks = setInterval(this.updateBlocks, 10000)
+    } else if (this.type == 'transactions') {
+      this.intervalTransactions = setInterval(this.updateTransactions, 10000)
+    }
   },
   methods: {
     updateBlocks() {

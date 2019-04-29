@@ -77,17 +77,16 @@ export default {
     }
   },
   mounted: function() {
+    let locale = 'en'
+    if (this.$i18n.locale !== 'vi') locale = this.$i18n.locale
     CountryNames.registerLocale(
-      require('i18n-iso-countries/langs/' + this.$i18n.locale + '.json')
+      require('i18n-iso-countries/langs/' + locale + '.json')
     )
 
     this.countries = this.networkCountries
 
     this.countries.forEach(country => {
-      country.country_name = CountryNames.getName(
-        country.country_code,
-        this.$i18n.locale
-      )
+      country.country_name = CountryNames.getName(country.country_code, locale)
     })
   },
   methods: {
