@@ -45,7 +45,8 @@
     <mq-layout mq="lg">
       <DesktopWrapper>
         <TableLoader v-if="loading" :count="5"/>
-        <DesktopBlockInfo v-else :block="block"/>
+        <DesktopBlockInfo v-if="!loading" :block="block"/>
+        <DesktopBlockTransactions v-if="!loading" :blockId="block.id"/>
       </DesktopWrapper>
     </mq-layout>
   </section>
@@ -61,6 +62,7 @@ import TableLoader from '~/components/Loaders/TableLoader'
 
 import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
 import DesktopBlockInfo from '~/components/DesktopBlockInfo/DesktopBlockInfo'
+import DesktopBlockTransactions from '~/components/DesktopBlockTransactions/DesktopBlockTransactions'
 
 import Block from '@/assets/icons/Block.svg'
 
@@ -74,7 +76,8 @@ export default {
     Block,
     DesktopWrapper,
     TableLoader,
-    DesktopBlockInfo
+    DesktopBlockInfo,
+    DesktopBlockTransactions
   },
   data: () => {
     return {

@@ -29,7 +29,8 @@
     "nuxt-mq": "^2.0.0",
     "nuxt-svg-loader": "^1.0.1",
     "vue-content-loader": "^0.2.1",
-    "vue-country-flag": "^1.1.1"
+    "vue-country-flag": "^1.1.1",
+    "vue-fragment": "^1.5.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

@@ -1,0 +1,77 @@
+.desktop-tx {
+  cursor: pointer;
+
+  &__toggle {
+    transition: $transition-1;
+    display: block;
+
+    &_active {
+      transform: scaleY(-1);
+      color: $primary;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__table {
+    width: 100%;
+  }
+
+  &__wrapper {
+    border-radius: $app-br;
+  }
+
+  &__body {
+    display: none;
+    max-height: 0px;
+    transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+      max-height 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+    overflow: hidden;
+    opacity: 0;
+
+    &_open {
+      display: table-row;
+      max-height: 1000px;
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+      transform: translateY(0%);
+      transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), margin 0s;
+    }
+  }
+
+  &__icon {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__content {
+    display: flex;
+    padding: 32px;
+    align-items: center;
+  }
+
+  &__item {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: bold;
+    color: $grey-light;
+    margin-bottom: 32px;
+  }
+
+  &__price {
+    font-size: $font-size-lg;
+    color: $grey-light;
+    margin-top: 8px;
+  }
+
+  &__sigchain {
+    width: 100%;
+  }
+}
