@@ -77,12 +77,17 @@ export default {
     }
   },
   mounted: function() {
-    CountryNames.registerLocale(require('i18n-iso-countries/langs/en.json'))
+    CountryNames.registerLocale(
+      require('i18n-iso-countries/langs/' + this.$i18n.locale + '.json')
+    )
 
     this.countries = this.networkCountries
 
     this.countries.forEach(country => {
-      country.country_name = CountryNames.getName(country.country_code, 'en')
+      country.country_name = CountryNames.getName(
+        country.country_code,
+        this.$i18n.locale
+      )
     })
   },
   methods: {
