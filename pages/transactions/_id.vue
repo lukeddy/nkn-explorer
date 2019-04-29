@@ -43,11 +43,20 @@
         </div>
       </div>
     </div>
-    <CardLoader v-if="loading" :count="5"/>
-    <div v-else>
-      <SingleTransactionInfo v-if="activeGeneral" :tx="tx"/>
-      <SingleTransactionPayload v-if="activePayload" :tx="tx"/>
-    </div>
+    <mq-layout :mq="['sm','md']">
+      <CardLoader v-if="loading" :count="5"/>
+      <div v-else>
+        <SingleTransactionInfo v-if="activeGeneral" :tx="tx"/>
+        <SingleTransactionPayload v-if="activePayload" :tx="tx"/>
+      </div>
+    </mq-layout>
+
+    <mq-layout mq="lg">
+      <DesktopWrapper>
+        <TableLoader v-if="loading" :count="10"/>
+        <DesktopTransactionInfo v-else :tx="tx"/>
+      </DesktopWrapper>
+    </mq-layout>
   </section>
 </template>
 
@@ -57,6 +66,10 @@ import SingleTransactionInfo from '~/components/SingleTransactionInfo/SingleTran
 import SingleTransactionPayload from '~/components/SingleTransactionPayload/SingleTransactionPayload'
 import CardSwitch from '~/components/CardSwitch/CardSwitch'
 import CardLoader from '~/components/Loaders/CardLoader'
+import TableLoader from '~/components/Loaders/TableLoader'
+
+import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
+import DesktopTransactionInfo from '~/components/DesktopTransactionInfo/DesktopTransactionInfo'
 
 import Transaction from '@/assets/icons/Transaction.svg'
 
@@ -67,7 +80,10 @@ export default {
     SingleTransactionPayload,
     CardSwitch,
     CardLoader,
-    Transaction
+    Transaction,
+    TableLoader,
+    DesktopWrapper,
+    DesktopTransactionInfo
   },
   data: () => {
     return {

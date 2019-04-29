@@ -33,11 +33,21 @@
         </div>
       </div>
     </div>
-    <template v-if="!loading">
-      <SingleBlockInfo v-if="activeGeneral" :block="block"/>
-      <SingleBlockTransactions v-if="activeTx" :blockId="block.id"/>
-    </template>
-    <CardLoader v-else :count="5"/>
+
+    <mq-layout :mq="['sm','md']">
+      <template v-if="!loading">
+        <SingleBlockInfo v-if="activeGeneral" :block="block"/>
+        <SingleBlockTransactions v-if="activeTx" :blockId="block.id"/>
+      </template>
+      <CardLoader v-else :count="5"/>
+    </mq-layout>
+
+    <mq-layout mq="lg">
+      <DesktopWrapper>
+        <TableLoader v-if="loading" :count="5"/>
+        <DesktopBlockInfo v-else :block="block"/>
+      </DesktopWrapper>
+    </mq-layout>
   </section>
 </template>
 
@@ -47,6 +57,10 @@ import SingleBlockInfo from '~/components/SingleBlockInfo/SingleBlockInfo'
 import SingleBlockTransactions from '~/components/SingleBlockTransactions/SingleBlockTransactions'
 import CardSwitch from '~/components/CardSwitch/CardSwitch'
 import CardLoader from '~/components/Loaders/CardLoader'
+import TableLoader from '~/components/Loaders/TableLoader'
+
+import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
+import DesktopBlockInfo from '~/components/DesktopBlockInfo/DesktopBlockInfo'
 
 import Block from '@/assets/icons/Block.svg'
 
@@ -57,7 +71,10 @@ export default {
     CardSwitch,
     SingleBlockTransactions,
     CardLoader,
-    Block
+    Block,
+    DesktopWrapper,
+    TableLoader,
+    DesktopBlockInfo
   },
   data: () => {
     return {

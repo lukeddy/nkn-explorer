@@ -1,6 +1,10 @@
 .single-address-info {
   &__balance {
-    background: linear-gradient(98.23deg, #494b88 4.48%, #9c95dc 97.21%);
+    background: linear-gradient(
+      98.23deg,
+      #494b88 4.48%,
+      #9c95dc 97.21%
+    ) !important;
     position: relative;
     overflow: hidden;
 
