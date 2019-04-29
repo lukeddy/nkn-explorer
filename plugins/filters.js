@@ -11,3 +11,11 @@ Vue.filter('commaNumber', function(x) {
 Vue.filter('nknValue', function(x) {
   return x / 100000000
 })
+
+Vue.filter('walletName', function(hex) {
+  hex = hex.toString()
+  let str = ''
+  for (let i = 0; i < hex.length && hex.substr(i, 2) !== '00'; i += 2)
+    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16))
+  return str
+})

@@ -64,11 +64,16 @@
     <CardContainer v-if="tx.txType ==='RegisterNameType' && !loading">
       <Card>
         <div class="card__title">{{$t('registeredName')}}</div>
-        <div class="card__text">{{txPayload.name}}</div>
+        <div class="card__text">{{txPayload.name | walletName}}</div>
       </Card>
       <Card>
         <div class="card__title">{{$t('registrant')}}</div>
-        <div class="card__text">{{txPayload.registrant}}</div>
+        <div class="card__text">
+          <nuxt-link
+            class="text_link text_wrap_none"
+            :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
+          >{{txPayload.registrantWallet}}</nuxt-link>
+        </div>
       </Card>
     </CardContainer>
 
@@ -76,11 +81,16 @@
     <CardContainer v-if="tx.txType ==='DeleteNameType' && !loading">
       <Card>
         <div class="card__title">{{$t('deletedName')}}</div>
-        <div class="card__text">{{txPayload.name}}</div>
+        <div class="card__text">{{txPayload.name | walletName}}</div>
       </Card>
       <Card>
         <div class="card__title">{{$t('registrant')}}</div>
-        <div class="card__text">{{txPayload.registrant}}</div>
+        <div class="card__text">
+          <nuxt-link
+            class="text_link text_wrap_none"
+            :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
+          >{{txPayload.registrantWallet}}</nuxt-link>
+        </div>
       </Card>
     </CardContainer>
   </div>

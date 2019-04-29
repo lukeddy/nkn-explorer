@@ -86,11 +86,14 @@
           <div class="desktop-tx__content">
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('registrant')}}</div>
-              {{txPayload.registrant}}
+              <nuxt-link
+                class="text_link text_wrap_none"
+                :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
+              >{{txPayload.registrantWallet}}</nuxt-link>
             </div>
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('registeredName')}}</div>
-              {{txPayload.name}}
+              {{txPayload.name | walletName}}
             </div>
           </div>
         </template>
@@ -100,11 +103,14 @@
           <div class="desktop-tx__content">
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('registrant')}}</div>
-              {{txPayload.registrant}}
+              <nuxt-link
+                class="text_link text_wrap_none"
+                :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
+              >{{txPayload.registrantWallet}}</nuxt-link>
             </div>
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('deletedName')}}</div>
-              {{txPayload.name}}
+              {{txPayload.name | walletName}}
             </div>
           </div>
         </template>

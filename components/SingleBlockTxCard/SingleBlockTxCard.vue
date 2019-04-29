@@ -135,11 +135,16 @@
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('registeredName')}}</div>
-          <div class="card__text text_size_md">{{txPayload.name}}</div>
+          <div class="card__text text_size_md">{{txPayload.name | walletName}}</div>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('registrant')}}</div>
-          <div class="card__text text_size_md">{{txPayload.registrant}}</div>
+          <div class="card__text text_size_md">
+            <nuxt-link
+              class="text_link text_wrap_none"
+              :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
+            >{{txPayload.registrantWallet}}</nuxt-link>
+          </div>
         </div>
       </template>
 
@@ -162,11 +167,16 @@
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('deletedName')}}</div>
-          <div class="card__text text_size_md">{{txPayload.name}}</div>
+          <div class="card__text text_size_md">{{txPayload.name | walletName}}</div>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('registrant')}}</div>
-          <div class="card__text text_size_md">{{txPayload.registrant}}</div>
+          <div class="card__text text_size_md">
+            <nuxt-link
+              class="text_link text_wrap_none"
+              :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
+            >{{txPayload.registrantWallet}}</nuxt-link>
+          </div>
         </div>
       </template>
     </div>
