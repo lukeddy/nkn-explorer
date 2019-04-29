@@ -54,7 +54,8 @@
     <mq-layout mq="lg">
       <DesktopWrapper>
         <TableLoader v-if="loading" :count="10"/>
-        <DesktopTransactionInfo v-else :tx="tx"/>
+        <DesktopTransactionInfo v-if="!loading" :tx="tx"/>
+        <DesktopTransactionPayload v-if="!loading" :tx="tx"/>
       </DesktopWrapper>
     </mq-layout>
   </section>
@@ -70,6 +71,7 @@ import TableLoader from '~/components/Loaders/TableLoader'
 
 import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
 import DesktopTransactionInfo from '~/components/DesktopTransactionInfo/DesktopTransactionInfo'
+import DesktopTransactionPayload from '~/components/DesktopTransactionPayload/DesktopTransactionPayload'
 
 import Transaction from '@/assets/icons/Transaction.svg'
 
@@ -83,7 +85,8 @@ export default {
     Transaction,
     TableLoader,
     DesktopWrapper,
-    DesktopTransactionInfo
+    DesktopTransactionInfo,
+    DesktopTransactionPayload
   },
   data: () => {
     return {

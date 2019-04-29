@@ -490,6 +490,12 @@ a {
     margin-top: $padding-default;
     font-size: $font-size-lg;
     word-break: break-word;
+
+    &_flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
 
