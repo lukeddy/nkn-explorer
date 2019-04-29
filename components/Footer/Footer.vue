@@ -37,7 +37,6 @@
         <div
           class="footer__bottom-item"
         >{{$t('copyright')}} © NKN Explorer 2019. {{$t('allRightsReserved')}}.</div>
-        <div class="footer__bottom-item">{{$t('donateAddress')}}:</div>
       </div>
     </div>
   </footer>
