@@ -6,7 +6,7 @@
         <Transaction
           v-if="!loading"
           class="single-page-header__icon"
-          :class="'single-page-header__icon_' + (tx.txType  == 'CoinbaseType' ? 'mining' : tx.txType  == 'TransferAssetType' ? 'transfer' : tx.txType  == 'CommitType' ? 'sigchain' : tx.txType  == 'SubscribeType' ? 'sigchain' : tx.txType  == 'RegisterNameType' ? 'wallet-name-registration' : tx.txType  == 'TransferNameType' ? 'wallet-name-transfer' : tx.txType  == 'DeleteNameType' ? 'wallet-name-deletion' : null)"
+          :class="'single-page-header__icon_' + (tx.txType  == 'CoinbaseType' ? 'mining' : tx.txType  == 'TransferAssetType' ? 'transfer' : tx.txType  == 'CommitType' ? 'sigchain' : tx.txType  == 'SubscribeType' ? 'subscription' : tx.txType  == 'RegisterNameType' ? 'wallet-name-registration' : tx.txType  == 'TransferNameType' ? 'wallet-name-transfer' : tx.txType  == 'DeleteNameType' ? 'wallet-name-deletion' : null)"
         />
         <div class="single-page-header__info">
           <h6
