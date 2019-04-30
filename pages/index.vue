@@ -22,6 +22,7 @@
           type="button"
           :full="true"
           @clicked="search()"
+          @click.native="clearSearch"
         >{{$t('singleSearch')}}</Button>
       </div>
       <MarketStats class="main-header__market-stats"/>
@@ -60,6 +61,9 @@ export default {
   methods: {
     removeError() {
       this.error = ''
+    },
+    clearSearch() {
+      this.$refs.searchField.clearSearch()
     },
     search() {
       let searchContext = this.$refs.searchField.searchContext

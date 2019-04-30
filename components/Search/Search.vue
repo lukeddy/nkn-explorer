@@ -39,10 +39,13 @@ export default {
   methods: {
     onEnterPressed() {
       this.$emit('sent', '')
-      this.searchContext = ''
+      this.clearSearch()
     },
     removeError() {
       this.$emit('change', '')
+    },
+    clearSearch() {
+      this.searchContext = ''
     }
   }
 }
