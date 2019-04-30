@@ -18,7 +18,7 @@
             >{{address.address}}</nuxt-link>
           </td>
           <td class="table__item">{{ $moment(address.last_transaction+"Z").fromNow() }}</td>
-          <td class="table__item text_align_right">{{address.count_transactions}}</td>
+          <td class="table__item text_align_right">{{address.count_transactions | commaNumber}}</td>
         </tr>
       </tbody>
     </table>

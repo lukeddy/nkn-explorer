@@ -9,7 +9,9 @@
             :to="localePath({ name: 'addresses-id', params: { id: address.address } })"
           >{{address.address}}</nuxt-link>
         </div>
-        <div class="address-card__item">{{$t('transactions')}}: {{address.count_transactions}}</div>
+        <div
+          class="address-card__item"
+        >{{$t('transactions')}}: {{address.count_transactions | commaNumber}}</div>
         <div
           class="address-card__item"
         >{{$t('latestTransaction')}}: {{ $moment(address.last_transaction+"Z").fromNow() }}</div>

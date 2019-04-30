@@ -23,7 +23,7 @@
       </DesktopCard>
       <DesktopCard width="quarter">
         <div class="card__title">{{$t('totalTransactions')}}</div>
-        <div class="desktop-card__item">{{address.count_transactions}}</div>
+        <div class="desktop-card__item">{{address.count_transactions | commaNumber}}</div>
       </DesktopCard>
     </DesktopCardContainer>
   </div>

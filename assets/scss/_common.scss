@@ -680,6 +680,11 @@ a {
   margin-right: $padding-default;
   position: relative;
   padding: $padding-normal;
+  transition: $transition-1;
+
+  &:hover {
+    box-shadow: $shadow-2;
+  }
 
   @include size-desktop {
     max-width: unset;

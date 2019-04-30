@@ -2,6 +2,14 @@
   background: $footer-gradient;
   padding: $padding-mobile;
   color: $footer-color;
+  position: relative;
+  overflow: hidden;
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 
   @include size-desktop {
     padding: 0;

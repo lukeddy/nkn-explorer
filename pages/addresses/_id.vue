@@ -3,14 +3,21 @@
     <div class="single-page-header">
       <div class="single-page-header__wrapper">
         <GetBack :text="$t('allAddresses')" route="/addresses"/>
-        <Wallet class="single-page-header__icon single-page-header__icon_block"/>
-
-        <div class="single-page-header__info">
-          <h1 class="single-page-header__title">{{ $t('addressDetails')}}</h1>
-          <div v-clipboard:copy="$route.params.id" class="single-page-header__address">
-            {{$route.params.id}}
-            <Copy class="single-page-header__address-copy"/>
+        <div class="single-page-header__left">
+          <Wallet class="single-page-header__icon"/>
+          <div class="single-page-header__info">
+            <h1 class="single-page-header__title">{{ $t('addressDetails')}}</h1>
+            <div v-clipboard:copy="$route.params.id" class="single-page-header__address">
+              {{$route.params.id}}
+              <Copy class="single-page-header__address-copy"/>
+            </div>
           </div>
+        </div>
+        <div v-if="address.balance" class="single-page-header__right">
+          <div class="single-page-header__tx-number">{{address.balance}} NKN</div>
+          <div
+            class="single-page-header__tx-price"
+          >${{(address.balance * currentPrice).toFixed(2) | commaNumber}}</div>
         </div>
         <div class="single-page-header__switches">
           <CardSwitch
@@ -58,6 +65,8 @@ import DesktopAddressTransactions from '~/components/DesktopAddressTransactions/
 import Copy from '@/assets/icons/Copy.svg'
 import Wallet from '@/assets/icons/Wallet.svg'
 
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     GetBack,
@@ -80,6 +89,9 @@ export default {
       activeTx: false
     }
   },
+  computed: mapGetters({
+    currentPrice: 'price/getCurrentPrice'
+  }),
   mounted: function() {
     this.getAddress()
   },

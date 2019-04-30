@@ -21,7 +21,7 @@
     </Card>
     <Card>
       <div class="card__title">{{$t('totalTransactions')}}</div>
-      <div class="card__text">{{address.count_transactions}}</div>
+      <div class="card__text">{{address.count_transactions | commaNumber}}</div>
     </Card>
   </CardContainer>
 </template>

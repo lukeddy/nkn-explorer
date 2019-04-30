@@ -1,5 +1,11 @@
 <template>
   <footer class="footer">
+    <mq-layout :mq="['sm','md']">
+      <FooterBlobsMobile class="footer__overlay"/>
+    </mq-layout>
+    <mq-layout mq="lg">
+      <FooterBlobs class="footer__overlay"/>
+    </mq-layout>
     <div class="footer__wrapper">
       <StartMining/>
       <div class="footer__nav">
@@ -55,6 +61,8 @@ import Twitter from '@/assets/icons/Twitter.svg'
 import Telegram from '@/assets/icons/Telegram.svg'
 import Medium from '@/assets/icons/Medium.svg'
 import Discord from '@/assets/icons/Discord.svg'
+import FooterBlobs from '@/assets/icons/FooterBlobs.svg'
+import FooterBlobsMobile from '@/assets/icons/FooterBlobsMobile.svg'
 
 export default {
   components: {
@@ -63,7 +71,9 @@ export default {
     Twitter,
     Telegram,
     Medium,
-    Discord
+    Discord,
+    FooterBlobs,
+    FooterBlobsMobile
   },
 
   data: () => {

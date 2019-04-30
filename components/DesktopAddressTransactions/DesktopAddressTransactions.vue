@@ -17,7 +17,7 @@
     <div v-if="transactions.length > 0" class="page-navigation">
       <div
         class="page-navigation__info"
-      >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{address.count_transactions}}</div>
+      >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{address.count_transactions | commaNumber}}</div>
       <div class="page-navigation__pagination">
         <Pagination :page="prevPage" type="prev" @click.native="getAddressTransactions(prevPage)"/>
         <Pagination :page="nextPage" type="next" @click.native="getAddressTransactions(nextPage)"/>
