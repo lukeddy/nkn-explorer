@@ -13,8 +13,10 @@
         ref="searchField"
         class="menu__search"
         :text="$t('search')"
+        :error="error"
         type="ghost"
         @sent="search()"
+        @change="removeError"
       />
       <div class="menu__divider"></div>
       <Button class="menu__mining-button" type="link" url="https://nknx.org">
@@ -54,10 +56,15 @@ export default {
     Mining
   },
   data: () => {
-    return {}
+    return {
+      error: ''
+    }
   },
   mounted: function() {},
   methods: {
+    removeError() {
+      this.error = ''
+    },
     search() {
       let searchContext = this.$refs.searchField.searchContext
       let self = this
@@ -72,7 +79,7 @@ export default {
                 .$get(`blocks/${searchContext}`)
                 .then(function(response) {
                   if (!Object.entries(response).length) {
-                    console.log(self.$t('blockOrTransactionNotFound'))
+                    self.error = self.$t('blockOrTransactionNotFound')
                   } else {
                     self.$router.push(
                       self.localePath({
@@ -94,7 +101,7 @@ export default {
       } else if (!isNaN(searchContext) && searchContext.length) {
         this.$axios.$get(`blocks/${searchContext}`).then(function(response) {
           if (!Object.entries(response).length) {
-            console.log(self.$t('blockHeightNotFound'))
+            self.error = self.$t('blockHeightNotFound')
           } else {
             self.$router.push(
               self.localePath({
@@ -105,7 +112,7 @@ export default {
           }
         })
       } else {
-        console.log(self.$t('invalidData'))
+        self.error = self.$t('invalidData')
       }
     }
   }

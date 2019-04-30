@@ -166,7 +166,7 @@ export default {
   },
   methods: {
     getLatestTx() {
-      this.$store.dispatch('latestSigchain/getLatestSigchain')
+      this.$store.dispatch('latestSigchain/updateLatestSigchain')
     }
   }
 }

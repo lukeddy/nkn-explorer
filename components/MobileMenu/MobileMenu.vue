@@ -1,6 +1,12 @@
 <template>
   <div class="mobile-menu" :class="isMobileMenuOpen ? 'mobile-menu_open' : null">
-    <Search ref="searchField" :text="$t('search')" @sent="search()"/>
+    <Search
+      ref="searchField"
+      :text="$t('search')"
+      :error="error"
+      @sent="search()"
+      @change="removeError"
+    />
     <div class="mobile-menu__nav">
       <nuxt-link
         v-for="route in routes"
@@ -84,7 +90,8 @@ export default {
           icon: 'Address',
           title: 'addresses'
         }
-      ]
+      ],
+      error: ''
     }
   },
   computed: mapGetters({
@@ -95,6 +102,9 @@ export default {
   methods: {
     toggleMobileMenu() {
       this.$store.dispatch('mobileMenu/toggleMobileMenu')
+    },
+    removeError() {
+      this.error = ''
     },
     search() {
       let searchContext = this.$refs.searchField.searchContext
@@ -111,7 +121,7 @@ export default {
                 .$get(`blocks/${searchContext}`)
                 .then(function(response) {
                   if (!Object.entries(response).length) {
-                    console.log(self.$t('blockOrTransactionNotFound'))
+                    self.error = self.$t('blockOrTransactionNotFound')
                   } else {
                     self.$router.push(
                       self.localePath({
@@ -135,7 +145,7 @@ export default {
       } else if (!isNaN(searchContext) && searchContext.length) {
         this.$axios.$get(`blocks/${searchContext}`).then(function(response) {
           if (!Object.entries(response).length) {
-            console.log(self.$t('blockHeightNotFound'))
+            self.error = self.$t('blockHeightNotFound')
           } else {
             self.$router.push(
               self.localePath({
@@ -147,7 +157,7 @@ export default {
           }
         })
       } else {
-        console.log(self.$t('invalidData'))
+        self.error = self.$t('invalidData')
       }
     }
   }

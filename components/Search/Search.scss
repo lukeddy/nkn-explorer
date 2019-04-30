@@ -4,6 +4,9 @@
   align-items: center;
   padding: $padding-small $padding-default;
   border-radius: $app-br;
+  transition: $transition-1;
+  box-sizing: border-box;
+  border: 1px solid transparent;
 
   @include size-desktop {
     padding: $padding-default 20px;
@@ -17,6 +20,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    transition: $transition-1;
 
     @include size-desktop {
       font-size: $font-size-lg;
@@ -24,6 +28,7 @@
     }
 
     &::placeholder {
+      transition: $transition-1;
       color: $grey-light;
       font-style: italic;
     }
@@ -34,6 +39,7 @@
     font-size: 22px;
     margin-left: $padding-normal;
     cursor: pointer;
+    transition: $transition-1;
 
     @include size-desktop {
       margin-left: 0;
@@ -67,6 +73,18 @@
         order: 2;
         color: $white;
         margin-right: 0;
+      }
+    }
+  }
+
+  &_error {
+    border: 1px solid #d63649;
+
+    .search__control {
+      color: #d63649;
+
+      &::placeholder {
+        color: #d63649;
       }
     }
   }

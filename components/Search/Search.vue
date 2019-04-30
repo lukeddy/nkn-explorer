@@ -1,11 +1,12 @@
 <template>
-  <div class="search" :class="`search_type_${type}`">
+  <div class="search" :class="[`search_type_${type}`, error.length > 0 ? 'search_error' : null]">
     <input
       v-model="searchContext"
       type="text"
       class="search__control"
-      :placeholder="text"
+      :placeholder="error.length > 0  ? error :text"
       @keyup.enter="onEnterPressed"
+      @keyup="removeError"
     >
     <span class="search__icon fe fe-search" @click="onEnterPressed"></span>
   </div>
@@ -25,16 +26,23 @@ export default {
     type: {
       type: String,
       default: ''
+    },
+    error: {
+      type: String,
+      default: ''
     }
   },
   data: () => {
     return { searchContext: '' }
   },
-
   mounted: function() {},
   methods: {
     onEnterPressed() {
       this.$emit('sent', '')
+      this.searchContext = ''
+    },
+    removeError() {
+      this.$emit('change', '')
     }
   }
 }
