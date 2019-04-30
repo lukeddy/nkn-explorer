@@ -2,13 +2,11 @@
   <section class="section section_white">
     <div class="main-header">
       <h1 class="main-header__title text_color_white">NKN {{$t('block')}} {{$t('explorer')}}</h1>
-      <div class="main-header__description">
-        {{$t('searchFor')}}
-        <nuxt-link class="text_link" :to="localePath('blocks')">{{$t('block')}}</nuxt-link>,
+      <i18n path="searchFor" tag="div" class="main-header__description">
+        <nuxt-link class="text_link" :to="localePath('blocks')">{{$t('block')}}</nuxt-link>
         <nuxt-link class="text_link" :to="localePath('transactions')">{{$t('transaction')}}</nuxt-link>
-        {{ $t('or') }}
         <nuxt-link class="text_link" :to="localePath('addresses')">{{$t('address')}}</nuxt-link>
-      </div>
+      </i18n>
       <div class="main-header__search-bar">
         <Search
           ref="searchField"
