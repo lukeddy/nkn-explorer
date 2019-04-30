@@ -83,7 +83,26 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
-    ['@nuxtjs/moment', { locales: ['de', 'fr', 'tr', 'es', 'nl', 'hu', 'ja', 'fi', 'vi', 'sk', 'zh-cn'], defaultLocale: 'en' }],
+    [
+      '@nuxtjs/moment',
+      {
+        locales: [
+          'de',
+          'ru',
+          'fr',
+          'tr',
+          'es',
+          'nl',
+          'hu',
+          'ja',
+          'fi',
+          'vi',
+          'sk',
+          'zh-cn'
+        ],
+        defaultLocale: 'en'
+      }
+    ],
     'nuxt-clipboard2',
     'nuxt-mq',
 
@@ -106,6 +125,13 @@ export default {
             iso: 'de-DE',
             flag: 'de',
             file: 'de-DE.js'
+          },
+          {
+            name: 'Русский',
+            code: 'ru',
+            iso: 'ru-RU',
+            flag: 'ru',
+            file: 'ru-RU.js'
           },
           {
             name: 'Nederlands',

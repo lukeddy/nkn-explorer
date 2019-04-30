@@ -822,6 +822,10 @@ a {
   }
 
   &__item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     &:not(:first-child) {
       padding: 21px 24px;
     }
