@@ -1,8 +1,8 @@
 <template>
   <div class="latest">
     <div class="latest__header">
-      <h2 v-if="type=='transactions'">{{$t('latest_f')}} {{title}}</h2>
-      <h2 v-else>{{$t('latest')}} {{title}}</h2>
+      <h2 v-if="type=='transactions'">{{$t('latestTransactions')}}</h2>
+      <h2 v-else>{{$t('latestBlocks')}}</h2>
       <nuxt-link class="latest__all text_link" :to="localePath(link)">{{$t('viewAll')}}</nuxt-link>
     </div>
     <div class="latest__wrapper">
