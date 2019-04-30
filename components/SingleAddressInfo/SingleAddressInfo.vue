@@ -6,7 +6,7 @@
       <Logo class="single-address-info__logo"/>
     </Card>
     <Card>
-      <div class="card__title">{{$t('firstTransactions')}}</div>
+      <div class="card__title">{{$t('firstTransaction')}}</div>
       <div class="card__text">
         <span v-if="address.first_transaction !=null">{{address.first_transaction}}</span>
         <span v-else>{{$t('never')}}</span>

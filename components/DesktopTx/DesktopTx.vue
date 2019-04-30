@@ -61,7 +61,7 @@
               >${{(this.$options.filters.nknValue(txPayload.amount) * currentPrice).toFixed(2) | commaNumber}}</div>
             </div>
             <div class="desktop-tx__item text_align_left">
-              <div class="desktop-tx__title">{{$t('to')}}</div>
+              <div class="desktop-tx__title">{{$t('to_send')}}</div>
               <nuxt-link
                 class="text_link text_size_md"
                 :to="localePath({ name: 'addresses-id', params: { id: txPayload.recipientWallet} })"

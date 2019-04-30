@@ -37,7 +37,7 @@
         >${{(this.$options.filters.nknValue(txPayload.amount) * currentPrice).toFixed(2) | commaNumber}}</div>
       </Card>
       <Card>
-        <div class="card__title">{{$t('to')}}</div>
+        <div class="card__title">{{$t('to_send')}}</div>
         <nuxt-link
           class="card__link text_size_md"
           :to="localePath({ name: 'addresses-id', params: { id: txPayload.recipientWallet} })"

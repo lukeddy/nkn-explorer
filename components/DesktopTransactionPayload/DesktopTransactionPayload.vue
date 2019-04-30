@@ -51,7 +51,7 @@
         </div>
       </DesktopCard>
       <DesktopCard width="third">
-        <div class="card__title">{{$t('to')}}</div>
+        <div class="card__title">{{$t('to_send')}}</div>
         <div class="desktop-card__item">
           <nuxt-link
             class="text_link"
