@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{163:function(n,t,e){"use strict";e.r(t);e(17);var o=e(107),r=e.n(o);t.default=function(){return new Promise(function(n){r.a.get("https://raw.githubusercontent.com/CrackDavid/translationfiles/master/nl.json").then(function(t){n(t.data)})})}}}]);
