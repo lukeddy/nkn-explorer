@@ -83,7 +83,7 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     'nuxt-svg-loader',
-    ['@nuxtjs/moment', { locales: ['de', 'fr', 'tr', 'es', 'nl', 'hu', 'ja', 'fi', 'vi'], defaultLocale: 'en' }],
+    ['@nuxtjs/moment', { locales: ['de', 'fr', 'tr', 'es', 'nl', 'hu', 'ja', 'fi', 'vi', 'sk'], defaultLocale: 'en' }],
     'nuxt-clipboard2',
     'nuxt-mq',
 
@@ -140,6 +140,13 @@ export default {
             iso: 'es-ES',
             flag: 'es',
             file: 'es-ES.js'
+          },
+          {
+            name: 'Slovenčina',
+            code: 'sk',
+            iso: 'sk-SK',
+            flag: 'sk',
+            file: 'sk-SK.js'
           },
           {
             name: 'Suomi',
