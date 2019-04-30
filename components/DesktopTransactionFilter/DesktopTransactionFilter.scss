@@ -1,0 +1,75 @@
+.desktop-filter {
+  position: absolute;
+  right: 0;
+  bottom: -36px;
+
+  &__toggle {
+    position: absolute;
+    right: 0;
+    box-shadow: $shadow-1;
+    border-radius: 50px;
+    height: 72px;
+    width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: $transition-1;
+    z-index: 10;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &_active {
+      transform: scale(1.05);
+      border-radius: $app-br;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    &_type {
+      &_allTransactions {
+        background-color: $primary;
+      }
+
+      &_miningReward {
+        background-color: $tx-reward-color;
+      }
+
+      &_transfer {
+        background-color: $tx-transfer-color;
+      }
+
+      &_signatureChain {
+        background-color: $tx-sigchain-color;
+      }
+
+      &_subscription {
+        background-color: $tx-subscription-color;
+      }
+
+      &_walletNameRegistration {
+        background-color: $tx-wallet-name-registration-color;
+      }
+
+      &_walletNameDeletion {
+        background-color: $tx-wallet-name-deletion-color;
+      }
+    }
+  }
+
+  &__wrapper {
+    min-width: 241px;
+  }
+
+  &__list {
+    top: 74px;
+    left: 3px;
+    max-width: 241px;
+    border-top-right-radius: 0px;
+    min-height: 0;
+    transition: $transition-1;
+    box-shadow: $shadow-1;
+  }
+}

@@ -22,6 +22,14 @@
           </div>
         </div>
         <div class="page-header__right"></div>
+
+        <mq-layout mq="lg">
+          <DesktopTransactionFilter
+            :filters="filters"
+            :activeFilter="activeFilter"
+            @update="updateFilters"
+          />
+        </mq-layout>
       </div>
     </div>
 
@@ -62,6 +70,7 @@ import TransactionFilter from '~/components/TransactionFilter/TransactionFilter'
 
 import DesktopWrapper from '~/components/DesktopWrapper/DesktopWrapper'
 import DesktopTransactions from '~/components/DesktopTransactions/DesktopTransactions'
+import DesktopTransactionFilter from '~/components/DesktopTransactionFilter/DesktopTransactionFilter'
 
 export default {
   components: {
@@ -72,7 +81,8 @@ export default {
     TransactionFilter,
     DesktopWrapper,
     DesktopTransactions,
-    TableLoader
+    TableLoader,
+    DesktopTransactionFilter
   },
   data: () => {
     return {

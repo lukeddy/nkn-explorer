@@ -128,6 +128,7 @@ a {
       max-width: $desktop-size-md;
       display: flex;
       justify-content: space-between;
+      position: relative;
     }
   }
 
@@ -645,6 +646,7 @@ a {
 
   &__desktop {
     display: none;
+
     @include size-desktop {
       display: block;
       margin-top: 8px;
