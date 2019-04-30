@@ -424,13 +424,29 @@ a {
     margin-bottom: 8px;
     font-size: $font-size-md;
     font-weight: bold;
+    -ms-word-break: break-all;
+    -ms-word-wrap: break-all;
+    -webkit-word-break: break-word;
+    -webkit-word-wrap: break-word;
+    word-break: break-word;
     word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
   }
 
   &__text {
     font-size: $font-size-md;
     color: $grey-dark;
+    -ms-word-break: break-all;
+    -ms-word-wrap: break-all;
+    -webkit-word-break: break-word;
+    -webkit-word-wrap: break-word;
+    word-break: break-word;
     word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
   }
 
   &__link {
@@ -439,7 +455,15 @@ a {
     color: $primary;
     transition: $transition-1;
     cursor: pointer;
+    -ms-word-break: break-all;
+    -ms-word-wrap: break-all;
+    -webkit-word-break: break-word;
+    -webkit-word-wrap: break-word;
+    word-break: break-word;
     word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 
     &:hover {
       color: darken($primary, 20%);
@@ -517,7 +541,7 @@ a {
   &__item {
     margin-top: $padding-default;
     font-size: $font-size-lg;
-    word-break: break-word;
+    word-break: break-all;
 
     &_flex {
       display: flex;
