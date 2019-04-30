@@ -223,7 +223,20 @@ a {
       max-width: $desktop-size-md;
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
+  }
+
+  &__tx-number {
+    font-size: 30px;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  &__tx-price {
+    font-size: 18px;
+    color: $grey-light;
+    text-align: right;
   }
 
   &__subtitle {
@@ -308,6 +321,7 @@ a {
     margin-top: $padding-normal;
     margin-bottom: 32px;
     text-align: center;
+    width: 100%;
 
     @include size-desktop {
       margin: 54px 0;
@@ -355,6 +369,7 @@ a {
     @include size-desktop {
       margin-top: 0;
       font-size: $h5-font-size;
+      justify-content: flex-start;
     }
 
     &:hover {
@@ -369,6 +384,18 @@ a {
         transition: $transition-1;
       }
       margin-left: 8px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+  &__right {
+    display: none;
+
+    @include size-desktop {
+      display: block;
     }
   }
 }

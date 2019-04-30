@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="desktop-heading">{{$t('Payload')}}</h2>
+    <h2 class="desktop-heading">{{$t('payload')}}</h2>
 
     <!-- Mining Reward -->
     <DesktopCardContainer
