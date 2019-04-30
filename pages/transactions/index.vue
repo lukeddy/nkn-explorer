@@ -102,6 +102,10 @@ export default {
           value: 'CommitType'
         },
         {
+          title: 'subscription',
+          value: 'SubscribeType'
+        },
+        {
           title: 'walletNameRegistration',
           value: 'RegisterNameType'
         },

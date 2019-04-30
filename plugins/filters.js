@@ -12,7 +12,7 @@ Vue.filter('nknValue', function(x) {
   return x / 100000000
 })
 
-Vue.filter('walletName', function(hex) {
+Vue.filter('hexConverter', function(hex) {
   hex = hex.toString()
   let str = ''
   for (let i = 0; i < hex.length && hex.substr(i, 2) !== '00'; i += 2)

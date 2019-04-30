@@ -60,11 +60,39 @@
       <NodeTracing :sigchain="txPayload.sigchain" :spacing="true" :showChain="true"/>
     </template>
 
+    <!-- Subscription -->
+    <CardContainer v-if="tx.txType ==='SubscribeType' && !loading">
+      <Card>
+        <div class="card__title">{{$t('subscriber')}}</div>
+        <div class="card__text text_size_md">{{txPayload.subscriber}}</div>
+      </Card>
+      <Card>
+        <div class="card__title">{{$t('identifier')}}</div>
+        <div class="card__text text_size_md">{{txPayload.identifier | hexConverter}}</div>
+      </Card>
+      <Card>
+        <div class="card__title">{{$t('topic')}}</div>
+        <div class="card__text text_size_md">{{txPayload.topic | hexConverter}}</div>
+      </Card>
+      <Card>
+        <div class="card__title">{{$t('bucket')}}</div>
+        <div class="card__text text_size_md">{{txPayload.bucket}}</div>
+      </Card>
+      <Card>
+        <div class="card__title">{{$t('duration')}}</div>
+        <div class="card__text text_size_md">{{txPayload.duration}} {{$t('blocks')}}</div>
+      </Card>
+      <Card v-if="txPayload.meta.length > 0">
+        <div class="card__title">{{$t('meta')}}</div>
+        <div class="card__text text_size_md">{{txPayload.meta}}</div>
+      </Card>
+    </CardContainer>
+
     <!-- Name Registration -->
     <CardContainer v-if="tx.txType ==='RegisterNameType' && !loading">
       <Card>
         <div class="card__title">{{$t('registeredName')}}</div>
-        <div class="card__text">{{txPayload.name | walletName}}</div>
+        <div class="card__text">{{txPayload.name | hexConverter}}</div>
       </Card>
       <Card>
         <div class="card__title">{{$t('registrant')}}</div>
@@ -81,7 +109,7 @@
     <CardContainer v-if="tx.txType ==='DeleteNameType' && !loading">
       <Card>
         <div class="card__title">{{$t('deletedName')}}</div>
-        <div class="card__text">{{txPayload.name | walletName}}</div>
+        <div class="card__text">{{txPayload.name | hexConverter}}</div>
       </Card>
       <Card>
         <div class="card__title">{{$t('registrant')}}</div>

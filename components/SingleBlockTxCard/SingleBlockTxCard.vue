@@ -116,6 +116,53 @@
         </div>
       </template>
 
+      <!-- Subscription -->
+      <template v-if="tx.txType ==='SubscribeType' && txPayload">
+        <div class="card__item">
+          <div class="card__title">{{$t('hash')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('block')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
+          >{{tx.block_height | commaNumber}}</nuxt-link>
+        </div>
+        <div class="card__divider"></div>
+        <div class="card__item">
+          <div class="card__title">{{$t('subscriber')}}</div>
+          <div class="card__text text_size_md">{{txPayload.subscriber}}</div>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('identifier')}}</div>
+          <div class="card__text text_size_md">{{txPayload.identifier | hexConverter}}</div>
+        </div>
+
+        <div class="card__item">
+          <div class="card__title">{{$t('topic')}}</div>
+          <div class="card__text text_size_md">{{txPayload.topic | hexConverter}}</div>
+        </div>
+
+        <div class="card__item">
+          <div class="card__title">{{$t('bucket')}}</div>
+          <div class="card__text text_size_md">{{txPayload.bucket}}</div>
+        </div>
+
+        <div class="card__item">
+          <div class="card__title">{{$t('duration')}}</div>
+          <div class="card__text text_size_md">{{txPayload.duration}} {{$t('blocks')}}</div>
+        </div>
+
+        <div v-if="txPayload.meta.length > 0" class="card__item">
+          <div class="card__title">{{$t('meta')}}</div>
+          <div class="card__text text_size_md">{{txPayload.meta}}</div>
+        </div>
+      </template>
+
       <!-- Name Registration -->
       <template v-if="tx.txType ==='RegisterNameType' && txPayload">
         <div class="card__item">
@@ -135,7 +182,7 @@
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('registeredName')}}</div>
-          <div class="card__text text_size_md">{{txPayload.name | walletName}}</div>
+          <div class="card__text text_size_md">{{txPayload.name | hexConverter}}</div>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('registrant')}}</div>
@@ -167,7 +214,7 @@
         <div class="card__divider"></div>
         <div class="card__item">
           <div class="card__title">{{$t('deletedName')}}</div>
-          <div class="card__text text_size_md">{{txPayload.name | walletName}}</div>
+          <div class="card__text text_size_md">{{txPayload.name | hexConverter}}</div>
         </div>
         <div class="card__item">
           <div class="card__title">{{$t('registrant')}}</div>

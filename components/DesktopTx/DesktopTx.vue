@@ -81,6 +81,36 @@
           </div>
         </template>
 
+        <!-- Subscription -->
+        <template v-if="tx.txType ==='SubscribeType' && txPayload">
+          <div class="desktop-tx__content">
+            <div class="desktop-tx__item text_align_left">
+              <div class="desktop-tx__title">{{$t('identifier')}}</div>
+              <div>{{txPayload.identifier | hexConverter}}</div>
+            </div>
+            <div class="desktop-tx__item text_align_left">
+              <div class="desktop-tx__title">{{$t('topic')}}</div>
+              <div>{{txPayload.topic | hexConverter}}</div>
+            </div>
+            <div class="desktop-tx__item text_align_left">
+              <div class="desktop-tx__title">{{$t('bucket')}}</div>
+              <div>{{txPayload.bucket}}</div>
+            </div>
+            <div v-if="txPayload.meta.length > 0" class="desktop-tx__item text_align_left">
+              <div class="desktop-tx__title">{{$t('meta')}}</div>
+              <div>{{txPayload.meta}}</div>
+            </div>
+            <div class="desktop-tx__item text_align_left">
+              <div class="desktop-tx__title">{{$t('duration')}}</div>
+              <div>{{txPayload.duration}} {{$t('blocks')}}</div>
+            </div>
+            <div class="desktop-tx__item text_align_right">
+              <div class="desktop-tx__title">{{$t('subscriber')}}</div>
+              <div>{{txPayload.subscriber}}</div>
+            </div>
+          </div>
+        </template>
+
         <!-- Name Registration -->
         <template v-if="tx.txType ==='RegisterNameType' && txPayload">
           <div class="desktop-tx__content">
@@ -93,7 +123,7 @@
             </div>
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('registeredName')}}</div>
-              {{txPayload.name | walletName}}
+              {{txPayload.name | hexConverter}}
             </div>
           </div>
         </template>
@@ -110,7 +140,7 @@
             </div>
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('deletedName')}}</div>
-              {{txPayload.name | walletName}}
+              {{txPayload.name | hexConverter}}
             </div>
           </div>
         </template>

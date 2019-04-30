@@ -71,6 +71,37 @@
       />
     </template>
 
+    <!-- Subscription -->
+    <DesktopCardContainer
+      v-if="tx.txType ==='SubscribeType' && txPayload"
+      class="desktop-block-transactions"
+    >
+      <DesktopCard width="full">
+        <div class="card__title">{{$t('subscriber')}}</div>
+        <div class="desktop-card__item">{{txPayload.subscriber}}</div>
+      </DesktopCard>
+      <DesktopCard width="quarter">
+        <div class="card__title">{{$t('identifier')}}</div>
+        <div class="desktop-card__item">{{txPayload.identifier | hexConverter}}</div>
+      </DesktopCard>
+      <DesktopCard width="quarter">
+        <div class="card__title">{{$t('topic')}}</div>
+        <div class="desktop-card__item">{{txPayload.topic | hexConverter}}</div>
+      </DesktopCard>
+      <DesktopCard width="quarter">
+        <div class="card__title">{{$t('bucket')}}</div>
+        <div class="desktop-card__item">{{txPayload.bucket}}</div>
+      </DesktopCard>
+      <DesktopCard width="quarter">
+        <div class="card__title">{{$t('duration')}}</div>
+        <div class="desktop-card__item">{{txPayload.duration}}</div>
+      </DesktopCard>
+      <DesktopCard v-if="txPayload.meta.length > 0" width="full">
+        <div class="card__title">{{$t('meta')}}</div>
+        <div class="desktop-card__item">{{txPayload.meta}}</div>
+      </DesktopCard>
+    </DesktopCardContainer>
+
     <!-- Name Registration -->
     <DesktopCardContainer
       v-if="tx.txType ==='RegisterNameType' && txPayload"
@@ -87,7 +118,7 @@
       </DesktopCard>
       <DesktopCard width="half">
         <div class="card__title">{{$t('registeredName')}}</div>
-        <div class="desktop-card__item">{{txPayload.name | walletName}}</div>
+        <div class="desktop-card__item">{{txPayload.name | hexConverter}}</div>
       </DesktopCard>
     </DesktopCardContainer>
 
@@ -107,7 +138,7 @@
       </DesktopCard>
       <DesktopCard width="half">
         <div class="card__title">{{$t('deletedName')}}</div>
-        <div class="desktop-card__item">{{txPayload.name | walletName}}</div>
+        <div class="desktop-card__item">{{txPayload.name | hexConverter}}</div>
       </DesktopCard>
     </DesktopCardContainer>
   </div>
