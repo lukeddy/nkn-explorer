@@ -160,7 +160,7 @@ export default {
             name: 'Tiếng Việt',
             code: 'vi',
             iso: 'vi-VI',
-            flag: 'vi',
+            flag: 'vn',
             file: 'vi-VI.js'
           },
           {
