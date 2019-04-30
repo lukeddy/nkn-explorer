@@ -94,7 +94,7 @@
       </DesktopCard>
       <DesktopCard width="quarter">
         <div class="card__title">{{$t('duration')}}</div>
-        <div class="desktop-card__item">{{txPayload.duration}}</div>
+        <div class="desktop-card__item">{{txPayload.duration}} {{$t('blocks')}}</div>
       </DesktopCard>
       <DesktopCard v-if="txPayload.meta.length > 0" width="full">
         <div class="card__title">{{$t('meta')}}</div>
