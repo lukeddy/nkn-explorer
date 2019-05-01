@@ -21,6 +21,6 @@ $ yarn run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-##Checking for missing translations
+## Checking for missing translations
 
 ``yarn vue-i18n-extract report -v "./layouts/**/*.?(js|vue)" -l "./lang/*.?(js|json)"``
