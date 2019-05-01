@@ -4,17 +4,17 @@
       <div class="block-card">
         <div class="block-card__header">
           <nuxt-link
-            class="block-card__height text_color_primary text_weight_bold"
+            class="block-card__height text_color_primary text_weight_bold text_wrap_none"
             :to="localePath({ name: 'blocks-id', params: { id: block.hash } })"
           >
             <Block class="block-card__icon"/>
             {{block.header.height | commaNumber}}
           </nuxt-link>
           <div
-            class="block-card__timestamp text_size_sm text_color_grey-light"
+            class="block-card__timestamp text_size_sm text_color_grey-light text_wrap_none"
           >{{ $moment(block.header.created_at +"Z").fromNow() }}</div>
           <div
-            class="block-card__size text_size_sm text_color_grey-light"
+            class="block-card__size text_size_sm text_color_grey-light text_wrap_none"
           >{{block.size}} {{$t('bytes')}}</div>
         </div>
         <div

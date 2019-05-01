@@ -1,5 +1,5 @@
 <template>
-  <div class="desktop-wrapper">
+  <div class="desktop-wrapper" :class="margin != true ? 'desktop-wrapper_no-margin' : null">
     <slot></slot>
   </div>
 </template>
@@ -11,7 +11,12 @@
 <script>
 export default {
   components: {},
-  props: {},
+  props: {
+    margin: {
+      type: Boolean,
+      default: true
+    }
+  },
   data: () => {
     return {}
   },

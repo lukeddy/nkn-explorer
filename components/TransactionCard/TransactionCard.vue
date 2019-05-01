@@ -3,9 +3,9 @@
     <nuxt-link :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })">
       <div class="transaction-card">
         <div class="transaction-card__header">
-          <TransactionTypeTitle :type="tx.txType"/>
+          <TransactionTypeTitle :type="tx.txType" class="text_wrap_none"/>
           <div
-            class="transaction-card__timestamp text_size_sm text_color_grey-light"
+            class="transaction-card__timestamp text_size_sm text_color_grey-light text_wrap_none"
           >{{ $moment(tx.created_at+"Z").fromNow() }}</div>
         </div>
         <div class="transaction-card__item">

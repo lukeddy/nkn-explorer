@@ -24,6 +24,10 @@ export default {
     const type = this.type
 
     switch (type) {
+      case 'all':
+        this.title = 'allTransactions'
+        this.className = 'all'
+        break
       case 'CoinbaseType':
         this.title = 'miningReward'
         this.className = 'reward'

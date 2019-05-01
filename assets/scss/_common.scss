@@ -491,6 +491,12 @@ a {
     }
 
     &_type {
+      &_all {
+        &:before {
+          background-color: $primary;
+        }
+      }
+
       &_reward {
         &:before {
           background-color: $tx-reward-color;

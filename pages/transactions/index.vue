@@ -42,7 +42,7 @@
     </mq-layout>
 
     <mq-layout mq="lg">
-      <DesktopWrapper>
+      <DesktopWrapper :margin="false">
         <TableLoader v-if="loading" :count="10"/>
         <DesktopTransactions v-else :transactions="transactions"/>
       </DesktopWrapper>

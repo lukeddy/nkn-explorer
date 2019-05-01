@@ -87,6 +87,10 @@
     font-weight: bold;
     font-size: $font-size-sm;
     position: relative;
+
+    @include size-desktop {
+      font-size: $font-size-base;
+    }
   }
 
   &__label {
@@ -96,6 +100,10 @@
     letter-spacing: 0.06em;
     border-radius: 4px;
     text-transform: uppercase;
+
+    @include size-desktop {
+      font-size: $font-size-xs;
+    }
   }
 
   &__pk {
@@ -105,6 +113,10 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: $font-size-xs;
+
+    @include size-desktop {
+      font-size: $font-size-md;
+    }
   }
 
   &__addr {
@@ -113,6 +125,10 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: $font-size-xs;
+
+    @include size-desktop {
+      font-size: $font-size-md;
+    }
   }
 
   &__full {
@@ -127,5 +143,10 @@
     top: -23px;
     left: 42px;
     border-radius: 26px;
+
+    @include size-desktop {
+      top: -22px;
+      left: 48px;
+    }
   }
 }

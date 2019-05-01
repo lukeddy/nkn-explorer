@@ -21,7 +21,9 @@
             :key="filter.title"
             class="filter__item"
             @click="setFilter(filter),toggleFilter()"
-          >{{$t(filter.title)}}</li>
+          >
+            <TransactionTypeTitle :type="filter.value"/>
+          </li>
         </ul>
       </div>
     </div>
@@ -34,9 +36,10 @@
 
 <script>
 import Card from '~/components/Card/Card'
+import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
 
 export default {
-  components: { Card },
+  components: { Card, TransactionTypeTitle },
   props: {
     filters: {
       type: Array,

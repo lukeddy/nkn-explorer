@@ -36,7 +36,7 @@
     </mq-layout>
 
     <mq-layout mq="lg">
-      <DesktopWrapper>
+      <DesktopWrapper :margin="false">
         <TableLoader v-if="loading" :count="10"/>
         <DesktopBlocks v-else :blocks="blocks"/>
       </DesktopWrapper>

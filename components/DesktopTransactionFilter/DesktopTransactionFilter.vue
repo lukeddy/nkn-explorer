@@ -14,8 +14,11 @@
           v-for="filter in filters"
           :key="filter.title"
           class="filter__item"
+          :class="activeFilter ? `filter__item_type_${activeFilter.title}` : null"
           @click="setFilter(filter),toggleFilter()"
-        >{{$t(filter.title)}}</li>
+        >
+          <TransactionTypeTitle :type="filter.value"/>
+        </li>
       </ul>
     </div>
   </div>
@@ -27,9 +30,10 @@
 
 <script>
 import FilterIcon from '@/assets/icons/Filter.svg'
+import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
 
 export default {
-  components: { FilterIcon },
+  components: { FilterIcon, TransactionTypeTitle },
   props: {
     filters: {
       type: Array,

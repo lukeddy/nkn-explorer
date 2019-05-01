@@ -3,5 +3,10 @@
     max-width: $desktop-size-md;
     margin: 0 auto;
     margin-top: 72px;
+    margin-bottom: 128px;
+
+    &_no-margin {
+      margin-bottom: 0;
+    }
   }
 }
