@@ -145,6 +145,7 @@
     border-top: $border-1;
     margin-top: $padding-medium;
     justify-content: space-between;
+    flex-flow: row wrap;
 
     @include size-desktop {
       padding-top: 0;
@@ -155,18 +156,17 @@
     &-item {
       opacity: 0.75;
       font-size: $font-size-xs;
+      width: 100%;
 
-      &:not(:first-child) {
-        display: none;
+      &:first-child {
+        margin-bottom: $padding-default;
       }
 
       @include size-desktop {
-        &:first-child {
-          display: none;
-        }
+        width: auto;
 
-        &:not(:first-child) {
-          display: block;
+        &:first-child {
+          margin-bottom: 0;
         }
       }
     }
