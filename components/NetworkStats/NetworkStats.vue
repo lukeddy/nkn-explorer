@@ -2,7 +2,7 @@
   <div class="network-stats">
     <div class="network-stats__wrapper">
       <div class="network-stats__item">
-        <h6 class="network-stats__title">{{$t('network')}} {{$t('nodes')}}</h6>
+        <h6 class="network-stats__title">{{$t('networkNodes')}}</h6>
         <div class="network-stats__value">{{networkStats.totalNodes | commaNumber}}</div>
       </div>
       <div class="network-stats__item">
