@@ -2,7 +2,7 @@
   <section class="section">
     <div class="single-page-header">
       <div class="single-page-header__wrapper">
-        <GetBack :text="$t('allAddresses')" route="/addresses"/>
+        <GetBack :text="$t('allAddresses')" route="addresses"/>
         <div class="single-page-header__left">
           <Wallet class="single-page-header__icon"/>
           <div class="single-page-header__info">

@@ -2,7 +2,7 @@
   <section class="section">
     <div class="single-page-header">
       <div class="single-page-header__wrapper">
-        <GetBack :text="$t('allTransactions')" route="/transactions"/>
+        <GetBack :text="$t('allTransactions')" route="transactions"/>
         <div class="single-page-header__left">
           <Transaction
             v-if="!loading"
