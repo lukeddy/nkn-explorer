@@ -52,6 +52,8 @@
 
       &-socials {
         display: flex;
+        position: relative;
+        z-index: 10;
       }
 
       &-social {

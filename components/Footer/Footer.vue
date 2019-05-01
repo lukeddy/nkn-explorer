@@ -110,7 +110,7 @@ export default {
         { icon: 'Twitter', url: 'https://twitter.com/NKN_ORG' },
         { icon: 'Telegram', url: 'https://t.me/nknorg' },
         { icon: 'Medium', url: 'https://medium.com/nknetwork' },
-        { icon: 'Discord', url: 'https://discord.gg/aHUtAG' }
+        { icon: 'Discord', url: 'https://discord.gg/fvK2Egm' }
       ]
     }
   }
