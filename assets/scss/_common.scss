@@ -119,7 +119,7 @@ a {
 
   @include size-desktop {
     margin-top: 0;
-    padding: 72px 0;
+    padding: 72px $padding-default;
   }
 
   &__wrapper {
@@ -214,7 +214,7 @@ a {
   padding: $padding-default;
 
   @include size-desktop {
-    padding: 0;
+    padding: 0 $padding-default;
   }
 
   &__wrapper {

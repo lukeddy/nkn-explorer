@@ -4,7 +4,7 @@
   >
     <template>
       <Header/>
-      <nuxt v-if="!isMobileMenuOpen"/>
+      <nuxt/>
       <Footer/>
     </template>
   </div>

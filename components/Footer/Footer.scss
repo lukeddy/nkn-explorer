@@ -12,7 +12,7 @@
   }
 
   @include size-desktop {
-    padding: 0;
+    padding: 0 $padding-default;
   }
 
   &__wrapper {

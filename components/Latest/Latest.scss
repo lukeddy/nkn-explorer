@@ -3,7 +3,7 @@
 
   @include size-desktop {
     margin-top: 72px;
-    padding: 0;
+    padding: 0 $padding-default;
   }
 
   &__header {
@@ -11,6 +11,9 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 
     @include size-desktop {
       margin-bottom: $padding-default;
@@ -39,6 +42,8 @@
   }
 
   &__all {
+    white-space: nowrap;
+
     @include size-desktop {
       display: none;
     }
