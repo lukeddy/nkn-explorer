@@ -69,7 +69,12 @@ export default {
       let searchContext = this.$refs.searchField.searchContext
       let self = this
       if (searchContext.startsWith('NKN') && searchContext.length == 36) {
-        this.$router.push('/addresses/' + searchContext)
+        self.$router.push(
+          self.localePath({
+            name: 'addresses-id',
+            params: { id: searchContext }
+          })
+        )
       } else if (searchContext.length == 64) {
         this.$axios
           .$get(`transactions/${searchContext}`)
@@ -112,7 +117,20 @@ export default {
           }
         })
       } else {
-        self.error = self.$t('invalidData')
+        this.$axios
+          .$get(`address-book/name/${searchContext}`)
+          .then(function(response) {
+            if (!Object.entries(response).length) {
+              self.error = self.$t('invalidData')
+            } else {
+              self.$router.push(
+                self.localePath({
+                  name: 'addresses-id',
+                  params: { id: response.address }
+                })
+              )
+            }
+          })
       }
     }
   }
