@@ -660,12 +660,6 @@ a {
     .single-page-header {
       max-height: 220px;
 
-      @keyframes Spin {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
       * {
         transition: 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
         opacity: 0;
