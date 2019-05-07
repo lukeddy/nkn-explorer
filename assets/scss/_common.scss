@@ -212,6 +212,10 @@ a {
 .single-page-header {
   background: $white;
   padding: $padding-default;
+  max-height: 1000px;
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
+  box-sizing: border-box;
 
   @include size-desktop {
     padding: 0 $padding-default;
@@ -402,6 +406,8 @@ a {
 
 /*========== Card ==========*/
 .card {
+  position: relative;
+  bottom: 0;
   &__item {
     &:not(:last-child) {
       margin-bottom: $padding-default;
@@ -647,18 +653,55 @@ a {
 }
 
 /*========== Page Animation ==========*/
-// .page-enter-active,
-// .page-leave-active {
-//   transition: 0.1s ease-in-out all;
-// }
-// .page-enter {
-//   position: relative;
-//   transform: translate(100%, 0);
-// }
-// .page-leave-active {
-//   position: relative;
-//   transform: translate(-100%, 0);
-// }
+@media (max-width: 1200px) {
+  .expand-enter-active {
+    transition: 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    .single-page-header {
+      max-height: 220px;
+
+      @keyframes Spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      * {
+        transition: 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+        opacity: 0;
+      }
+    }
+
+    .card-container {
+      min-height: 700px;
+      transition: 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+      opacity: 0;
+    }
+  }
+
+  .expand-leave-active {
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    .card {
+      transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      opacity: 0;
+
+      &:first-of-type {
+        opacity: 1;
+        border-radius: 0;
+        bottom: 151px;
+        transform: scale(1.2);
+        box-sizing: border-box;
+        height: calc(220px - 33.33px);
+        overflow: hidden;
+
+        * {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
 
 /*========== Page Pagination ==========*/
 .page-navigation {

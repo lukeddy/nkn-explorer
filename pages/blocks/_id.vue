@@ -67,6 +67,7 @@ import DesktopBlockTransactions from '~/components/DesktopBlockTransactions/Desk
 import Block from '@/assets/icons/Block.svg'
 
 export default {
+  transition: 'expand',
   components: {
     GetBack,
     SingleBlockInfo,

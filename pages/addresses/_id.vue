@@ -68,6 +68,7 @@ import Wallet from '@/assets/icons/Wallet.svg'
 import { mapGetters } from 'vuex'
 
 export default {
+  transition: 'expand',
   components: {
     GetBack,
     SingleAddressInfo,

@@ -99,6 +99,7 @@ import Transaction from '@/assets/icons/Transaction.svg'
 import { mapGetters } from 'vuex'
 
 export default {
+  transition: 'expand',
   components: {
     GetBack,
     SingleTransactionInfo,
