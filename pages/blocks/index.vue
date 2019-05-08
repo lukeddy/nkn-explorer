@@ -30,7 +30,7 @@
 
     <mq-layout :mq="['sm','md']">
       <CardLoader v-if="loading" :count="10"/>
-      <CardContainer v-else>
+      <CardContainer v-else class="expand-container">
         <BlockCard v-for="block in blocks" :key="block.height" :block="block"/>
       </CardContainer>
     </mq-layout>

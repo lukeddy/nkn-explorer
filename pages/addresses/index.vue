@@ -19,7 +19,7 @@
 
     <mq-layout :mq="['sm','md']">
       <CardLoader v-if="loading" :count="10"/>
-      <CardContainer v-else>
+      <CardContainer v-else class="expand-container">
         <AddressCard v-for="address in addresses" :key="address.address" :address="address"/>
       </CardContainer>
     </mq-layout>

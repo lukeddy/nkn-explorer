@@ -674,23 +674,25 @@ a {
   }
 
   .expand-leave-active {
-    transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-    .card {
-      transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      opacity: 0;
+    .expand-container {
+      .card {
+        transition: 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        opacity: 0;
 
-      &:first-of-type {
-        opacity: 1;
-        border-radius: 0;
-        bottom: 151px;
-        transform: scale(1.2);
-        box-sizing: border-box;
-        height: calc(220px - 33.33px);
-        overflow: hidden;
+        &:first-of-type {
+          opacity: 1;
+          border-radius: 0;
+          bottom: 151px;
+          transform: scale(1.2);
+          box-sizing: border-box;
+          height: calc(220px - 33.33px);
+          overflow: hidden;
 
-        * {
-          opacity: 0;
+          * {
+            opacity: 0;
+          }
         }
       }
     }

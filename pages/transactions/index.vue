@@ -34,7 +34,7 @@
     </div>
 
     <mq-layout :mq="['sm','md']">
-      <CardContainer>
+      <CardContainer class="expand-container">
         <TransactionFilter :filters="filters" :activeFilter="activeFilter" @update="updateFilters"/>
         <CardLoader v-if="loading" :count="10" :container="false"/>
         <TransactionCard v-for="tx in transactions" v-else :key="tx.id" :tx="tx"/>
