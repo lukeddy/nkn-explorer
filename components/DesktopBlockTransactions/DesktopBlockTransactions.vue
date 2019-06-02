@@ -1,7 +1,7 @@
 <template>
   <div class="desktop-block-transactions">
     <h2 class="desktop-heading">{{$t('transactions')}}</h2>
-    <TableLoader v-if="loading" :count="5"/>
+    <TableLoader v-if="loading" :count="10"/>
     <table v-else class="table">
       <thead class="table__head">
         <tr class="table__head-row">
@@ -14,6 +14,15 @@
         <DesktopTx v-for="tx in transactions" :key="tx.id" :tx="tx"/>
       </tbody>
     </table>
+    <div v-if="transactions.length > 0" class="page-navigation">
+      <div
+        class="page-navigation__info"
+      >{{$t('showing')}} {{from}} {{$t('to')}} {{to}} {{$t('of')}} {{txCount | commaNumber}}</div>
+      <div class="page-navigation__pagination">
+        <Pagination :page="prevPage" type="prev" @click.native="getBlockTransactions(prevPage)"/>
+        <Pagination :page="nextPage" type="next" @click.native="getBlockTransactions(nextPage)"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,11 +33,16 @@
 <script>
 import DesktopTx from '~/components/DesktopTx/DesktopTx'
 import TableLoader from '~/components/Loaders/TableLoader'
+import Pagination from '~/components/Pagination/Pagination'
 
 export default {
-  components: { TableLoader, DesktopTx },
+  components: { TableLoader, DesktopTx, Pagination },
   props: {
     blockId: {
+      type: Number,
+      default: 0
+    },
+    txCount: {
       type: Number,
       default: 0
     }
@@ -36,20 +50,53 @@ export default {
   data: () => {
     return {
       transactions: [],
-      loading: true
+      loading: true,
+      nextPage: null,
+      prevPage: null,
+      current_page: 1,
+      from: 0,
+      to: 0
     }
   },
   mounted: function() {
-    this.getBlockTransactions()
+    this.getBlockTransactions(this.current_page)
   },
   methods: {
-    getBlockTransactions() {
+    getBlockTransactions(page) {
       const self = this
 
+      // Checking if page exists
+      if (page === null) {
+        return false
+      }
+
+      self.loading = true
+
+      // Disabling pagination untill data fetched
+      self.nextPage = null
+      self.prevPage = null
+
+      // Fetcing data
       this.$axios
-        .$get(`blocks/${this.blockId}/transactions`)
+        .$get(`blocks/${this.blockId}/transactions2?page=${page}`)
         .then(function(response) {
-          self.transactions = response
+          const {
+            data,
+            current_page,
+            prev_page_url,
+            next_page_url,
+            from,
+            to
+          } = response
+
+          self.transactions = data
+
+          self.from = from
+          self.to = to
+          self.currentPage = current_page
+          self.prevPage = prev_page_url != null ? self.currentPage - 1 : null
+          self.nextPage = next_page_url != null ? self.currentPage + 1 : null
+
           self.loading = false
         })
     }

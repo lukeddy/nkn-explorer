@@ -37,7 +37,11 @@
     <mq-layout :mq="['sm','md']">
       <template v-if="!loading">
         <SingleBlockInfo v-if="activeGeneral" :block="block"/>
-        <SingleBlockTransactions v-if="activeTx" :blockId="block.id"/>
+        <SingleBlockTransactions
+          v-if="activeTx"
+          :txCount="block.transactions_count"
+          :blockId="block.id"
+        />
       </template>
       <CardLoader v-else :count="5"/>
     </mq-layout>
@@ -46,7 +50,11 @@
       <DesktopWrapper>
         <TableLoader v-if="loading" :count="5"/>
         <DesktopBlockInfo v-if="!loading" :block="block"/>
-        <DesktopBlockTransactions v-if="!loading" :blockId="block.id"/>
+        <DesktopBlockTransactions
+          v-if="!loading"
+          :txCount="block.transactions_count"
+          :blockId="block.id"
+        />
       </DesktopWrapper>
     </mq-layout>
   </section>
