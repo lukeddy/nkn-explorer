@@ -19,7 +19,7 @@
       </DesktopCard>
       <DesktopCard width="quarter">
         <div class="card__title">{{$t('fee')}}</div>
-        <div class="desktop-card__item">{{tx.fee}}</div>
+        <div class="desktop-card__item">{{tx.fee | nknValue | commaNumber}} NKN</div>
       </DesktopCard>
       <DesktopCard width="quarter">
         <div class="card__title">{{$t('nonce')}}</div>

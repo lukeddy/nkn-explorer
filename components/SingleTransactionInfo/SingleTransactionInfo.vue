@@ -2,7 +2,7 @@
   <CardContainer>
     <Card width="half">
       <div class="card__title">{{$t('fee')}}</div>
-      <div class="card__text">{{tx.fee}}</div>
+      <div class="card__text">{{tx.fee | nknValue | commaNumber}} NKN</div>
     </Card>
     <Card width="half">
       <div class="card__title">{{$t('nonce')}}</div>
