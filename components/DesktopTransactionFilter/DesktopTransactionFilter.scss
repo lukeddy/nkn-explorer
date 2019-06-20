@@ -53,6 +53,10 @@
       &_walletNameDeletion {
         background-color: $tx-wallet-name-deletion-color;
       }
+
+      &_generateId {
+        background-color: $tx-generate-id;
+      }
     }
   }
 
