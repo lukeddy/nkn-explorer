@@ -4,7 +4,7 @@
 
     <!-- Mining Reward -->
     <DesktopCardContainer
-      v-if="tx.txType ==='CoinbaseType' && txPayload"
+      v-if="tx.txType ==='COINBASE_TYPE' && txPayload"
       class="desktop-block-transactions"
     >
       <DesktopCard width="half">
@@ -29,7 +29,7 @@
 
     <!-- Transfer -->
     <DesktopCardContainer
-      v-if="tx.txType ==='TransferAssetType' && txPayload"
+      v-if="tx.txType ==='TRANSFER_ASSET_TYPE' && txPayload"
       class="desktop-block-transactions"
     >
       <DesktopCard width="third">
@@ -62,7 +62,7 @@
     </DesktopCardContainer>
 
     <!-- Sigchain -->
-    <template v-if="tx.txType ==='CommitType' && txPayload">
+    <template v-if="tx.txType ==='SIG_CHAIN_TXN_TYPE' && txPayload">
       <NodeTracing
         class="desktop-transaction-payload__sigchain"
         :sigchain="txPayload.sigchain"
@@ -73,7 +73,7 @@
 
     <!-- Subscription -->
     <DesktopCardContainer
-      v-if="tx.txType ==='SubscribeType' && txPayload"
+      v-if="tx.txType ==='SUBSCRIBE_TYPE' && txPayload"
       class="desktop-block-transactions"
     >
       <DesktopCard width="full">
@@ -104,7 +104,7 @@
 
     <!-- Name Registration -->
     <DesktopCardContainer
-      v-if="tx.txType ==='RegisterNameType' && txPayload"
+      v-if="tx.txType ==='REGISTER_NAME_TYPE' && txPayload"
       class="desktop-block-transactions"
     >
       <DesktopCard width="half">
@@ -124,7 +124,7 @@
 
     <!-- Name Deletion -->
     <DesktopCardContainer
-      v-if="tx.txType ==='DeleteNameType' && txPayload"
+      v-if="tx.txType ==='DELETE_NAME_TYPE' && txPayload"
       class="desktop-block-transactions"
     >
       <DesktopCard width="half">
@@ -139,6 +139,21 @@
       <DesktopCard width="half">
         <div class="card__title">{{$t('deletedName')}}</div>
         <div class="desktop-card__item">{{txPayload.name | hexConverter}}</div>
+      </DesktopCard>
+    </DesktopCardContainer>
+
+    <!-- Generate ID -->
+    <DesktopCardContainer
+      v-if="tx.txType ==='GENERATE_ID_TYPE' && txPayload"
+      class="desktop-block-transactions"
+    >
+      <DesktopCard width="half">
+        <div class="card__title">{{$t('publicKey')}}</div>
+        <div class="desktop-card__item">{{txPayload.public_key}}</div>
+      </DesktopCard>
+      <DesktopCard width="half">
+        <div class="card__title">{{$t('registrationFee')}}</div>
+        <div class="desktop-card__item">{{txPayload.registration_fee | nknValue | commaNumber}} NKN</div>
       </DesktopCard>
     </DesktopCardContainer>
   </div>

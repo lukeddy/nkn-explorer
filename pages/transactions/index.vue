@@ -101,27 +101,31 @@ export default {
         },
         {
           title: 'miningReward',
-          value: 'CoinbaseType'
+          value: 'COINBASE_TYPE'
         },
         {
           title: 'transfer',
-          value: 'TransferAssetType'
+          value: 'TRANSFER_ASSET_TYPE'
         },
         {
           title: 'signatureChain',
-          value: 'CommitType'
+          value: 'SIG_CHAIN_TXN_TYPE'
         },
         {
           title: 'subscription',
-          value: 'SubscribeType'
+          value: 'SUBSCRIBE_TYPE'
+        },
+        {
+          title: 'generateId',
+          value: 'GENERATE_ID_TYPE'
         },
         {
           title: 'walletNameRegistration',
-          value: 'RegisterNameType'
+          value: 'REGISTER_NAME_TYPE'
         },
         {
           title: 'walletNameDeletion',
-          value: 'DeleteNameType'
+          value: 'DELETE_NAME_TYPE'
         }
       ],
       activeFilter: {

@@ -310,6 +310,12 @@ a {
           fill: $tx-wallet-name-deletion-color;
         }
       }
+
+      &_generate-id {
+        path {
+          fill: $tx-generate-id;
+        }
+      }
     }
   }
 
@@ -542,6 +548,12 @@ a {
       &_wallet-name-deletion {
         &:before {
           background-color: $tx-wallet-name-deletion-color;
+        }
+      }
+
+      &_generate-id {
+        &:before {
+          background-color: $tx-generate-id;
         }
       }
     }

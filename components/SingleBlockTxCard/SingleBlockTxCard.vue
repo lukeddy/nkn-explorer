@@ -20,7 +20,7 @@
       :class="isOpen ? 'single-block-tx-card__body_open' : null"
     >
       <!-- Mining Reward -->
-      <template v-if="tx.txType ==='CoinbaseType' && txPayload">
+      <template v-if="tx.txType ==='COINBASE_TYPE' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link
@@ -47,7 +47,7 @@
       </template>
 
       <!-- Transfer -->
-      <template v-if="tx.txType ==='TransferAssetType' && txPayload">
+      <template v-if="tx.txType ==='TRANSFER_ASSET_TYPE' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link
@@ -87,7 +87,7 @@
       </template>
 
       <!-- Sigchain -->
-      <template v-if="tx.txType ==='CommitType' && txPayload">
+      <template v-if="tx.txType ==='SIG_CHAIN_TXN_TYPE' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link
@@ -117,7 +117,7 @@
       </template>
 
       <!-- Subscription -->
-      <template v-if="tx.txType ==='SubscribeType' && txPayload">
+      <template v-if="tx.txType ==='SUBSCRIBE_TYPE' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link
@@ -164,7 +164,7 @@
       </template>
 
       <!-- Name Registration -->
-      <template v-if="tx.txType ==='RegisterNameType' && txPayload">
+      <template v-if="tx.txType ==='REGISTER_NAME_TYPE' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link
@@ -196,7 +196,7 @@
       </template>
 
       <!-- Name Deletion -->
-      <template v-if="tx.txType ==='DeleteNameType' && txPayload">
+      <template v-if="tx.txType ==='DELETE_NAME_TYPE' && txPayload">
         <div class="card__item">
           <div class="card__title">{{$t('hash')}}</div>
           <nuxt-link
@@ -224,6 +224,35 @@
               :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
             >{{txPayload.registrantWallet}}</nuxt-link>
           </div>
+        </div>
+      </template>
+
+      <!-- Generate ID -->
+      <template v-if="tx.txType ==='GENERATE_ID_TYPE' && txPayload">
+        <div class="card__item">
+          <div class="card__title">{{$t('hash')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'transactions-id', params: { id: tx.hash} })"
+          >{{tx.hash}}</nuxt-link>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('block')}}</div>
+          <nuxt-link
+            class="card__link text_size_md"
+            :to="localePath({ name: 'blocks-id', params: { id: tx.block_height} })"
+          >{{tx.block_height | commaNumber}}</nuxt-link>
+        </div>
+        <div class="card__divider"></div>
+        <div class="card__item">
+          <div class="card__title">{{$t('publicKey')}}</div>
+          <div class="card__text text_size_md">{{txPayload.public_key}}</div>
+        </div>
+        <div class="card__item">
+          <div class="card__title">{{$t('registrationFee')}}</div>
+          <div
+            class="card__text text_size_md"
+          >{{txPayload.registration_fee | nknValue | commaNumber}} NKN</div>
         </div>
       </template>
     </div>

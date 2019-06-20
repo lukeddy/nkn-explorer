@@ -28,33 +28,37 @@ export default {
         this.title = 'allTransactions'
         this.className = 'all'
         break
-      case 'CoinbaseType':
+      case 'COINBASE_TYPE':
         this.title = 'miningReward'
         this.className = 'reward'
         break
-      case 'TransferAssetType':
+      case 'TRANSFER_ASSET_TYPE':
         this.title = 'transfer'
         this.className = 'transfer'
         break
-      case 'CommitType':
+      case 'SIG_CHAIN_TXN_TYPE':
         this.title = 'signatureChain'
         this.className = 'sigchain'
         break
-      case 'SubscribeType':
+      case 'SUBSCRIBE_TYPE':
         this.title = 'subscription'
         this.className = 'subscription'
         break
-      case 'RegisterNameType':
+      case 'REGISTER_NAME_TYPE':
         this.title = 'walletNameRegistration'
         this.className = 'wallet-name-registration'
         break
-      case 'TransferNameType':
+      case 'TRANSFER_NAME_TYPE':
         this.title = 'walletNameTransfer'
         this.className = 'wallet-name-transfer'
         break
-      case 'DeleteNameType':
+      case 'DELETE_NAME_TYPE':
         this.title = 'walletNameDeletion'
         this.className = 'wallet-name-deletion'
+        break
+      case 'GENERATE_ID_TYPE':
+        this.title = 'generateId'
+        this.className = 'generate-id'
         break
       default:
         return false

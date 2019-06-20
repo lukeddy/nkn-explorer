@@ -3,7 +3,7 @@
     <CardLoader v-if="loading" :count="5"/>
 
     <!-- Mining Reward -->
-    <CardContainer v-if="tx.txType ==='CoinbaseType' && !loading">
+    <CardContainer v-if="tx.txType ==='COINBASE_TYPE' && !loading">
       <Card>
         <div class="card__title">{{$t('miner')}}</div>
         <nuxt-link
@@ -21,7 +21,7 @@
     </CardContainer>
 
     <!-- Transfer -->
-    <CardContainer v-if="tx.txType ==='TransferAssetType' && !loading">
+    <CardContainer v-if="tx.txType ==='TRANSFER_ASSET_TYPE' && !loading">
       <Card>
         <div class="card__title">{{$t('from')}}</div>
         <nuxt-link
@@ -46,7 +46,7 @@
     </CardContainer>
 
     <!-- Sigchain -->
-    <template v-if="tx.txType ==='CommitType' && !loading">
+    <template v-if="tx.txType ==='SIG_CHAIN_TXN_TYPE' && !loading">
       <CardContainer>
         <Card>
           <div class="card__title">{{$t('dataSize')}}</div>
@@ -61,7 +61,7 @@
     </template>
 
     <!-- Subscription -->
-    <CardContainer v-if="tx.txType ==='SubscribeType' && !loading">
+    <CardContainer v-if="tx.txType ==='SUBSCRIBE_TYPE' && !loading">
       <Card>
         <div class="card__title">{{$t('subscriber')}}</div>
         <div class="card__text text_size_md">{{txPayload.subscriber}}</div>
@@ -89,7 +89,7 @@
     </CardContainer>
 
     <!-- Name Registration -->
-    <CardContainer v-if="tx.txType ==='RegisterNameType' && !loading">
+    <CardContainer v-if="tx.txType ==='REGISTER_NAME_TYPE' && !loading">
       <Card>
         <div class="card__title">{{$t('registeredName')}}</div>
         <div class="card__text">{{txPayload.name | hexConverter}}</div>
@@ -106,7 +106,7 @@
     </CardContainer>
 
     <!-- Name Deletion -->
-    <CardContainer v-if="tx.txType ==='DeleteNameType' && !loading">
+    <CardContainer v-if="tx.txType ==='DELETE_NAME_TYPE' && !loading">
       <Card>
         <div class="card__title">{{$t('deletedName')}}</div>
         <div class="card__text">{{txPayload.name | hexConverter}}</div>
@@ -119,6 +119,18 @@
             :to="localePath({ name: 'addresses-id', params: { id: txPayload.registrantWallet } })"
           >{{txPayload.registrantWallet}}</nuxt-link>
         </div>
+      </Card>
+    </CardContainer>
+
+    <!-- Generate ID -->
+    <CardContainer v-if="tx.txType ==='GENERATE_ID_TYPE' && !loading">
+      <Card>
+        <div class="card__title">{{$t('publicKey')}}</div>
+        <div class="card__text">{{txPayload.public_key}}</div>
+      </Card>
+      <Card>
+        <div class="card__title">{{$t('registrationFee')}}</div>
+        <div class="card__text">{{txPayload.registration_fee | nknValue | commaNumber}} NKN</div>
       </Card>
     </CardContainer>
   </div>

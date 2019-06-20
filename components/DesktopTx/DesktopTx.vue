@@ -24,7 +24,7 @@
     >
       <td colspan="4" class="desktop-tx__wrapper">
         <!-- Mining Reward -->
-        <template v-if="tx.txType ==='CoinbaseType' && txPayload">
+        <template v-if="tx.txType ==='COINBASE_TYPE' && txPayload">
           <div class="desktop-tx__content">
             <div class="desktop-tx__item text_align_right">
               <h4>+ {{txPayload.amount | nknValue | commaNumber}} NKN</h4>
@@ -42,7 +42,7 @@
         </template>
 
         <!-- Transfer -->
-        <template v-if="tx.txType ==='TransferAssetType' && txPayload">
+        <template v-if="tx.txType ==='TRANSFER_ASSET_TYPE' && txPayload">
           <div class="desktop-tx__content">
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('from')}}</div>
@@ -71,7 +71,7 @@
         </template>
 
         <!-- Sigchain -->
-        <template v-if="tx.txType ==='CommitType' && txPayload">
+        <template v-if="tx.txType ==='SIG_CHAIN_TXN_TYPE' && txPayload">
           <div class="desktop-tx__content">
             <NodeTracing
               class="desktop-tx__sigchain"
@@ -82,7 +82,7 @@
         </template>
 
         <!-- Subscription -->
-        <template v-if="tx.txType ==='SubscribeType' && txPayload">
+        <template v-if="tx.txType ==='SUBSCRIBE_TYPE' && txPayload">
           <div class="desktop-tx__content">
             <div class="desktop-tx__item text_align_left">
               <div class="desktop-tx__title">{{$t('identifier')}}</div>
@@ -112,7 +112,7 @@
         </template>
 
         <!-- Name Registration -->
-        <template v-if="tx.txType ==='RegisterNameType' && txPayload">
+        <template v-if="tx.txType ==='REGISTER_NAME_TYPE' && txPayload">
           <div class="desktop-tx__content">
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('registrant')}}</div>
@@ -129,7 +129,7 @@
         </template>
 
         <!-- Name Deletion -->
-        <template v-if="tx.txType ==='DeleteNameType' && txPayload">
+        <template v-if="tx.txType ==='DELETE_NAME_TYPE' && txPayload">
           <div class="desktop-tx__content">
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('registrant')}}</div>
@@ -141,6 +141,20 @@
             <div class="desktop-tx__item text_align_center">
               <div class="desktop-tx__title">{{$t('deletedName')}}</div>
               {{txPayload.name | hexConverter}}
+            </div>
+          </div>
+        </template>
+
+        <!-- Generate ID -->
+        <template v-if="tx.txType ==='GENERATE_ID_TYPE' && txPayload">
+          <div class="desktop-tx__content">
+            <div class="desktop-tx__item text_align_center">
+              <div class="desktop-tx__title">{{$t('publicKey')}}</div>
+              {{txPayload.public_key}}
+            </div>
+            <div class="desktop-tx__item text_align_center">
+              <div class="desktop-tx__title">{{$t('registrationFee')}}</div>
+              {{txPayload.registration_fee | nknValue | commaNumber}} NKN
             </div>
           </div>
         </template>

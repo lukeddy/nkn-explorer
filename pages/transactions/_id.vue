@@ -7,7 +7,7 @@
           <Transaction
             v-if="!loading"
             class="single-page-header__icon"
-            :class="'single-page-header__icon_' + (tx.txType  == 'CoinbaseType' ? 'mining' : tx.txType  == 'TransferAssetType' ? 'transfer' : tx.txType  == 'CommitType' ? 'sigchain' : tx.txType  == 'SubscribeType' ? 'subscription' : tx.txType  == 'RegisterNameType' ? 'wallet-name-registration' : tx.txType  == 'TransferNameType' ? 'wallet-name-transfer' : tx.txType  == 'DeleteNameType' ? 'wallet-name-deletion' : null)"
+            :class="'single-page-header__icon_' + (tx.txType  == 'COINBASE_TYPE' ? 'mining' : tx.txType  == 'TRANSFER_ASSET_TYPE' ? 'transfer' : tx.txType  == 'SIG_CHAIN_TXN_TYPE' ? 'sigchain' : tx.txType  == 'SUBSCRIBE_TYPE' ? 'subscription' : tx.txType == 'GENERATE_ID_TYPE' ? 'generate-id' : tx.txType  == 'REGISTER_NAME_TYPE' ? 'wallet-name-registration' : tx.txType  == 'TRANSFER_NAME_TYPE' ? 'wallet-name-transfer' : tx.txType  == 'DELETE_NAME_TYPE' ? 'wallet-name-deletion' : null)"
           />
           <div class="single-page-header__info">
             <h6
@@ -15,13 +15,14 @@
             >{{$t('transaction')}}</h6>
             <h1 class="single-page-header__title">
               <span v-if="loading">{{$t('loading')}}</span>
-              <span v-else-if="tx.txType == 'CoinbaseType'">{{$t('miningReward')}}</span>
-              <span v-else-if="tx.txType == 'TransferAssetType'">{{$t('transfer')}}</span>
-              <span v-else-if="tx.txType == 'CommitType'">{{$t('signatureChain')}}</span>
-              <span v-else-if="tx.txType == 'SubscribeType'">{{$t('subscription')}}</span>
-              <span v-else-if="tx.txType == 'RegisterNameType'">{{$t('walletNameRegistration')}}</span>
-              <span v-else-if="tx.txType == 'TransferNameType'">{{$t('walletNameTransfer')}}</span>
-              <span v-else-if="tx.txType == 'DeleteNameType'">{{$t('walletNameDeletion')}}</span>
+              <span v-else-if="tx.txType == 'COINBASE_TYPE'">{{$t('miningReward')}}</span>
+              <span v-else-if="tx.txType == 'TRANSFER_ASSET_TYPE'">{{$t('transfer')}}</span>
+              <span v-else-if="tx.txType == 'SIG_CHAIN_TXN_TYPE'">{{$t('signatureChain')}}</span>
+              <span v-else-if="tx.txType == 'SUBSCRIBE_TYPE'">{{$t('subscription')}}</span>
+              <span v-else-if="tx.txType == 'GENERATE_ID_TYPE'">{{$t('generateId')}}</span>
+              <span v-else-if="tx.txType == 'REGISTER_NAME_TYPE'">{{$t('walletNameRegistration')}}</span>
+              <span v-else-if="tx.txType == 'TRANSFER_NAME_TYPE'">{{$t('walletNameTransfer')}}</span>
+              <span v-else-if="tx.txType == 'DELETE_NAME_TYPE'">{{$t('walletNameDeletion')}}</span>
             </h1>
             <span class="text_opacity_75">
               <span v-if="loading">{{$t('loading')}}</span>
@@ -38,7 +39,7 @@
           <template v-if="txPayload && $refs.payload">
             <template v-if="$refs.payload.txPayload !=null ">
               <div
-                v-if="$refs.payload.txPayload.payloadType == 'TransferAssetType' || $refs.payload.txPayload.payloadType == 'CoinbaseType' "
+                v-if="$refs.payload.txPayload.payloadType == 'TRANSFER_ASSET_TYPE' || $refs.payload.txPayload.payloadType == 'COINBASE_TYPE' "
                 class="single-page-header__right"
               >
                 <div
