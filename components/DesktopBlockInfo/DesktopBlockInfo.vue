@@ -35,7 +35,7 @@
       </DesktopCard>
       <DesktopCard width="half">
         <div class="card__title">{{$t('signer')}}</div>
-        <div class="desktop-card__item">{{block.header.signer}}</div>
+        <div class="desktop-card__item">{{block.header.signerPk}}</div>
       </DesktopCard>
       <DesktopCard width="half">
         <div class="card__title">{{$t('hash')}}</div>

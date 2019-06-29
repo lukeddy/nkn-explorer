@@ -18,7 +18,7 @@
     </Card>
     <Card>
       <div class="card__title">{{$t('signer')}}</div>
-      <div class="card__text">{{block.header.signer}}</div>
+      <div class="card__text">{{block.header.signerPk}}</div>
     </Card>
     <Card>
       <div class="card__title">{{$t('rewardedAddress')}}</div>
