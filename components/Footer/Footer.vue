@@ -96,10 +96,10 @@ export default {
         {
           title: 'community',
           links: [
-            {
-              title: 'nknxNodeManager',
-              url: 'https://www.nknx.org'
-            },
+            //{
+            //  title: 'nknxNodeManager',
+            //  url: 'https://www.nknx.org'
+            //},
             {
               title: 'nknWallet',
               url: 'https://nknwallet.io'

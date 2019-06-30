@@ -1,12 +1,12 @@
 <template>
   <div class="menu">
-    <Burger/>
+    <Burger />
     <div class="menu__left">
       <nuxt-link :to="localePath('index')" class="menu__logo">
-        <Logo/>
+        <Logo />
         <span class="menu__title">NKN</span>
       </nuxt-link>
-      <DesktopMenu/>
+      <DesktopMenu />
     </div>
     <div class="menu__right">
       <Search
@@ -19,13 +19,13 @@
         @change="removeError"
       />
       <div class="menu__divider"></div>
-      <Button class="menu__mining-button" type="link" url="https://nknx.org">
-        <Mining class="menu__mining-button-icon"/>
+      <Button class="menu__mining-button" type="link" url="https://forum.nkn.org/c/testnet-mining">
+        <Mining class="menu__mining-button-icon" />
         {{$t('startMining')}}
       </Button>
-      <LanguageSelect/>
+      <LanguageSelect />
     </div>
-    <MobileMenu/>
+    <MobileMenu />
   </div>
 </template>
 

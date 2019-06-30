@@ -1,7 +1,7 @@
 <template>
   <div class="start-mining">
     <div class="start-mining__icon">
-      <Mining/>
+      <Mining />
     </div>
     <div class="start-mining__descr">
       <h4
@@ -12,7 +12,7 @@
     <Button
       class="start-mining__button"
       theme="dark-blue"
-      url="https://nknx.org/"
+      url="https://forum.nkn.org/c/testnet-mining"
       type="link"
     >{{$t('startMining')}}</Button>
   </div>

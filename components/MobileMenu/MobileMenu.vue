@@ -31,7 +31,11 @@
         class="mobile-menu__stats-item"
       >{{networkStats.totalProviders | commaNumber}} {{$t('providers')}}</div>
     </div>
-    <Button theme="primary" url="https://nknx.org/" type="link">{{$t('joinTheNetwork')}}</Button>
+    <Button
+      theme="primary"
+      url="https://forum.nkn.org/c/testnet-mining"
+      type="link"
+    >{{$t('joinTheNetwork')}}</Button>
   </div>
 </template>
 
