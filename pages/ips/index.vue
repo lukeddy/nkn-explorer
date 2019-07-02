@@ -27,10 +27,9 @@
         <div class="page-header__right"></div>
       </div>
     </div>
-    <mq-layout mq="lg">
       <DesktopWrapper :margin="false">
         <CardContainer>
-          <Card :width="$mq === 'lg' && 'half'">
+          <Card :width="$mq === 'lg' && response !== false ? 'half' : 'full'">
             <h1 class="ip__title">{{$t('how_work')}}</h1>
             <p class="ip__desc" v-html="$t('node_check_desc')"></p>
             <div class="main-header__search-bar" style="margin-bottom:25px;">
@@ -52,12 +51,11 @@
               >{{$t('check_my_node')}}</Button>
             </div>
           </Card>
-          <Card :width="$mq === 'lg' & 'half'">
+          <Card v-if="response !== false" :width="$mq === 'lg' ? 'half' : 'full'">
             <vue-code-highlight>{{response}}</vue-code-highlight>
           </Card>
         </CardContainer>
       </DesktopWrapper>
-    </mq-layout>
   </section>
 </template>
 
@@ -75,7 +73,7 @@ export default {
   data: () => {
     return {
       ip: '',
-      response: ''
+      response: false
     }
   },
   computed: mapGetters({}),

@@ -55,6 +55,7 @@ import Block from '@/assets/icons/Block.svg'
 import Transaction from '@/assets/icons/Transaction.svg'
 import Sigchain from '@/assets/icons/Sigchain.svg'
 import Address from '@/assets/icons/Address.svg'
+import Activity from '@/assets/icons/Activity.svg'
 
 import { mapGetters } from 'vuex'
 
@@ -69,7 +70,8 @@ export default {
     Transaction,
     Sigchain,
     Address,
-    Button
+    Button,
+    Activity
   },
   data: () => {
     return {
@@ -96,6 +98,7 @@ export default {
         },
         {
           path: 'ips',
+          icon: 'Activity',
           title: 'node_check'
         }
       ],
