@@ -27,35 +27,40 @@
         <div class="page-header__right"></div>
       </div>
     </div>
-      <DesktopWrapper :margin="false">
-        <CardContainer>
-          <Card :width="$mq === 'lg' && response !== false ? 'half' : 'full'">
-            <h1 class="ip__title">{{$t('how_work')}}</h1>
-            <p class="ip__desc" v-html="$t('node_check_desc')"></p>
-            <div class="main-header__search-bar" style="margin-bottom:25px;">
-              <div class="search main-header__search ip__search">
-                <input
-                  v-model="ip"
-                  type="text"
-                  placeholder="Your node IP"
-                  class="search__control"
-                  @keyup.enter="checkNode()"
-                />
-                <span class="search__icon fe fe-search"></span>
-              </div>
-              <Button
-                theme="primary"
-                type="button"
-                :full="$mq === 'lg' ? false : true"
-                @click.native="checkNode()"
-              >{{$t('check_my_node')}}</Button>
+    <DesktopWrapper :margin="false">
+      <CardContainer>
+        <Card :width="$mq === 'lg' && response !== false ? 'half' : 'full'">
+          <h1 class="ip__title">{{$t('how_work')}}</h1>
+          <p class="ip__desc">
+            {{$t('node_check_desc')}}
+            <br />
+            <br />
+            {{$t('node_results_desc')}}
+          </p>
+          <div class="main-header__search-bar" style="margin-bottom:25px;">
+            <div class="search main-header__search ip__search">
+              <input
+                v-model="ip"
+                type="text"
+                placeholder="Your node IP"
+                class="search__control"
+                @keyup.enter="checkNode()"
+              />
+              <span class="search__icon fe fe-search"></span>
             </div>
-          </Card>
-          <Card v-if="response !== false" :width="$mq === 'lg' ? 'half' : 'full'">
-            <vue-code-highlight>{{response}}</vue-code-highlight>
-          </Card>
-        </CardContainer>
-      </DesktopWrapper>
+            <Button
+              theme="primary"
+              type="button"
+              :full="$mq === 'lg' ? false : true"
+              @click.native="checkNode()"
+            >{{$t('check_my_node')}}</Button>
+          </div>
+        </Card>
+        <Card v-if="response !== false" :width="$mq === 'lg' ? 'half' : 'full'">
+          <vue-code-highlight>{{response}}</vue-code-highlight>
+        </Card>
+      </CardContainer>
+    </DesktopWrapper>
   </section>
 </template>
 
