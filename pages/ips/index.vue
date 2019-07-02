@@ -107,10 +107,8 @@ export default {
     },
     checkNode() {
       if (this.ip) {
-        console.log('hello')
         let self = this
         this.$axios.$get(`nodes/check/${this.ip}`).then(function(response) {
-          console.log(response)
           self.response = response
         })
       }
