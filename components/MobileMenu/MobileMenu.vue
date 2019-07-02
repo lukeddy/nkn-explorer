@@ -93,6 +93,10 @@ export default {
           path: 'addresses',
           icon: 'Address',
           title: 'addresses'
+        },
+        {
+          path: 'ips',
+          title: 'ip_check'
         }
       ],
       error: ''

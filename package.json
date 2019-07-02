@@ -28,6 +28,7 @@
     "nuxt-i18n": "^5.8.5",
     "nuxt-mq": "^2.0.0",
     "nuxt-svg-loader": "^1.0.1",
+    "vue-code-highlight": "^0.7.2",
     "vue-content-loader": "^0.2.1",
     "vue-country-flag": "^1.1.1",
     "vue-fragment": "^1.5.1"

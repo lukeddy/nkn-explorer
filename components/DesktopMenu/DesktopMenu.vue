@@ -35,6 +35,10 @@ export default {
         {
           path: 'addresses',
           title: 'addresses'
+        },
+        {
+          path: 'ips',
+          title: 'ip_check'
         }
       ]
     }
