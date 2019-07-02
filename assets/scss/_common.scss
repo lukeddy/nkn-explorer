@@ -1046,12 +1046,13 @@ pre[class*='language-'] {
 
 .ip {
   &__title {
-    text-align: center;
+    margin-top:25px;
   }
 
   &__desc {
     margin: $padding-normal 0;
-    text-align: center;
+    line-height:1.3em;
+    margin-bottom:50px;
   }
 
   &__search {

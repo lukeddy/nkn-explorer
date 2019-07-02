@@ -96,7 +96,7 @@ export default {
         },
         {
           path: 'ips',
-          title: 'ip_check'
+          title: 'node_check'
         }
       ],
       error: ''
