@@ -3,7 +3,7 @@ export default () => {
   return new Promise(function (resolve) {
     axios
       .get(
-        'https://raw.githubusercontent.com/CrackDavid/translationfiles/master/vi.json'
+        'https://raw.githubusercontent.com/nknx-org/translationfiles/master/vi.json'
       )
       .then(function (response) {
         resolve(response.data)
