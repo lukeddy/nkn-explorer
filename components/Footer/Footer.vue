@@ -90,6 +90,10 @@ export default {
             {
               title: 'officialWebsite',
               url: 'https://www.nkn.org/'
+            },
+            {
+              title: 'nknWallet',
+              url: 'https://wallet.nkn.org/'
             }
           ]
         },
@@ -100,10 +104,10 @@ export default {
             //  title: 'nknxNodeManager',
             //  url: 'https://www.nknx.org'
             //},
-            {
-              title: 'nknWallet',
-              url: 'https://nknwallet.io'
-            }
+            //{
+            //  title: 'nknWallet',
+            //  url: 'https://nknwallet.io'
+            //}
           ]
         }
       ],
