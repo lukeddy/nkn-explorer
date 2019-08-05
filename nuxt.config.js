@@ -27,13 +27,13 @@ export default {
       { name: 'og:description', content: 'With our NKN explorer you can easily browse the whole blockchain of the NKN Network.' },
       { name: 'og:type', content: 'website' },
       { name: 'og:url', content: '/' },
-      { name: 'og:image', content: '/thumbnail.jpg' },
+      { name: 'og:image', content: 'https://explorer.nknx.org/thumbnail.jpg' },
       // Twitter Card
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:site', content: '@nknX_org' },
       { name: 'twitter:title', content: "NKN Explorer" },
       { name: 'twitter:description', content: 'With our NKN explorer you can easily browse the whole blockchain of the NKN Network.' },
-      { name: 'twitter:image', content: '/thumbnail.jpg' },
+      { name: 'twitter:image', content: 'https://explorer.nknx.org/thumbnail.jpg' },
       { name: 'twitter:image:alt', content: 'NKN Explorer Logo' }
     ],
     link: [
