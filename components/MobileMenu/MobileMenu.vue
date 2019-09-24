@@ -44,6 +44,7 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 import Search from '~/components/Search/Search'
 import LanguageSelect from '~/components/LanguageSelect/LanguageSelect'
 import Button from '~/components/Button/Button'
@@ -57,7 +58,6 @@ import Sigchain from '@/assets/icons/Sigchain.svg'
 import Address from '@/assets/icons/Address.svg'
 import Activity from '@/assets/icons/Activity.svg'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: {

@@ -30,16 +30,16 @@ export const getters = {
 
 export const actions = {
   async updateNetworkStats({ commit }) {
-    const data = await this.$axios.$get('https://api.nknx.org/network/stats')
+    const data = await this.$axios.$get('https://api.nknx.nkn.org/network/stats')
     commit('setNetworkStats', data)
   },
   async updateNetworkCities({ commit }) {
-    const data = await this.$axios.$get('https://api.nknx.org/network/cities')
+    const data = await this.$axios.$get('https://api.nknx.nkn.org/network/cities')
     commit('setNetworkCities', data)
   },
   async updateNetworkCountries({ commit }) {
     const data = await this.$axios.$get(
-      'https://api.nknx.org/network/countries'
+      'https://api.nknx.nkn.org/network/countries'
     )
     commit('setNetworkCountries', data)
   }

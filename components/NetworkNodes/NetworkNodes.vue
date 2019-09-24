@@ -30,10 +30,10 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 import NetworkMapChart from '~/components/Charts/NetworkMapChart'
 import NetworkCountries from '~/components/NetworkCountries/NetworkCountries'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: { NetworkMapChart, NetworkCountries },

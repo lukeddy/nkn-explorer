@@ -52,12 +52,12 @@
 </style>
 
 <script>
-import Button from '~/components/Button/Button'
 
 import CountryFlag from 'vue-country-flag'
 import * as CountryNames from 'i18n-iso-countries'
 
 import { mapGetters } from 'vuex'
+import Button from '~/components/Button/Button'
 
 export default {
   components: { CountryFlag, Button },

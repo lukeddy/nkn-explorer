@@ -164,11 +164,11 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 import DesktopCard from '~/components/DesktopCard/DesktopCard'
 import DesktopCardContainer from '~/components/DesktopCardContainer/DesktopCardContainer'
 import NodeTracing from '~/components/NodeTracing/NodeTracing'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: { DesktopCard, DesktopCardContainer, NodeTracing },

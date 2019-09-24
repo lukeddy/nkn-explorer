@@ -46,9 +46,9 @@
 </template>
 
 <script>
+import { ContentLoader } from 'vue-content-loader'
 import CardContainer from '~/components/CardContainer/CardContainer'
 
-import { ContentLoader } from 'vue-content-loader'
 
 export default {
   components: { ContentLoader, CardContainer },

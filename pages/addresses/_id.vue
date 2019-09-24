@@ -51,6 +51,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import GetBack from '~/components/GetBack/GetBack'
 import SingleAddressInfo from '~/components/SingleAddressInfo/SingleAddressInfo'
 import SingleAddressTransactions from '~/components/SingleAddressTransactions/SingleAddressTransactions'
@@ -65,7 +66,6 @@ import DesktopAddressTransactions from '~/components/DesktopAddressTransactions/
 import Copy from '@/assets/icons/Copy.svg'
 import Wallet from '@/assets/icons/Wallet.svg'
 
-import { mapGetters } from 'vuex'
 
 export default {
   transition: 'expand',

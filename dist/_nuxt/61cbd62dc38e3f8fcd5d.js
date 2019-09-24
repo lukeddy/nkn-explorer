@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{162:function(n,t,e){"use strict";e.r(t);e(15);var o=e(109),r=e.n(o);t.default=function(){return new Promise(function(n){r.a.get("https://raw.githubusercontent.com/nknx-org/translationfiles/master/es.json").then(function(t){n(t.data)})})}}}]);

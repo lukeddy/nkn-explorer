@@ -168,13 +168,13 @@
 </style>
 
 <script>
+import { Fragment } from 'vue-fragment'
+import { mapGetters } from 'vuex'
 import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
 import NodeTracing from '~/components/NodeTracing/NodeTracing'
-import { Fragment } from 'vue-fragment'
 
 import ArrowRight from '@/assets/icons/ArrowRight.svg'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: { TransactionTypeTitle, Fragment, ArrowRight, NodeTracing },

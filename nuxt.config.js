@@ -239,7 +239,7 @@ export default {
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'https://api.nknx.org/'
+    baseURL: 'https://api.nknx.nkn.org/'
   },
 
   /*

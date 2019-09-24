@@ -23,11 +23,11 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 import Button from '~/components/Button/Button'
 
 import Mining from '@/assets/icons/mining.svg'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: { Button, Mining },

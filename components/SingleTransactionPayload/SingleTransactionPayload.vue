@@ -141,12 +141,12 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 import Card from '~/components/Card/Card'
 import CardContainer from '~/components/CardContainer/CardContainer'
 import NodeTracing from '~/components/NodeTracing/NodeTracing'
 import CardLoader from '~/components/Loaders/CardLoader'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: { Card, CardContainer, CardLoader, NodeTracing },

@@ -264,11 +264,11 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 import Card from '~/components/Card/Card'
 import TransactionTypeTitle from '~/components/TransactionTypeTitle/TransactionTypeTitle'
 import NodeTracing from '~/components/NodeTracing/NodeTracing'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: { Card, TransactionTypeTitle, NodeTracing },

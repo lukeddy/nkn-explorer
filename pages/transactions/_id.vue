@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import GetBack from '~/components/GetBack/GetBack'
 import SingleTransactionInfo from '~/components/SingleTransactionInfo/SingleTransactionInfo'
 import SingleTransactionPayload from '~/components/SingleTransactionPayload/SingleTransactionPayload'
@@ -97,7 +98,6 @@ import DesktopTransactionPayload from '~/components/DesktopTransactionPayload/De
 
 import Transaction from '@/assets/icons/Transaction.svg'
 
-import { mapGetters } from 'vuex'
 
 export default {
   transition: 'expand',

@@ -9,9 +9,9 @@
 </style>
 
 <script>
+import { mapGetters } from 'vuex'
 import Menu from '~/components/Menu/Menu'
 
-import { mapGetters } from 'vuex'
 
 export default {
   components: {
