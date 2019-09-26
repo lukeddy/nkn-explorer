@@ -12,7 +12,7 @@
     <Button
       class="start-mining__button"
       theme="dark-blue"
-      url="https://forum.nkn.org/c/testnet-mining"
+      url="https://nknx.org"
       type="link"
     >{{$t('startMining')}}</Button>
   </div>
@@ -27,7 +27,6 @@ import { mapGetters } from 'vuex'
 import Button from '~/components/Button/Button'
 
 import Mining from '@/assets/icons/mining.svg'
-
 
 export default {
   components: { Button, Mining },

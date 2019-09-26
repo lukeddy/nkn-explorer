@@ -19,7 +19,7 @@
         @change="removeError"
       />
       <div class="menu__divider"></div>
-      <Button class="menu__mining-button" type="link" url="https://forum.nkn.org/c/testnet-mining">
+      <Button class="menu__mining-button" type="link" url="https://nknx.org">
         <Mining class="menu__mining-button-icon" />
         {{$t('startMining')}}
       </Button>

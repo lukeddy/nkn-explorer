@@ -1,17 +1,17 @@
 <template>
   <footer class="footer">
     <mq-layout :mq="['sm','md']">
-      <FooterBlobsMobile class="footer__overlay"/>
+      <FooterBlobsMobile class="footer__overlay" />
     </mq-layout>
     <mq-layout mq="lg">
-      <FooterBlobs class="footer__overlay"/>
+      <FooterBlobs class="footer__overlay" />
     </mq-layout>
     <div class="footer__wrapper">
-      <StartMining/>
+      <StartMining />
       <div class="footer__nav">
         <div class="footer__description">
           <div class="footer__description-title">
-            <Logo class="footer__description-logo"/>New Kind of Network
+            <Logo class="footer__description-logo" />New Kind of Network
           </div>
           <div class="footer__description-text">{{$t('nknDescription')}}</div>
           <div class="footer__description-socials">
@@ -100,10 +100,10 @@ export default {
         {
           title: 'community',
           links: [
-            //{
-            //  title: 'nknxNodeManager',
-            //  url: 'https://www.nknx.org'
-            //},
+            {
+              title: 'nknxNodeManager',
+              url: 'https://www.nknx.org'
+            }
             //{
             //  title: 'nknWallet',
             //  url: 'https://nknwallet.io'
