@@ -1,11 +1,11 @@
 import axios from 'axios'
 export default () => {
-  return new Promise(function(resolve) {
+  return new Promise(function (resolve) {
     axios
       .get(
-        'https://raw.githubusercontent.com/nknx-org/translationfiles/master/ru.json'
+        'https://translation.nknx.org/ru.json'
       )
-      .then(function(response) {
+      .then(function (response) {
         resolve(response.data)
       })
   })
