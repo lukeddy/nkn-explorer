@@ -140,12 +140,12 @@
 
   &__flag {
     position: absolute;
-    top: -23px;
+    top: -8px;
     left: 42px;
     border-radius: 26px;
 
     @include size-desktop {
-      top: -22px;
+      top: -5px;
       left: 48px;
     }
   }
