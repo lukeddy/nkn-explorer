@@ -98,16 +98,20 @@ export default {
           ]
         },
         {
-          title: 'community',
+          title: 'nknxEcosystem',
           links: [
             {
               title: 'nknxNodeManager',
               url: 'https://www.nknx.org'
+            },
+            {
+              title: 'nknxExplorer',
+              url: 'https://explorer.nknx.org'
+            },
+            {
+              title: 'nknxVault',
+              url: 'https://vault.nknx.org'
             }
-            //{
-            //  title: 'nknWallet',
-            //  url: 'https://nknwallet.io'
-            //}
           ]
         }
       ],
