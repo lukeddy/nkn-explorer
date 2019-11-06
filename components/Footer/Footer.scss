@@ -158,14 +158,14 @@
       font-size: $font-size-xs;
       width: 100%;
 
-      &:first-child {
+      &:not(:last-child) {
         margin-bottom: $padding-default;
       }
 
       @include size-desktop {
         width: auto;
 
-        &:first-child {
+        &:not(:last-child) {
           margin-bottom: 0;
         }
       }
